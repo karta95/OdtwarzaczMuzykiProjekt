@@ -1,0 +1,23 @@
+﻿typedef Uzytkownik
+
+interface IDane(IpolaczZbaza)
+{
+	void UtworzPlayliste(in string nazwa)
+	void DodajDoPlaylisty(in int idListy,List<Utwor> listaUtworow)
+	void UsunZPlaylisty(in int idListy,List<Utwor> listaUtworow)
+	List<string> PobierzPlaylisty(in int idUzytkownika)
+	List<Utwor> PobierzUtworyZPlaylisty(in int idPlaylist)
+	void UsunPlayliste(in int idPlaylisty)	
+}
+interface ILogowania
+{
+	void UtworzKonto(in Uzytkownik uzytkownik)
+	void Zaloguj(in Uzytkownik uzytkownik)
+	void Wyloguj(in Uzytkownik uzytkownik)
+	void ZresetujHasło(in Uzytkownik uzytkownik)
+	void ZmienHasło(in int idUzytkownika)
+}
+interface IPlik
+{
+	void PobierzUtwor(string url)
+}
