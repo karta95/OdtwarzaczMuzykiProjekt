@@ -36,26 +36,30 @@
             this.mójProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zmieńNazwęToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zmieńHasłoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zmieńEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pobierzZYouTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasekMenu = new System.Windows.Forms.MenuStrip();
             this.logowanieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playlistGroupBox = new System.Windows.Forms.GroupBox();
-            this.playlistScrollBar = new System.Windows.Forms.VScrollBar();
-            this.panelWyszukajPlayliste = new System.Windows.Forms.Panel();
             this.profilPlaylisty = new System.Windows.Forms.DataGridView();
-            this.pasekPostepu = new System.Windows.Forms.ProgressBar();
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
-            this.panelOdtwarzanie = new System.Windows.Forms.Panel();
-            this.utworyScrollBar = new System.Windows.Forms.VScrollBar();
-            this.panelWyszukajUtwor = new System.Windows.Forms.Panel();
+            this.wyszukajPlayliste = new System.Windows.Forms.Panel();
+            this.suwakGlosnosc = new System.Windows.Forms.Label();
+            this.pasekGlosnosc = new System.Windows.Forms.Panel();
+            this.nastepnyButton = new System.Windows.Forms.Button();
+            this.poprzedniButton = new System.Windows.Forms.Button();
+            this.stopButton = new System.Windows.Forms.Button();
+            this.pauzaButton = new System.Windows.Forms.Button();
+            this.playButton = new System.Windows.Forms.Button();
+            this.pasekOdtwarzania = new System.Windows.Forms.Panel();
+            this.suwak = new System.Windows.Forms.Label();
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaUtwory)).BeginInit();
             this.pasekMenu.SuspendLayout();
             this.playlistGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilPlaylisty)).BeginInit();
-            this.panelOdtwarzanie.SuspendLayout();
+            this.wyszukajPlayliste.SuspendLayout();
+            this.pasekOdtwarzania.SuspendLayout();
             this.SuspendLayout();
             // 
             // nazwaProfiluLabel
@@ -71,10 +75,9 @@
             // 
             // utworyGroupBox
             // 
-            this.utworyGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.utworyGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.utworyGroupBox.Controls.Add(this.panelWyszukajUtwor);
-            this.utworyGroupBox.Controls.Add(this.utworyScrollBar);
             this.utworyGroupBox.Controls.Add(this.playlistaUtwory);
             this.utworyGroupBox.Controls.Add(this.nazwaPlaylistyLabel);
             this.utworyGroupBox.Location = new System.Drawing.Point(363, 36);
@@ -85,7 +88,8 @@
             // 
             // playlistaUtwory
             // 
-            this.playlistaUtwory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.playlistaUtwory.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.playlistaUtwory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.playlistaUtwory.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -114,8 +118,7 @@
             // 
             this.mójProfilToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zmieńNazwęToolStripMenuItem,
-            this.zmieńHasłoToolStripMenuItem,
-            this.zmieńEmailToolStripMenuItem});
+            this.zmieńHasłoToolStripMenuItem});
             this.mójProfilToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mójProfilToolStripMenuItem.Name = "mójProfilToolStripMenuItem";
             this.mójProfilToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
@@ -124,20 +127,14 @@
             // zmieńNazwęToolStripMenuItem
             // 
             this.zmieńNazwęToolStripMenuItem.Name = "zmieńNazwęToolStripMenuItem";
-            this.zmieńNazwęToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.zmieńNazwęToolStripMenuItem.Text = "Zmień nazwę";
+            this.zmieńNazwęToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.zmieńNazwęToolStripMenuItem.Text = "Wyświetl profil";
             // 
             // zmieńHasłoToolStripMenuItem
             // 
             this.zmieńHasłoToolStripMenuItem.Name = "zmieńHasłoToolStripMenuItem";
-            this.zmieńHasłoToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.zmieńHasłoToolStripMenuItem.Text = "Zmień hasło";
-            // 
-            // zmieńEmailToolStripMenuItem
-            // 
-            this.zmieńEmailToolStripMenuItem.Name = "zmieńEmailToolStripMenuItem";
-            this.zmieńEmailToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.zmieńEmailToolStripMenuItem.Text = "Zmień email";
+            this.zmieńHasłoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.zmieńHasłoToolStripMenuItem.Text = "Edytuj profil";
             // 
             // pobierzZYouTubeToolStripMenuItem
             // 
@@ -167,8 +164,8 @@
             // 
             // playlistGroupBox
             // 
-            this.playlistGroupBox.Controls.Add(this.playlistScrollBar);
-            this.playlistGroupBox.Controls.Add(this.panelWyszukajPlayliste);
+            this.playlistGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.playlistGroupBox.Controls.Add(this.nazwaProfiluLabel);
             this.playlistGroupBox.Controls.Add(this.profilPlaylisty);
             this.playlistGroupBox.Location = new System.Drawing.Point(12, 35);
@@ -177,23 +174,11 @@
             this.playlistGroupBox.TabIndex = 6;
             this.playlistGroupBox.TabStop = false;
             // 
-            // playlistScrollBar
-            // 
-            this.playlistScrollBar.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.playlistScrollBar.Location = new System.Drawing.Point(329, 19);
-            this.playlistScrollBar.Name = "playlistScrollBar";
-            this.playlistScrollBar.Size = new System.Drawing.Size(10, 342);
-            this.playlistScrollBar.TabIndex = 4;
-            // 
-            // panelWyszukajPlayliste
-            // 
-            this.panelWyszukajPlayliste.Location = new System.Drawing.Point(7, 368);
-            this.panelWyszukajPlayliste.Name = "panelWyszukajPlayliste";
-            this.panelWyszukajPlayliste.Size = new System.Drawing.Size(331, 24);
-            this.panelWyszukajPlayliste.TabIndex = 3;
-            // 
             // profilPlaylisty
             // 
+            this.profilPlaylisty.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.profilPlaylisty.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.profilPlaylisty.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.profilPlaylisty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -202,18 +187,6 @@
             this.profilPlaylisty.Name = "profilPlaylisty";
             this.profilPlaylisty.Size = new System.Drawing.Size(333, 342);
             this.profilPlaylisty.TabIndex = 0;
-            // 
-            // pasekPostepu
-            // 
-            this.pasekPostepu.BackColor = System.Drawing.Color.SlateBlue;
-            this.pasekPostepu.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pasekPostepu.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.pasekPostepu.Location = new System.Drawing.Point(-1, 3);
-            this.pasekPostepu.Name = "pasekPostepu";
-            this.pasekPostepu.Size = new System.Drawing.Size(869, 10);
-            this.pasekPostepu.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.pasekPostepu.TabIndex = 0;
-            this.pasekPostepu.Value = 40;
             // 
             // terazOdtwarzaneNazwa
             // 
@@ -237,29 +210,108 @@
             this.czasOdtwarzania.TabIndex = 2;
             this.czasOdtwarzania.Text = "00 : 00";
             // 
-            // panelOdtwarzanie
+            // wyszukajPlayliste
             // 
-            this.panelOdtwarzanie.Controls.Add(this.czasOdtwarzania);
-            this.panelOdtwarzanie.Controls.Add(this.terazOdtwarzaneNazwa);
-            this.panelOdtwarzanie.Controls.Add(this.pasekPostepu);
-            this.panelOdtwarzanie.Location = new System.Drawing.Point(13, 448);
-            this.panelOdtwarzanie.Name = "panelOdtwarzanie";
-            this.panelOdtwarzanie.Size = new System.Drawing.Size(868, 75);
-            this.panelOdtwarzanie.TabIndex = 7;
+            this.wyszukajPlayliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.wyszukajPlayliste.Controls.Add(this.suwakGlosnosc);
+            this.wyszukajPlayliste.Controls.Add(this.pasekGlosnosc);
+            this.wyszukajPlayliste.Controls.Add(this.nastepnyButton);
+            this.wyszukajPlayliste.Controls.Add(this.poprzedniButton);
+            this.wyszukajPlayliste.Controls.Add(this.stopButton);
+            this.wyszukajPlayliste.Controls.Add(this.pauzaButton);
+            this.wyszukajPlayliste.Controls.Add(this.playButton);
+            this.wyszukajPlayliste.Controls.Add(this.pasekOdtwarzania);
+            this.wyszukajPlayliste.Controls.Add(this.czasOdtwarzania);
+            this.wyszukajPlayliste.Controls.Add(this.terazOdtwarzaneNazwa);
+            this.wyszukajPlayliste.Location = new System.Drawing.Point(13, 439);
+            this.wyszukajPlayliste.Name = "wyszukajPlayliste";
+            this.wyszukajPlayliste.Size = new System.Drawing.Size(868, 84);
+            this.wyszukajPlayliste.TabIndex = 7;
             // 
-            // utworyScrollBar
+            // suwakGlosnosc
             // 
-            this.utworyScrollBar.Location = new System.Drawing.Point(502, 18);
-            this.utworyScrollBar.Name = "utworyScrollBar";
-            this.utworyScrollBar.Size = new System.Drawing.Size(10, 343);
-            this.utworyScrollBar.TabIndex = 3;
+            this.suwakGlosnosc.AutoSize = true;
+            this.suwakGlosnosc.BackColor = System.Drawing.Color.SlateBlue;
+            this.suwakGlosnosc.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.suwakGlosnosc.ForeColor = System.Drawing.Color.SlateBlue;
+            this.suwakGlosnosc.Location = new System.Drawing.Point(778, 41);
+            this.suwakGlosnosc.Name = "suwakGlosnosc";
+            this.suwakGlosnosc.Size = new System.Drawing.Size(9, 14);
+            this.suwakGlosnosc.TabIndex = 10;
+            this.suwakGlosnosc.Text = "l";
             // 
-            // panelWyszukajUtwor
+            // pasekGlosnosc
             // 
-            this.panelWyszukajUtwor.Location = new System.Drawing.Point(6, 366);
-            this.panelWyszukajUtwor.Name = "panelWyszukajUtwor";
-            this.panelWyszukajUtwor.Size = new System.Drawing.Size(506, 24);
-            this.panelWyszukajUtwor.TabIndex = 4;
+            this.pasekGlosnosc.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.pasekGlosnosc.Location = new System.Drawing.Point(763, 46);
+            this.pasekGlosnosc.Name = "pasekGlosnosc";
+            this.pasekGlosnosc.Size = new System.Drawing.Size(99, 5);
+            this.pasekGlosnosc.TabIndex = 9;
+            // 
+            // nastepnyButton
+            // 
+            this.nastepnyButton.Location = new System.Drawing.Point(661, 25);
+            this.nastepnyButton.Name = "nastepnyButton";
+            this.nastepnyButton.Size = new System.Drawing.Size(45, 45);
+            this.nastepnyButton.TabIndex = 8;
+            this.nastepnyButton.UseVisualStyleBackColor = true;
+            // 
+            // poprzedniButton
+            // 
+            this.poprzedniButton.Location = new System.Drawing.Point(544, 25);
+            this.poprzedniButton.Name = "poprzedniButton";
+            this.poprzedniButton.Size = new System.Drawing.Size(45, 45);
+            this.poprzedniButton.TabIndex = 7;
+            this.poprzedniButton.UseVisualStyleBackColor = true;
+            // 
+            // stopButton
+            // 
+            this.stopButton.Location = new System.Drawing.Point(441, 25);
+            this.stopButton.Name = "stopButton";
+            this.stopButton.Size = new System.Drawing.Size(45, 45);
+            this.stopButton.TabIndex = 6;
+            this.stopButton.UseVisualStyleBackColor = true;
+            // 
+            // pauzaButton
+            // 
+            this.pauzaButton.Location = new System.Drawing.Point(492, 25);
+            this.pauzaButton.Name = "pauzaButton";
+            this.pauzaButton.Size = new System.Drawing.Size(45, 45);
+            this.pauzaButton.TabIndex = 5;
+            this.pauzaButton.UseVisualStyleBackColor = true;
+            // 
+            // playButton
+            // 
+            this.playButton.Location = new System.Drawing.Point(595, 25);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(60, 45);
+            this.playButton.TabIndex = 4;
+            this.playButton.UseVisualStyleBackColor = true;
+            // 
+            // pasekOdtwarzania
+            // 
+            this.pasekOdtwarzania.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pasekOdtwarzania.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.pasekOdtwarzania.Controls.Add(this.suwak);
+            this.pasekOdtwarzania.Location = new System.Drawing.Point(3, 8);
+            this.pasekOdtwarzania.Name = "pasekOdtwarzania";
+            this.pasekOdtwarzania.Size = new System.Drawing.Size(859, 4);
+            this.pasekOdtwarzania.TabIndex = 3;
+            // 
+            // suwak
+            // 
+            this.suwak.AutoSize = true;
+            this.suwak.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.suwak.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.suwak.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.suwak.Location = new System.Drawing.Point(23, -8);
+            this.suwak.Name = "suwak";
+            this.suwak.Size = new System.Drawing.Size(37, 15);
+            this.suwak.TabIndex = 4;
+            this.suwak.Text = "label1";
             // 
             // glowne
             // 
@@ -267,14 +319,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(897, 525);
-            this.Controls.Add(this.panelOdtwarzanie);
+            this.Controls.Add(this.wyszukajPlayliste);
             this.Controls.Add(this.playlistGroupBox);
             this.Controls.Add(this.utworyGroupBox);
             this.Controls.Add(this.pasekMenu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.pasekMenu;
             this.Name = "glowne";
-            this.Text = "Form1";
+            this.Text = "Music";
             this.Load += new System.EventHandler(this.main_Load);
             this.Resize += new System.EventHandler(this.main_Resize);
             this.utworyGroupBox.ResumeLayout(false);
@@ -285,8 +337,10 @@
             this.playlistGroupBox.ResumeLayout(false);
             this.playlistGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilPlaylisty)).EndInit();
-            this.panelOdtwarzanie.ResumeLayout(false);
-            this.panelOdtwarzanie.PerformLayout();
+            this.wyszukajPlayliste.ResumeLayout(false);
+            this.wyszukajPlayliste.PerformLayout();
+            this.pasekOdtwarzania.ResumeLayout(false);
+            this.pasekOdtwarzania.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,21 +353,24 @@
         private System.Windows.Forms.ToolStripMenuItem mójProfilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zmieńNazwęToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zmieńHasłoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zmieńEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pobierzZYouTubeToolStripMenuItem;
         private System.Windows.Forms.MenuStrip pasekMenu;
         private System.Windows.Forms.ToolStripMenuItem logowanieToolStripMenuItem;
         private System.Windows.Forms.GroupBox playlistGroupBox;
         private System.Windows.Forms.DataGridView profilPlaylisty;
         private System.Windows.Forms.DataGridView playlistaUtwory;
-        private System.Windows.Forms.Panel panelWyszukajPlayliste;
-        private System.Windows.Forms.ProgressBar pasekPostepu;
         private System.Windows.Forms.Label terazOdtwarzaneNazwa;
         private System.Windows.Forms.Label czasOdtwarzania;
-        private System.Windows.Forms.Panel panelOdtwarzanie;
-        private System.Windows.Forms.VScrollBar playlistScrollBar;
-        private System.Windows.Forms.Panel panelWyszukajUtwor;
-        private System.Windows.Forms.VScrollBar utworyScrollBar;
+        private System.Windows.Forms.Panel wyszukajPlayliste;
+        private System.Windows.Forms.Panel pasekOdtwarzania;
+        private System.Windows.Forms.Label suwak;
+        private System.Windows.Forms.Button nastepnyButton;
+        private System.Windows.Forms.Button poprzedniButton;
+        private System.Windows.Forms.Button stopButton;
+        private System.Windows.Forms.Button pauzaButton;
+        private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.Label suwakGlosnosc;
+        private System.Windows.Forms.Panel pasekGlosnosc;
     }
 }
 

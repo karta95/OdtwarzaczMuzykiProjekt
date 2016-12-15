@@ -10,23 +10,11 @@ using System.Windows.Forms;
 
 namespace OdtwarzaczMuzyki
 {
-    public partial class glowne : Form
+    public partial class oknoPobierania : Form
     {
-        public glowne()
+        public oknoPobierania()
         {
             InitializeComponent();
         }
-
-        private void main_Load(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void main_Resize(object sender, EventArgs e)
-        {
-    
-        }
-
-     
     }
 }
