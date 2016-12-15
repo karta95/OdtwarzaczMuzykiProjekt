@@ -120,10 +120,21 @@
   <metadata name="pasekMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="stopButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAErSURBVGhD7ZnBSkJBGEbDdNFrhG+gSKF2wV0tKmhZaHkNI5/DXWXbaN0uaiNmvpOtr+ONz2vM
+        4odGpsUwTvIdONuf78Cs7t3ChsCQ0GBIaDAkNP4U8nj3hHxuB83KBOfloTcbxT6i6iGmX1O9ZDXWkIf7
+        AToHY3Si9XndGCFNU73IjDWkUNjOjn3+Ou7TVvUNSZLoRWasIXF9Yjzu0zh7EXP1rReZsYa0ax/G4z5l
+        iIQhDmWIhCEOZYiEIQ5liIQhDmWIhCEOZYiEIQ5liIQhDmWIhCEOZYhkY0L2dm+Nx316VR9CzeZ6kRlr
+        yMnxaXZsvV/j42gEpZReZMYasvwvcXP0irPSc/bMxj9PzZfN/Xdc1F7Q7V3qNauxhvwXGBIaDAkNhoQG
+        Q8ICWAC0Q4Wu3SE6wgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAAAAAAAEAIABSRAAAFgAAAIlQTkcNChoKAAAADUlIRFIAAAEsAAABLAgGAAAAeX2OdQAAIABJ

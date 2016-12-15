@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(glowne));
             this.nazwaProfiluLabel = new System.Windows.Forms.Label();
             this.utworyGroupBox = new System.Windows.Forms.GroupBox();
+            this.wyszukiwarkaUtwor = new System.Windows.Forms.TextBox();
             this.playlistaUtwory = new System.Windows.Forms.DataGridView();
             this.nazwaPlaylistyLabel = new System.Windows.Forms.Label();
             this.mójProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +41,7 @@
             this.pasekMenu = new System.Windows.Forms.MenuStrip();
             this.logowanieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playlistGroupBox = new System.Windows.Forms.GroupBox();
+            this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
             this.profilPlaylisty = new System.Windows.Forms.DataGridView();
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
@@ -78,6 +80,7 @@
             this.utworyGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.utworyGroupBox.Controls.Add(this.wyszukiwarkaUtwor);
             this.utworyGroupBox.Controls.Add(this.playlistaUtwory);
             this.utworyGroupBox.Controls.Add(this.nazwaPlaylistyLabel);
             this.utworyGroupBox.Location = new System.Drawing.Point(363, 36);
@@ -85,6 +88,16 @@
             this.utworyGroupBox.Size = new System.Drawing.Size(518, 397);
             this.utworyGroupBox.TabIndex = 5;
             this.utworyGroupBox.TabStop = false;
+            // 
+            // wyszukiwarkaUtwor
+            // 
+            this.wyszukiwarkaUtwor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.wyszukiwarkaUtwor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.wyszukiwarkaUtwor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.wyszukiwarkaUtwor.Location = new System.Drawing.Point(4, 367);
+            this.wyszukiwarkaUtwor.Name = "wyszukiwarkaUtwor";
+            this.wyszukiwarkaUtwor.Size = new System.Drawing.Size(319, 20);
+            this.wyszukiwarkaUtwor.TabIndex = 2;
             // 
             // playlistaUtwory
             // 
@@ -166,6 +179,7 @@
             // 
             this.playlistGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.playlistGroupBox.Controls.Add(this.wyszukiwarkaPlaylista);
             this.playlistGroupBox.Controls.Add(this.nazwaProfiluLabel);
             this.playlistGroupBox.Controls.Add(this.profilPlaylisty);
             this.playlistGroupBox.Location = new System.Drawing.Point(12, 35);
@@ -173,6 +187,16 @@
             this.playlistGroupBox.Size = new System.Drawing.Size(345, 398);
             this.playlistGroupBox.TabIndex = 6;
             this.playlistGroupBox.TabStop = false;
+            // 
+            // wyszukiwarkaPlaylista
+            // 
+            this.wyszukiwarkaPlaylista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.wyszukiwarkaPlaylista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.wyszukiwarkaPlaylista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.wyszukiwarkaPlaylista.Location = new System.Drawing.Point(6, 368);
+            this.wyszukiwarkaPlaylista.Name = "wyszukiwarkaPlaylista";
+            this.wyszukiwarkaPlaylista.Size = new System.Drawing.Size(244, 20);
+            this.wyszukiwarkaPlaylista.TabIndex = 3;
             // 
             // profilPlaylisty
             // 
@@ -267,6 +291,7 @@
             // 
             // stopButton
             // 
+            this.stopButton.Image = ((System.Drawing.Image)(resources.GetObject("stopButton.Image")));
             this.stopButton.Location = new System.Drawing.Point(441, 25);
             this.stopButton.Name = "stopButton";
             this.stopButton.Size = new System.Drawing.Size(45, 45);
@@ -371,6 +396,8 @@
         private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Label suwakGlosnosc;
         private System.Windows.Forms.Panel pasekGlosnosc;
+        private System.Windows.Forms.TextBox wyszukiwarkaPlaylista;
+        private System.Windows.Forms.TextBox wyszukiwarkaUtwor;
     }
 }
 

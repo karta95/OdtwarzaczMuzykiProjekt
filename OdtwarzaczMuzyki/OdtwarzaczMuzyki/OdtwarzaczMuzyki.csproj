@@ -53,10 +53,19 @@
     <Compile Include="glowne.Designer.cs">
       <DependentUpon>glowne.cs</DependentUpon>
     </Compile>
+    <Compile Include="oknoPobierania.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="oknoPobierania.Designer.cs">
+      <DependentUpon>oknoPobierania.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="glowne.resx">
       <DependentUpon>glowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oknoPobierania.resx">
+      <DependentUpon>oknoPobierania.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
