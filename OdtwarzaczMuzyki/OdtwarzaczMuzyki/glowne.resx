@@ -120,18 +120,30 @@
   <metadata name="pasekMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="stopButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAErSURBVGhD7ZnBSkJBGEbDdNFrhG+gSKF2wV0tKmhZaHkNI5/DXWXbaN0uaiNmvpOtr+ONz2vM
-        4odGpsUwTvIdONuf78Cs7t3ChsCQ0GBIaDAkNP4U8nj3hHxuB83KBOfloTcbxT6i6iGmX1O9ZDXWkIf7
-        AToHY3Si9XndGCFNU73IjDWkUNjOjn3+Ou7TVvUNSZLoRWasIXF9Yjzu0zh7EXP1rReZsYa0ax/G4z5l
-        iIQhDmWIhCEOZYiEIQ5liIQhDmWIhCEOZYiEIQ5liIQhDmWIhCEOZYhkY0L2dm+Nx316VR9CzeZ6kRlr
-        yMnxaXZsvV/j42gEpZReZMYasvwvcXP0irPSc/bMxj9PzZfN/Xdc1F7Q7V3qNauxhvwXGBIaDAkNhoQG
-        Q8ICWAC0Q4Wu3SE6wgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAStJREFUaEPt
+        mcFKQkEYRsN00WuEb6BIoXbBXS0qaFloeQ0jn8NdZdto3S5qI2a+k62v443Pa8zih0amxTBO8h0425/v
+        wKzu3cKGwJDQYEhoMCQ0/hTyePeEfG4HzcoE5+WhNxvFPqLqIaZfU71kNdaQh/sBOgdjdKL1ed0YIU1T
+        vciMNaRQ2M6Off467tNW9Q1JkuhFZqwhcX1iPO7TOHsRc/WtF5mxhrRrH8bjPmWIhCEOZYiEIQ5liIQh
+        DmWIhCEOZYiEIQ5liIQhDmWIhCEOZYiEIQ5liGRjQvZ2b43HfXpVH0LN5nqRGWvIyfFpdmy9X+PjaASl
+        lF5kxhqy/C9xc/SKs9Jz9szGP0/Nl839d1zUXtDtXeo1q7GG/BcYEhoMCQ2GhAZDwgJYALRDha7dITrC
+        AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

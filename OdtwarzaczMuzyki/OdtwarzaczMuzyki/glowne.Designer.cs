@@ -35,7 +35,6 @@
             this.playlistaUtwory = new System.Windows.Forms.DataGridView();
             this.nazwaPlaylistyLabel = new System.Windows.Forms.Label();
             this.mójProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zmieńNazwęToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zmieńHasłoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pobierzZYouTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasekMenu = new System.Windows.Forms.MenuStrip();
@@ -55,6 +54,8 @@
             this.playButton = new System.Windows.Forms.Button();
             this.pasekOdtwarzania = new System.Windows.Forms.Panel();
             this.suwak = new System.Windows.Forms.Label();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaUtwory)).BeginInit();
             this.pasekMenu.SuspendLayout();
@@ -130,18 +131,11 @@
             // mójProfilToolStripMenuItem
             // 
             this.mójProfilToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zmieńNazwęToolStripMenuItem,
             this.zmieńHasłoToolStripMenuItem});
             this.mójProfilToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mójProfilToolStripMenuItem.Name = "mójProfilToolStripMenuItem";
             this.mójProfilToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.mójProfilToolStripMenuItem.Text = "Mój profil";
-            // 
-            // zmieńNazwęToolStripMenuItem
-            // 
-            this.zmieńNazwęToolStripMenuItem.Name = "zmieńNazwęToolStripMenuItem";
-            this.zmieńNazwęToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            this.zmieńNazwęToolStripMenuItem.Text = "Wyświetl profil";
             // 
             // zmieńHasłoToolStripMenuItem
             // 
@@ -206,6 +200,9 @@
             this.profilPlaylisty.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.profilPlaylisty.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.profilPlaylisty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.profilPlaylisty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
             this.profilPlaylisty.Location = new System.Drawing.Point(6, 19);
             this.profilPlaylisty.Margin = new System.Windows.Forms.Padding(3, 3, 3, 13);
             this.profilPlaylisty.Name = "profilPlaylisty";
@@ -338,6 +335,16 @@
             this.suwak.TabIndex = 4;
             this.suwak.Text = "label1";
             // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
+            // 
             // glowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -376,7 +383,6 @@
         private System.Windows.Forms.GroupBox utworyGroupBox;
         private System.Windows.Forms.Label nazwaPlaylistyLabel;
         private System.Windows.Forms.ToolStripMenuItem mójProfilToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zmieńNazwęToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zmieńHasłoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pobierzZYouTubeToolStripMenuItem;
         private System.Windows.Forms.MenuStrip pasekMenu;
@@ -398,6 +404,8 @@
         private System.Windows.Forms.Panel pasekGlosnosc;
         private System.Windows.Forms.TextBox wyszukiwarkaPlaylista;
         private System.Windows.Forms.TextBox wyszukiwarkaUtwor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }
 
