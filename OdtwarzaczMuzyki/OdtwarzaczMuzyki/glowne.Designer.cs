@@ -42,6 +42,8 @@
             this.playlistGroupBox = new System.Windows.Forms.GroupBox();
             this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
             this.profilPlaylisty = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
             this.wyszukajPlayliste = new System.Windows.Forms.Panel();
@@ -54,8 +56,14 @@
             this.playButton = new System.Windows.Forms.Button();
             this.pasekOdtwarzania = new System.Windows.Forms.Panel();
             this.suwak = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.odtwarzajLosowoButton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.wyszukiwanieProfuButton = new System.Windows.Forms.Button();
+            this.dodajPlaylisteButton = new System.Windows.Forms.Button();
+            this.usunPlaylisteButton = new System.Windows.Forms.Button();
+            this.wyszukajUtworButton = new System.Windows.Forms.Button();
+            this.usunUtworButton = new System.Windows.Forms.Button();
+            this.dodajUtworButton = new System.Windows.Forms.Button();
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaUtwory)).BeginInit();
             this.pasekMenu.SuspendLayout();
@@ -63,6 +71,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.profilPlaylisty)).BeginInit();
             this.wyszukajPlayliste.SuspendLayout();
             this.pasekOdtwarzania.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // nazwaProfiluLabel
@@ -81,6 +90,9 @@
             this.utworyGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.utworyGroupBox.Controls.Add(this.usunUtworButton);
+            this.utworyGroupBox.Controls.Add(this.wyszukajUtworButton);
+            this.utworyGroupBox.Controls.Add(this.dodajUtworButton);
             this.utworyGroupBox.Controls.Add(this.wyszukiwarkaUtwor);
             this.utworyGroupBox.Controls.Add(this.playlistaUtwory);
             this.utworyGroupBox.Controls.Add(this.nazwaPlaylistyLabel);
@@ -95,7 +107,7 @@
             this.wyszukiwarkaUtwor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.wyszukiwarkaUtwor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.wyszukiwarkaUtwor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.wyszukiwarkaUtwor.Location = new System.Drawing.Point(4, 367);
+            this.wyszukiwarkaUtwor.Location = new System.Drawing.Point(30, 367);
             this.wyszukiwarkaUtwor.Name = "wyszukiwarkaUtwor";
             this.wyszukiwarkaUtwor.Size = new System.Drawing.Size(319, 20);
             this.wyszukiwarkaUtwor.TabIndex = 2;
@@ -140,7 +152,7 @@
             // zmieńHasłoToolStripMenuItem
             // 
             this.zmieńHasłoToolStripMenuItem.Name = "zmieńHasłoToolStripMenuItem";
-            this.zmieńHasłoToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.zmieńHasłoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.zmieńHasłoToolStripMenuItem.Text = "Edytuj profil";
             // 
             // pobierzZYouTubeToolStripMenuItem
@@ -173,6 +185,9 @@
             // 
             this.playlistGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.playlistGroupBox.Controls.Add(this.usunPlaylisteButton);
+            this.playlistGroupBox.Controls.Add(this.dodajPlaylisteButton);
+            this.playlistGroupBox.Controls.Add(this.wyszukiwanieProfuButton);
             this.playlistGroupBox.Controls.Add(this.wyszukiwarkaPlaylista);
             this.playlistGroupBox.Controls.Add(this.nazwaProfiluLabel);
             this.playlistGroupBox.Controls.Add(this.profilPlaylisty);
@@ -187,7 +202,7 @@
             this.wyszukiwarkaPlaylista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.wyszukiwarkaPlaylista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.wyszukiwarkaPlaylista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.wyszukiwarkaPlaylista.Location = new System.Drawing.Point(6, 368);
+            this.wyszukiwarkaPlaylista.Location = new System.Drawing.Point(27, 368);
             this.wyszukiwarkaPlaylista.Name = "wyszukiwarkaPlaylista";
             this.wyszukiwarkaPlaylista.Size = new System.Drawing.Size(244, 20);
             this.wyszukiwarkaPlaylista.TabIndex = 3;
@@ -208,6 +223,16 @@
             this.profilPlaylisty.Name = "profilPlaylisty";
             this.profilPlaylisty.Size = new System.Drawing.Size(333, 342);
             this.profilPlaylisty.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Column1";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "Column2";
+            this.Column2.Name = "Column2";
             // 
             // terazOdtwarzaneNazwa
             // 
@@ -235,6 +260,8 @@
             // 
             this.wyszukajPlayliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.wyszukajPlayliste.Controls.Add(this.odtwarzajLosowoButton);
+            this.wyszukajPlayliste.Controls.Add(this.pictureBox2);
             this.wyszukajPlayliste.Controls.Add(this.suwakGlosnosc);
             this.wyszukajPlayliste.Controls.Add(this.pasekGlosnosc);
             this.wyszukajPlayliste.Controls.Add(this.nastepnyButton);
@@ -272,6 +299,7 @@
             // 
             // nastepnyButton
             // 
+            this.nastepnyButton.Image = ((System.Drawing.Image)(resources.GetObject("nastepnyButton.Image")));
             this.nastepnyButton.Location = new System.Drawing.Point(661, 25);
             this.nastepnyButton.Name = "nastepnyButton";
             this.nastepnyButton.Size = new System.Drawing.Size(45, 45);
@@ -280,6 +308,7 @@
             // 
             // poprzedniButton
             // 
+            this.poprzedniButton.Image = ((System.Drawing.Image)(resources.GetObject("poprzedniButton.Image")));
             this.poprzedniButton.Location = new System.Drawing.Point(544, 25);
             this.poprzedniButton.Name = "poprzedniButton";
             this.poprzedniButton.Size = new System.Drawing.Size(45, 45);
@@ -297,6 +326,7 @@
             // 
             // pauzaButton
             // 
+            this.pauzaButton.Image = ((System.Drawing.Image)(resources.GetObject("pauzaButton.Image")));
             this.pauzaButton.Location = new System.Drawing.Point(492, 25);
             this.pauzaButton.Name = "pauzaButton";
             this.pauzaButton.Size = new System.Drawing.Size(45, 45);
@@ -305,6 +335,7 @@
             // 
             // playButton
             // 
+            this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
             this.playButton.Location = new System.Drawing.Point(595, 25);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(60, 45);
@@ -335,15 +366,78 @@
             this.suwak.TabIndex = 4;
             this.suwak.Text = "label1";
             // 
-            // Column1
+            // odtwarzajLosowoButton
             // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
+            this.odtwarzajLosowoButton.Image = ((System.Drawing.Image)(resources.GetObject("odtwarzajLosowoButton.Image")));
+            this.odtwarzajLosowoButton.Location = new System.Drawing.Point(390, 25);
+            this.odtwarzajLosowoButton.Name = "odtwarzajLosowoButton";
+            this.odtwarzajLosowoButton.Size = new System.Drawing.Size(45, 45);
+            this.odtwarzajLosowoButton.TabIndex = 3;
+            this.odtwarzajLosowoButton.UseMnemonic = false;
+            this.odtwarzajLosowoButton.UseVisualStyleBackColor = true;
             // 
-            // Column2
+            // pictureBox2
             // 
-            this.Column2.HeaderText = "Column2";
-            this.Column2.Name = "Column2";
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(732, 35);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
+            // 
+            // wyszukiwanieProfuButton
+            // 
+            this.wyszukiwanieProfuButton.Image = ((System.Drawing.Image)(resources.GetObject("wyszukiwanieProfuButton.Image")));
+            this.wyszukiwanieProfuButton.Location = new System.Drawing.Point(6, 368);
+            this.wyszukiwanieProfuButton.Name = "wyszukiwanieProfuButton";
+            this.wyszukiwanieProfuButton.Size = new System.Drawing.Size(20, 20);
+            this.wyszukiwanieProfuButton.TabIndex = 4;
+            this.wyszukiwanieProfuButton.UseVisualStyleBackColor = true;
+            // 
+            // dodajPlaylisteButton
+            // 
+            this.dodajPlaylisteButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajPlaylisteButton.Image")));
+            this.dodajPlaylisteButton.Location = new System.Drawing.Point(293, 368);
+            this.dodajPlaylisteButton.Name = "dodajPlaylisteButton";
+            this.dodajPlaylisteButton.Size = new System.Drawing.Size(20, 20);
+            this.dodajPlaylisteButton.TabIndex = 5;
+            this.dodajPlaylisteButton.UseVisualStyleBackColor = true;
+            // 
+            // usunPlaylisteButton
+            // 
+            this.usunPlaylisteButton.Image = ((System.Drawing.Image)(resources.GetObject("usunPlaylisteButton.Image")));
+            this.usunPlaylisteButton.Location = new System.Drawing.Point(319, 368);
+            this.usunPlaylisteButton.Name = "usunPlaylisteButton";
+            this.usunPlaylisteButton.Size = new System.Drawing.Size(20, 20);
+            this.usunPlaylisteButton.TabIndex = 6;
+            this.usunPlaylisteButton.UseVisualStyleBackColor = true;
+            // 
+            // wyszukajUtworButton
+            // 
+            this.wyszukajUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("wyszukajUtworButton.Image")));
+            this.wyszukajUtworButton.Location = new System.Drawing.Point(4, 367);
+            this.wyszukajUtworButton.Name = "wyszukajUtworButton";
+            this.wyszukajUtworButton.Size = new System.Drawing.Size(20, 20);
+            this.wyszukajUtworButton.TabIndex = 7;
+            this.wyszukajUtworButton.UseVisualStyleBackColor = true;
+            // 
+            // usunUtworButton
+            // 
+            this.usunUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("usunUtworButton.Image")));
+            this.usunUtworButton.Location = new System.Drawing.Point(399, 367);
+            this.usunUtworButton.Name = "usunUtworButton";
+            this.usunUtworButton.Size = new System.Drawing.Size(20, 20);
+            this.usunUtworButton.TabIndex = 8;
+            this.usunUtworButton.UseVisualStyleBackColor = true;
+            // 
+            // dodajUtworButton
+            // 
+            this.dodajUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajUtworButton.Image")));
+            this.dodajUtworButton.Location = new System.Drawing.Point(373, 366);
+            this.dodajUtworButton.Name = "dodajUtworButton";
+            this.dodajUtworButton.Size = new System.Drawing.Size(20, 20);
+            this.dodajUtworButton.TabIndex = 7;
+            this.dodajUtworButton.UseVisualStyleBackColor = true;
             // 
             // glowne
             // 
@@ -373,6 +467,7 @@
             this.wyszukajPlayliste.PerformLayout();
             this.pasekOdtwarzania.ResumeLayout(false);
             this.pasekOdtwarzania.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,6 +501,14 @@
         private System.Windows.Forms.TextBox wyszukiwarkaUtwor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button usunPlaylisteButton;
+        private System.Windows.Forms.Button dodajPlaylisteButton;
+        private System.Windows.Forms.Button wyszukiwanieProfuButton;
+        private System.Windows.Forms.Button odtwarzajLosowoButton;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button wyszukajUtworButton;
+        private System.Windows.Forms.Button usunUtworButton;
+        private System.Windows.Forms.Button dodajUtworButton;
     }
 }
 
