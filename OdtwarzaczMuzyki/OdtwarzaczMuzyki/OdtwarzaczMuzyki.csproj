@@ -53,6 +53,12 @@
     <Compile Include="glowne.Designer.cs">
       <DependentUpon>glowne.cs</DependentUpon>
     </Compile>
+    <Compile Include="oknoEdycji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="oknoEdycji.Designer.cs">
+      <DependentUpon>oknoEdycji.cs</DependentUpon>
+    </Compile>
     <Compile Include="oknoPobierania.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="glowne.resx">
       <DependentUpon>glowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oknoEdycji.resx">
+      <DependentUpon>oknoEdycji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oknoPobierania.aa.resx">
+      <DependentUpon>oknoPobierania.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="oknoPobierania.resx">
       <DependentUpon>oknoPobierania.cs</DependentUpon>

@@ -12,6 +12,8 @@ namespace OdtwarzaczMuzyki
 {
     public partial class glowne : Form
     {
+        oknoEdycji _oknoEdycji;
+        oknoPobierania _oknoPobierania;
         public glowne()
         {
             InitializeComponent();
@@ -27,6 +29,17 @@ namespace OdtwarzaczMuzyki
     
         }
 
-     
+        private void mójProfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _oknoEdycji = new oknoEdycji();
+            _oknoEdycji.ShowDialog();
+
+        }
+
+        private void pobierzZYouTubeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _oknoPobierania = new oknoPobierania();
+            _oknoPobierania.ShowDialog();
+        }
     }
 }

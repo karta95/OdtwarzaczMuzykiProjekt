@@ -31,15 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(glowne));
             this.nazwaProfiluLabel = new System.Windows.Forms.Label();
             this.utworyGroupBox = new System.Windows.Forms.GroupBox();
+            this.usunUtworButton = new System.Windows.Forms.Button();
+            this.wyszukajUtworButton = new System.Windows.Forms.Button();
+            this.dodajUtworButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaUtwor = new System.Windows.Forms.TextBox();
             this.playlistaUtwory = new System.Windows.Forms.DataGridView();
             this.nazwaPlaylistyLabel = new System.Windows.Forms.Label();
             this.mójProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.zmieńHasłoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pobierzZYouTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pasekMenu = new System.Windows.Forms.MenuStrip();
             this.logowanieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playlistGroupBox = new System.Windows.Forms.GroupBox();
+            this.usunPlaylisteButton = new System.Windows.Forms.Button();
+            this.dodajPlaylisteButton = new System.Windows.Forms.Button();
+            this.wyszukiwanieProfuButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
             this.profilPlaylisty = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +52,8 @@
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
             this.wyszukajPlayliste = new System.Windows.Forms.Panel();
+            this.odtwarzajLosowoButton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.suwakGlosnosc = new System.Windows.Forms.Label();
             this.pasekGlosnosc = new System.Windows.Forms.Panel();
             this.nastepnyButton = new System.Windows.Forms.Button();
@@ -56,22 +63,14 @@
             this.playButton = new System.Windows.Forms.Button();
             this.pasekOdtwarzania = new System.Windows.Forms.Panel();
             this.suwak = new System.Windows.Forms.Label();
-            this.odtwarzajLosowoButton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.wyszukiwanieProfuButton = new System.Windows.Forms.Button();
-            this.dodajPlaylisteButton = new System.Windows.Forms.Button();
-            this.usunPlaylisteButton = new System.Windows.Forms.Button();
-            this.wyszukajUtworButton = new System.Windows.Forms.Button();
-            this.usunUtworButton = new System.Windows.Forms.Button();
-            this.dodajUtworButton = new System.Windows.Forms.Button();
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaUtwory)).BeginInit();
             this.pasekMenu.SuspendLayout();
             this.playlistGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilPlaylisty)).BeginInit();
             this.wyszukajPlayliste.SuspendLayout();
-            this.pasekOdtwarzania.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pasekOdtwarzania.SuspendLayout();
             this.SuspendLayout();
             // 
             // nazwaProfiluLabel
@@ -102,14 +101,46 @@
             this.utworyGroupBox.TabIndex = 5;
             this.utworyGroupBox.TabStop = false;
             // 
+            // usunUtworButton
+            // 
+            this.usunUtworButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.usunUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("usunUtworButton.Image")));
+            this.usunUtworButton.Location = new System.Drawing.Point(492, 367);
+            this.usunUtworButton.Name = "usunUtworButton";
+            this.usunUtworButton.Size = new System.Drawing.Size(20, 20);
+            this.usunUtworButton.TabIndex = 8;
+            this.usunUtworButton.UseVisualStyleBackColor = true;
+            // 
+            // wyszukajUtworButton
+            // 
+            this.wyszukajUtworButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.wyszukajUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("wyszukajUtworButton.Image")));
+            this.wyszukajUtworButton.Location = new System.Drawing.Point(6, 364);
+            this.wyszukajUtworButton.Name = "wyszukajUtworButton";
+            this.wyszukajUtworButton.Size = new System.Drawing.Size(30, 27);
+            this.wyszukajUtworButton.TabIndex = 7;
+            this.wyszukajUtworButton.UseVisualStyleBackColor = true;
+            // 
+            // dodajUtworButton
+            // 
+            this.dodajUtworButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dodajUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajUtworButton.Image")));
+            this.dodajUtworButton.Location = new System.Drawing.Point(466, 367);
+            this.dodajUtworButton.Name = "dodajUtworButton";
+            this.dodajUtworButton.Size = new System.Drawing.Size(20, 20);
+            this.dodajUtworButton.TabIndex = 7;
+            this.dodajUtworButton.UseVisualStyleBackColor = true;
+            // 
             // wyszukiwarkaUtwor
             // 
             this.wyszukiwarkaUtwor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.wyszukiwarkaUtwor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.wyszukiwarkaUtwor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.wyszukiwarkaUtwor.Location = new System.Drawing.Point(30, 367);
+            this.wyszukiwarkaUtwor.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.wyszukiwarkaUtwor.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.wyszukiwarkaUtwor.Location = new System.Drawing.Point(42, 364);
             this.wyszukiwarkaUtwor.Name = "wyszukiwarkaUtwor";
-            this.wyszukiwarkaUtwor.Size = new System.Drawing.Size(319, 20);
+            this.wyszukiwarkaUtwor.Size = new System.Drawing.Size(319, 27);
             this.wyszukiwarkaUtwor.TabIndex = 2;
             // 
             // playlistaUtwory
@@ -142,18 +173,11 @@
             // 
             // mójProfilToolStripMenuItem
             // 
-            this.mójProfilToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.zmieńHasłoToolStripMenuItem});
             this.mójProfilToolStripMenuItem.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mójProfilToolStripMenuItem.Name = "mójProfilToolStripMenuItem";
-            this.mójProfilToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.mójProfilToolStripMenuItem.Text = "Mój profil";
-            // 
-            // zmieńHasłoToolStripMenuItem
-            // 
-            this.zmieńHasłoToolStripMenuItem.Name = "zmieńHasłoToolStripMenuItem";
-            this.zmieńHasłoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
-            this.zmieńHasłoToolStripMenuItem.Text = "Edytuj profil";
+            this.mójProfilToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
+            this.mójProfilToolStripMenuItem.Text = "Edytuj profil";
+            this.mójProfilToolStripMenuItem.Click += new System.EventHandler(this.mójProfilToolStripMenuItem_Click);
             // 
             // pobierzZYouTubeToolStripMenuItem
             // 
@@ -161,6 +185,7 @@
             this.pobierzZYouTubeToolStripMenuItem.Name = "pobierzZYouTubeToolStripMenuItem";
             this.pobierzZYouTubeToolStripMenuItem.Size = new System.Drawing.Size(114, 20);
             this.pobierzZYouTubeToolStripMenuItem.Text = "Pobierz z youtube";
+            this.pobierzZYouTubeToolStripMenuItem.Click += new System.EventHandler(this.pobierzZYouTubeToolStripMenuItem_Click);
             // 
             // pasekMenu
             // 
@@ -197,14 +222,46 @@
             this.playlistGroupBox.TabIndex = 6;
             this.playlistGroupBox.TabStop = false;
             // 
+            // usunPlaylisteButton
+            // 
+            this.usunPlaylisteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.usunPlaylisteButton.Image = ((System.Drawing.Image)(resources.GetObject("usunPlaylisteButton.Image")));
+            this.usunPlaylisteButton.Location = new System.Drawing.Point(319, 368);
+            this.usunPlaylisteButton.Name = "usunPlaylisteButton";
+            this.usunPlaylisteButton.Size = new System.Drawing.Size(20, 20);
+            this.usunPlaylisteButton.TabIndex = 6;
+            this.usunPlaylisteButton.UseVisualStyleBackColor = true;
+            // 
+            // dodajPlaylisteButton
+            // 
+            this.dodajPlaylisteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.dodajPlaylisteButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajPlaylisteButton.Image")));
+            this.dodajPlaylisteButton.Location = new System.Drawing.Point(293, 368);
+            this.dodajPlaylisteButton.Name = "dodajPlaylisteButton";
+            this.dodajPlaylisteButton.Size = new System.Drawing.Size(20, 20);
+            this.dodajPlaylisteButton.TabIndex = 5;
+            this.dodajPlaylisteButton.UseVisualStyleBackColor = true;
+            // 
+            // wyszukiwanieProfuButton
+            // 
+            this.wyszukiwanieProfuButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.wyszukiwanieProfuButton.Image = ((System.Drawing.Image)(resources.GetObject("wyszukiwanieProfuButton.Image")));
+            this.wyszukiwanieProfuButton.Location = new System.Drawing.Point(7, 365);
+            this.wyszukiwanieProfuButton.Name = "wyszukiwanieProfuButton";
+            this.wyszukiwanieProfuButton.Size = new System.Drawing.Size(30, 27);
+            this.wyszukiwanieProfuButton.TabIndex = 4;
+            this.wyszukiwanieProfuButton.UseVisualStyleBackColor = true;
+            // 
             // wyszukiwarkaPlaylista
             // 
             this.wyszukiwarkaPlaylista.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.wyszukiwarkaPlaylista.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.wyszukiwarkaPlaylista.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.wyszukiwarkaPlaylista.Location = new System.Drawing.Point(27, 368);
+            this.wyszukiwarkaPlaylista.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.wyszukiwarkaPlaylista.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.wyszukiwarkaPlaylista.Location = new System.Drawing.Point(43, 365);
             this.wyszukiwarkaPlaylista.Name = "wyszukiwarkaPlaylista";
-            this.wyszukiwarkaPlaylista.Size = new System.Drawing.Size(244, 20);
+            this.wyszukiwarkaPlaylista.Size = new System.Drawing.Size(244, 27);
             this.wyszukiwarkaPlaylista.TabIndex = 3;
             // 
             // profilPlaylisty
@@ -276,6 +333,25 @@
             this.wyszukajPlayliste.Name = "wyszukajPlayliste";
             this.wyszukajPlayliste.Size = new System.Drawing.Size(868, 84);
             this.wyszukajPlayliste.TabIndex = 7;
+            // 
+            // odtwarzajLosowoButton
+            // 
+            this.odtwarzajLosowoButton.Image = ((System.Drawing.Image)(resources.GetObject("odtwarzajLosowoButton.Image")));
+            this.odtwarzajLosowoButton.Location = new System.Drawing.Point(390, 25);
+            this.odtwarzajLosowoButton.Name = "odtwarzajLosowoButton";
+            this.odtwarzajLosowoButton.Size = new System.Drawing.Size(45, 45);
+            this.odtwarzajLosowoButton.TabIndex = 3;
+            this.odtwarzajLosowoButton.UseMnemonic = false;
+            this.odtwarzajLosowoButton.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(732, 35);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
             // suwakGlosnosc
             // 
@@ -366,84 +442,12 @@
             this.suwak.TabIndex = 4;
             this.suwak.Text = "label1";
             // 
-            // odtwarzajLosowoButton
-            // 
-            this.odtwarzajLosowoButton.Image = ((System.Drawing.Image)(resources.GetObject("odtwarzajLosowoButton.Image")));
-            this.odtwarzajLosowoButton.Location = new System.Drawing.Point(390, 25);
-            this.odtwarzajLosowoButton.Name = "odtwarzajLosowoButton";
-            this.odtwarzajLosowoButton.Size = new System.Drawing.Size(45, 45);
-            this.odtwarzajLosowoButton.TabIndex = 3;
-            this.odtwarzajLosowoButton.UseMnemonic = false;
-            this.odtwarzajLosowoButton.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(732, 35);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // wyszukiwanieProfuButton
-            // 
-            this.wyszukiwanieProfuButton.Image = ((System.Drawing.Image)(resources.GetObject("wyszukiwanieProfuButton.Image")));
-            this.wyszukiwanieProfuButton.Location = new System.Drawing.Point(6, 368);
-            this.wyszukiwanieProfuButton.Name = "wyszukiwanieProfuButton";
-            this.wyszukiwanieProfuButton.Size = new System.Drawing.Size(20, 20);
-            this.wyszukiwanieProfuButton.TabIndex = 4;
-            this.wyszukiwanieProfuButton.UseVisualStyleBackColor = true;
-            // 
-            // dodajPlaylisteButton
-            // 
-            this.dodajPlaylisteButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajPlaylisteButton.Image")));
-            this.dodajPlaylisteButton.Location = new System.Drawing.Point(293, 368);
-            this.dodajPlaylisteButton.Name = "dodajPlaylisteButton";
-            this.dodajPlaylisteButton.Size = new System.Drawing.Size(20, 20);
-            this.dodajPlaylisteButton.TabIndex = 5;
-            this.dodajPlaylisteButton.UseVisualStyleBackColor = true;
-            // 
-            // usunPlaylisteButton
-            // 
-            this.usunPlaylisteButton.Image = ((System.Drawing.Image)(resources.GetObject("usunPlaylisteButton.Image")));
-            this.usunPlaylisteButton.Location = new System.Drawing.Point(319, 368);
-            this.usunPlaylisteButton.Name = "usunPlaylisteButton";
-            this.usunPlaylisteButton.Size = new System.Drawing.Size(20, 20);
-            this.usunPlaylisteButton.TabIndex = 6;
-            this.usunPlaylisteButton.UseVisualStyleBackColor = true;
-            // 
-            // wyszukajUtworButton
-            // 
-            this.wyszukajUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("wyszukajUtworButton.Image")));
-            this.wyszukajUtworButton.Location = new System.Drawing.Point(4, 367);
-            this.wyszukajUtworButton.Name = "wyszukajUtworButton";
-            this.wyszukajUtworButton.Size = new System.Drawing.Size(20, 20);
-            this.wyszukajUtworButton.TabIndex = 7;
-            this.wyszukajUtworButton.UseVisualStyleBackColor = true;
-            // 
-            // usunUtworButton
-            // 
-            this.usunUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("usunUtworButton.Image")));
-            this.usunUtworButton.Location = new System.Drawing.Point(399, 367);
-            this.usunUtworButton.Name = "usunUtworButton";
-            this.usunUtworButton.Size = new System.Drawing.Size(20, 20);
-            this.usunUtworButton.TabIndex = 8;
-            this.usunUtworButton.UseVisualStyleBackColor = true;
-            // 
-            // dodajUtworButton
-            // 
-            this.dodajUtworButton.Image = ((System.Drawing.Image)(resources.GetObject("dodajUtworButton.Image")));
-            this.dodajUtworButton.Location = new System.Drawing.Point(373, 366);
-            this.dodajUtworButton.Name = "dodajUtworButton";
-            this.dodajUtworButton.Size = new System.Drawing.Size(20, 20);
-            this.dodajUtworButton.TabIndex = 7;
-            this.dodajUtworButton.UseVisualStyleBackColor = true;
-            // 
             // glowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(897, 525);
             this.Controls.Add(this.wyszukajPlayliste);
             this.Controls.Add(this.playlistGroupBox);
@@ -465,9 +469,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.profilPlaylisty)).EndInit();
             this.wyszukajPlayliste.ResumeLayout(false);
             this.wyszukajPlayliste.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pasekOdtwarzania.ResumeLayout(false);
             this.pasekOdtwarzania.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,7 +482,6 @@
         private System.Windows.Forms.GroupBox utworyGroupBox;
         private System.Windows.Forms.Label nazwaPlaylistyLabel;
         private System.Windows.Forms.ToolStripMenuItem mójProfilToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem zmieńHasłoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pobierzZYouTubeToolStripMenuItem;
         private System.Windows.Forms.MenuStrip pasekMenu;
         private System.Windows.Forms.ToolStripMenuItem logowanieToolStripMenuItem;
