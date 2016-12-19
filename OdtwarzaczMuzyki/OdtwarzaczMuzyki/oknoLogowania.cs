@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace OdtwarzaczMuzyki
 {
-    public partial class oknoPobierania : Form
+    public partial class oknoLogowania : Form
     {
-        public oknoPobierania()
+        public oknoLogowania()
         {
             InitializeComponent();
-        }
-
-        private void wyborSciezkiButton_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -29,61 +29,37 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oknoPobierania));
-            this.pobieranieGroupBox = new System.Windows.Forms.GroupBox();
-            this.anulujPobieranieButton = new System.Windows.Forms.Button();
-            this.zapiszUtworButton = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.sciezkaZapisuLabel = new System.Windows.Forms.Label();
-            this.linkUrlTextBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tytulOknaPobierania = new System.Windows.Forms.Label();
             this.urlLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.pobieranieGroupBox.SuspendLayout();
+            this.urlTextBox = new System.Windows.Forms.TextBox();
+            this.wybierzSciezkebutton = new System.Windows.Forms.Button();
+            this.sciezkaZapisuLabel = new System.Windows.Forms.Label();
+            this.wyswietlenieSciezkiLabel = new System.Windows.Forms.Label();
+            this.pobierzUtworButton = new System.Windows.Forms.Button();
+            this.anulujPobieranieButton = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pobieranieGroupBox
+            // groupBox1
             // 
-            resources.ApplyResources(this.pobieranieGroupBox, "pobieranieGroupBox");
-            this.pobieranieGroupBox.Controls.Add(this.anulujPobieranieButton);
-            this.pobieranieGroupBox.Controls.Add(this.zapiszUtworButton);
-            this.pobieranieGroupBox.Controls.Add(this.label2);
-            this.pobieranieGroupBox.Controls.Add(this.sciezkaZapisuLabel);
-            this.pobieranieGroupBox.Controls.Add(this.linkUrlTextBox);
-            this.pobieranieGroupBox.Controls.Add(this.urlLabel);
-            this.pobieranieGroupBox.Controls.Add(this.label1);
-            this.pobieranieGroupBox.Name = "pobieranieGroupBox";
-            this.pobieranieGroupBox.TabStop = false;
+            this.groupBox1.Controls.Add(this.anulujPobieranieButton);
+            this.groupBox1.Controls.Add(this.pobierzUtworButton);
+            this.groupBox1.Controls.Add(this.wyswietlenieSciezkiLabel);
+            this.groupBox1.Controls.Add(this.sciezkaZapisuLabel);
+            this.groupBox1.Controls.Add(this.wybierzSciezkebutton);
+            this.groupBox1.Controls.Add(this.urlTextBox);
+            this.groupBox1.Controls.Add(this.urlLabel);
+            this.groupBox1.Controls.Add(this.tytulOknaPobierania);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.TabStop = false;
             // 
-            // anulujPobieranieButton
+            // tytulOknaPobierania
             // 
-            this.anulujPobieranieButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            resources.ApplyResources(this.anulujPobieranieButton, "anulujPobieranieButton");
-            this.anulujPobieranieButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.anulujPobieranieButton.Name = "anulujPobieranieButton";
-            this.anulujPobieranieButton.UseVisualStyleBackColor = true;
-            // 
-            // zapiszUtworButton
-            // 
-            resources.ApplyResources(this.zapiszUtworButton, "zapiszUtworButton");
-            this.zapiszUtworButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.zapiszUtworButton.Name = "zapiszUtworButton";
-            this.zapiszUtworButton.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            resources.ApplyResources(this.label2, "label2");
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Name = "label2";
-            // 
-            // sciezkaZapisuLabel
-            // 
-            resources.ApplyResources(this.sciezkaZapisuLabel, "sciezkaZapisuLabel");
-            this.sciezkaZapisuLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sciezkaZapisuLabel.Name = "sciezkaZapisuLabel";
-            // 
-            // linkUrlTextBox
-            // 
-            resources.ApplyResources(this.linkUrlTextBox, "linkUrlTextBox");
-            this.linkUrlTextBox.Name = "linkUrlTextBox";
+            resources.ApplyResources(this.tytulOknaPobierania, "tytulOknaPobierania");
+            this.tytulOknaPobierania.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tytulOknaPobierania.Name = "tytulOknaPobierania";
             // 
             // urlLabel
             // 
@@ -91,11 +67,45 @@
             this.urlLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.urlLabel.Name = "urlLabel";
             // 
-            // label1
+            // urlTextBox
             // 
-            resources.ApplyResources(this.label1, "label1");
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Name = "label1";
+            resources.ApplyResources(this.urlTextBox, "urlTextBox");
+            this.urlTextBox.Name = "urlTextBox";
+            // 
+            // wybierzSciezkebutton
+            // 
+            resources.ApplyResources(this.wybierzSciezkebutton, "wybierzSciezkebutton");
+            this.wybierzSciezkebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.wybierzSciezkebutton.Name = "wybierzSciezkebutton";
+            this.wybierzSciezkebutton.UseVisualStyleBackColor = true;
+            // 
+            // sciezkaZapisuLabel
+            // 
+            resources.ApplyResources(this.sciezkaZapisuLabel, "sciezkaZapisuLabel");
+            this.sciezkaZapisuLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.sciezkaZapisuLabel.Name = "sciezkaZapisuLabel";
+            // 
+            // wyswietlenieSciezkiLabel
+            // 
+            resources.ApplyResources(this.wyswietlenieSciezkiLabel, "wyswietlenieSciezkiLabel");
+            this.wyswietlenieSciezkiLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.wyswietlenieSciezkiLabel.Name = "wyswietlenieSciezkiLabel";
+            // 
+            // pobierzUtworButton
+            // 
+            resources.ApplyResources(this.pobierzUtworButton, "pobierzUtworButton");
+            this.pobierzUtworButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.pobierzUtworButton.Name = "pobierzUtworButton";
+            this.pobierzUtworButton.UseVisualStyleBackColor = true;
+            // 
+            // anulujPobieranieButton
+            // 
+            this.anulujPobieranieButton.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.anulujPobieranieButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            resources.ApplyResources(this.anulujPobieranieButton, "anulujPobieranieButton");
+            this.anulujPobieranieButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.anulujPobieranieButton.Name = "anulujPobieranieButton";
+            this.anulujPobieranieButton.UseVisualStyleBackColor = true;
             // 
             // oknoPobierania
             // 
@@ -103,24 +113,25 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.CancelButton = this.anulujPobieranieButton;
-            this.Controls.Add(this.pobieranieGroupBox);
+            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "oknoPobierania";
-            this.pobieranieGroupBox.ResumeLayout(false);
-            this.pobieranieGroupBox.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox pobieranieGroupBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label tytulOknaPobierania;
+        private System.Windows.Forms.TextBox urlTextBox;
         private System.Windows.Forms.Label urlLabel;
-        private System.Windows.Forms.TextBox linkUrlTextBox;
-        private System.Windows.Forms.Button zapiszUtworButton;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label wyswietlenieSciezkiLabel;
         private System.Windows.Forms.Label sciezkaZapisuLabel;
+        private System.Windows.Forms.Button wybierzSciezkebutton;
+        private System.Windows.Forms.Button pobierzUtworButton;
         private System.Windows.Forms.Button anulujPobieranieButton;
     }
 }

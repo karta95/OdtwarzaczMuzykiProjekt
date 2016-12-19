@@ -14,6 +14,8 @@ namespace OdtwarzaczMuzyki
     {
         oknoEdycji _oknoEdycji;
         oknoPobierania _oknoPobierania;
+        oknoLogowania _oknoLogowania;
+
         public glowne()
         {
             InitializeComponent();
@@ -40,6 +42,12 @@ namespace OdtwarzaczMuzyki
         {
             _oknoPobierania = new oknoPobierania();
             _oknoPobierania.ShowDialog();
+        }
+
+        private void logowanieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _oknoLogowania = new oknoLogowania();
+            _oknoLogowania.ShowDialog();
         }
     }
 }
