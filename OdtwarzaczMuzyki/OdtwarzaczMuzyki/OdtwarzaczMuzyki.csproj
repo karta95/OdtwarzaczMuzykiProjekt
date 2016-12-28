@@ -82,9 +82,6 @@
     <EmbeddedResource Include="oknoLogowania.resx">
       <DependentUpon>oknoLogowania.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="oknoPobierania.aa.resx">
-      <DependentUpon>oknoPobierania.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="oknoPobierania.resx">
       <DependentUpon>oknoPobierania.cs</DependentUpon>
     </EmbeddedResource>
