@@ -50,9 +50,6 @@ namespace OdtwarzaczMuzyki
             _oknoLogowania.ShowDialog();
         }
 
-        private void playlistaUtwory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+    
     }
 }
