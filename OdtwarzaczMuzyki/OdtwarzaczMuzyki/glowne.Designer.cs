@@ -29,22 +29,24 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(glowne));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nazwaProfiluLabel = new System.Windows.Forms.Label();
             this.utworyGroupBox = new System.Windows.Forms.GroupBox();
             this.usunUtworButton = new System.Windows.Forms.Button();
             this.wyszukajUtworButton = new System.Windows.Forms.Button();
             this.dodajUtworButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaUtwor = new System.Windows.Forms.TextBox();
-            this.playlistaUtwory = new System.Windows.Forms.DataGridView();
+            this.dataGridUtwory = new System.Windows.Forms.DataGridView();
+            this.ColumNazwaUtworu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDługoscTrwania = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazwaPlaylistyLabel = new System.Windows.Forms.Label();
             this.mójProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pobierzZYouTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +57,9 @@
             this.dodajPlaylisteButton = new System.Windows.Forms.Button();
             this.wyszukiwanieProfuButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
-            this.profilPlaylisty = new System.Windows.Forms.DataGridView();
+            this.dataGridPlaylisty = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
             this.wyszukajPlayliste = new System.Windows.Forms.Panel();
@@ -70,15 +74,11 @@
             this.playButton = new System.Windows.Forms.Button();
             this.pasekOdtwarzania = new System.Windows.Forms.Panel();
             this.suwak = new System.Windows.Forms.Label();
-            this.ColumNazwaUtworu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnDługoscTrwania = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utworyGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playlistaUtwory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).BeginInit();
             this.pasekMenu.SuspendLayout();
             this.playlistGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilPlaylisty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlaylisty)).BeginInit();
             this.wyszukajPlayliste.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pasekOdtwarzania.SuspendLayout();
@@ -104,7 +104,7 @@
             this.utworyGroupBox.Controls.Add(this.wyszukajUtworButton);
             this.utworyGroupBox.Controls.Add(this.dodajUtworButton);
             this.utworyGroupBox.Controls.Add(this.wyszukiwarkaUtwor);
-            this.utworyGroupBox.Controls.Add(this.playlistaUtwory);
+            this.utworyGroupBox.Controls.Add(this.dataGridUtwory);
             this.utworyGroupBox.Controls.Add(this.nazwaPlaylistyLabel);
             this.utworyGroupBox.Location = new System.Drawing.Point(363, 36);
             this.utworyGroupBox.Name = "utworyGroupBox";
@@ -141,6 +141,7 @@
             this.dodajUtworButton.Size = new System.Drawing.Size(20, 20);
             this.dodajUtworButton.TabIndex = 7;
             this.dodajUtworButton.UseVisualStyleBackColor = true;
+            
             // 
             // wyszukiwarkaUtwor
             // 
@@ -154,58 +155,76 @@
             this.wyszukiwarkaUtwor.Size = new System.Drawing.Size(418, 27);
             this.wyszukiwarkaUtwor.TabIndex = 2;
             // 
-            // playlistaUtwory
+            // dataGridUtwory
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.playlistaUtwory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.playlistaUtwory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridUtwory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridUtwory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.playlistaUtwory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.playlistaUtwory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.playlistaUtwory.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.playlistaUtwory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.playlistaUtwory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.playlistaUtwory.ColumnHeadersHeight = 40;
-            this.playlistaUtwory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.playlistaUtwory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridUtwory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridUtwory.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridUtwory.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridUtwory.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridUtwory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridUtwory.ColumnHeadersHeight = 40;
+            this.dataGridUtwory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridUtwory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumNazwaUtworu,
             this.ColumnDługoscTrwania});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.playlistaUtwory.DefaultCellStyle = dataGridViewCellStyle3;
-            this.playlistaUtwory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.playlistaUtwory.Location = new System.Drawing.Point(6, 16);
-            this.playlistaUtwory.Name = "playlistaUtwory";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.playlistaUtwory.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.playlistaUtwory.RowHeadersVisible = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.playlistaUtwory.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.playlistaUtwory.Size = new System.Drawing.Size(505, 342);
-            this.playlistaUtwory.TabIndex = 0;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridUtwory.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGridUtwory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridUtwory.Location = new System.Drawing.Point(6, 16);
+            this.dataGridUtwory.Name = "dataGridUtwory";
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridUtwory.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridUtwory.RowHeadersVisible = false;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridUtwory.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridUtwory.Size = new System.Drawing.Size(505, 342);
+            this.dataGridUtwory.TabIndex = 0;
+            // 
+            // ColumNazwaUtworu
+            // 
+            this.ColumNazwaUtworu.FillWeight = 152.2843F;
+            this.ColumNazwaUtworu.HeaderText = "Nazwa utworu";
+            this.ColumNazwaUtworu.Name = "ColumNazwaUtworu";
+            this.ColumNazwaUtworu.ReadOnly = true;
+            this.ColumNazwaUtworu.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumNazwaUtworu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ColumnDługoscTrwania
+            // 
+            this.ColumnDługoscTrwania.FillWeight = 47.71573F;
+            this.ColumnDługoscTrwania.HeaderText = "Długość trwania";
+            this.ColumnDługoscTrwania.Name = "ColumnDługoscTrwania";
+            this.ColumnDługoscTrwania.ReadOnly = true;
+            this.ColumnDługoscTrwania.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.ColumnDługoscTrwania.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // nazwaPlaylistyLabel
             // 
@@ -266,7 +285,7 @@
             this.playlistGroupBox.Controls.Add(this.wyszukiwanieProfuButton);
             this.playlistGroupBox.Controls.Add(this.wyszukiwarkaPlaylista);
             this.playlistGroupBox.Controls.Add(this.nazwaProfiluLabel);
-            this.playlistGroupBox.Controls.Add(this.profilPlaylisty);
+            this.playlistGroupBox.Controls.Add(this.dataGridPlaylisty);
             this.playlistGroupBox.Location = new System.Drawing.Point(12, 35);
             this.playlistGroupBox.Name = "playlistGroupBox";
             this.playlistGroupBox.Size = new System.Drawing.Size(345, 398);
@@ -292,6 +311,7 @@
             this.dodajPlaylisteButton.Size = new System.Drawing.Size(20, 20);
             this.dodajPlaylisteButton.TabIndex = 5;
             this.dodajPlaylisteButton.UseVisualStyleBackColor = true;
+            this.dodajPlaylisteButton.Click += new System.EventHandler(this.dodajPlaylisteButton_Click);
             // 
             // wyszukiwanieProfuButton
             // 
@@ -315,42 +335,64 @@
             this.wyszukiwarkaPlaylista.Size = new System.Drawing.Size(244, 27);
             this.wyszukiwarkaPlaylista.TabIndex = 3;
             // 
-            // profilPlaylisty
+            // dataGridPlaylisty
             // 
-            this.profilPlaylisty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.profilPlaylisty.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.profilPlaylisty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.profilPlaylisty.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DimGray;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.profilPlaylisty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.profilPlaylisty.ColumnHeadersHeight = 40;
-            this.profilPlaylisty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.profilPlaylisty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridPlaylisty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridPlaylisty.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridPlaylisty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridPlaylisty.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.DimGray;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridPlaylisty.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.dataGridPlaylisty.ColumnHeadersHeight = 40;
+            this.dataGridPlaylisty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGridPlaylisty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.profilPlaylisty.DefaultCellStyle = dataGridViewCellStyle8;
-            this.profilPlaylisty.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.profilPlaylisty.Location = new System.Drawing.Point(6, 17);
-            this.profilPlaylisty.Margin = new System.Windows.Forms.Padding(3, 3, 3, 13);
-            this.profilPlaylisty.Name = "profilPlaylisty";
-            this.profilPlaylisty.RowHeadersVisible = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.profilPlaylisty.RowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.profilPlaylisty.Size = new System.Drawing.Size(333, 342);
-            this.profilPlaylisty.TabIndex = 0;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlDark;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridPlaylisty.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridPlaylisty.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridPlaylisty.Location = new System.Drawing.Point(6, 17);
+            this.dataGridPlaylisty.Margin = new System.Windows.Forms.Padding(3, 3, 3, 13);
+            this.dataGridPlaylisty.Name = "dataGridPlaylisty";
+            this.dataGridPlaylisty.RowHeadersVisible = false;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridPlaylisty.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridPlaylisty.Size = new System.Drawing.Size(333, 342);
+            this.dataGridPlaylisty.TabIndex = 0;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle16;
+            this.Column1.FillWeight = 121.8274F;
+            this.Column1.HeaderText = "Nazwa playlisty";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Column2
+            // 
+            this.Column2.FillWeight = 78.17259F;
+            this.Column2.HeaderText = "Liczba utworów";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // terazOdtwarzaneNazwa
             // 
@@ -503,46 +545,6 @@
             this.suwak.TabIndex = 4;
             this.suwak.Text = "label1";
             // 
-            // ColumNazwaUtworu
-            // 
-            this.ColumNazwaUtworu.FillWeight = 152.2843F;
-            this.ColumNazwaUtworu.HeaderText = "Nazwa utworu";
-            this.ColumNazwaUtworu.Name = "ColumNazwaUtworu";
-            this.ColumNazwaUtworu.ReadOnly = true;
-            this.ColumNazwaUtworu.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumNazwaUtworu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ColumnDługoscTrwania
-            // 
-            this.ColumnDługoscTrwania.FillWeight = 47.71573F;
-            this.ColumnDługoscTrwania.HeaderText = "Długość trwania";
-            this.ColumnDługoscTrwania.Name = "ColumnDługoscTrwania";
-            this.ColumnDługoscTrwania.ReadOnly = true;
-            this.ColumnDługoscTrwania.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ColumnDługoscTrwania.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column1
-            // 
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column1.FillWeight = 121.8274F;
-            this.Column1.HeaderText = "Nazwa playlisty";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Column2
-            // 
-            this.Column2.FillWeight = 78.17259F;
-            this.Column2.HeaderText = "Liczba utworów";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // glowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -563,12 +565,12 @@
             this.Resize += new System.EventHandler(this.main_Resize);
             this.utworyGroupBox.ResumeLayout(false);
             this.utworyGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.playlistaUtwory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).EndInit();
             this.pasekMenu.ResumeLayout(false);
             this.pasekMenu.PerformLayout();
             this.playlistGroupBox.ResumeLayout(false);
             this.playlistGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilPlaylisty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridPlaylisty)).EndInit();
             this.wyszukajPlayliste.ResumeLayout(false);
             this.wyszukajPlayliste.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -610,8 +612,8 @@
         private System.Windows.Forms.Button wyszukajUtworButton;
         private System.Windows.Forms.Button usunUtworButton;
         private System.Windows.Forms.Button dodajUtworButton;
-        private System.Windows.Forms.DataGridView playlistaUtwory;
-        private System.Windows.Forms.DataGridView profilPlaylisty;
+        private System.Windows.Forms.DataGridView dataGridUtwory;
+        private System.Windows.Forms.DataGridView dataGridPlaylisty;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumNazwaUtworu;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnDługoscTrwania;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;

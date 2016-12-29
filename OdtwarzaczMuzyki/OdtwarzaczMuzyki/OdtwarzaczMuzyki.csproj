@@ -68,6 +68,12 @@
     <Compile Include="glowne.Designer.cs">
       <DependentUpon>glowne.cs</DependentUpon>
     </Compile>
+    <Compile Include="oknoDodaniaPlaylisty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="oknoDodaniaPlaylisty.Designer.cs">
+      <DependentUpon>oknoDodaniaPlaylisty.cs</DependentUpon>
+    </Compile>
     <Compile Include="oknoEdycji.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="glowne.resx">
       <DependentUpon>glowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oknoDodaniaPlaylisty.resx">
+      <DependentUpon>oknoDodaniaPlaylisty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="oknoEdycji.resx">
       <DependentUpon>oknoEdycji.cs</DependentUpon>

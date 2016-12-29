@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oknoEdycji));
             this.edycjaGroupBox = new System.Windows.Forms.GroupBox();
+            this.hasloEdycjaTextBox = new System.Windows.Forms.TextBox();
+            this.hasloLabel = new System.Windows.Forms.Label();
             this.anulujEdycjebutton = new System.Windows.Forms.Button();
             this.zapiszZmianyButton = new System.Windows.Forms.Button();
             this.nowyEmailProfilu = new System.Windows.Forms.TextBox();
@@ -37,8 +39,6 @@
             this.nowyEmailLabel = new System.Windows.Forms.Label();
             this.nowaNazwaLabel = new System.Windows.Forms.Label();
             this.tytulOknaEdycji = new System.Windows.Forms.Label();
-            this.hasloLabel = new System.Windows.Forms.Label();
-            this.hasloEdycjaTextBox = new System.Windows.Forms.TextBox();
             this.edycjaGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,23 @@
             this.edycjaGroupBox.Size = new System.Drawing.Size(441, 355);
             this.edycjaGroupBox.TabIndex = 0;
             this.edycjaGroupBox.TabStop = false;
+            // 
+            // hasloEdycjaTextBox
+            // 
+            this.hasloEdycjaTextBox.Location = new System.Drawing.Point(99, 195);
+            this.hasloEdycjaTextBox.Name = "hasloEdycjaTextBox";
+            this.hasloEdycjaTextBox.Size = new System.Drawing.Size(259, 29);
+            this.hasloEdycjaTextBox.TabIndex = 7;
+            // 
+            // hasloLabel
+            // 
+            this.hasloLabel.AutoSize = true;
+            this.hasloLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hasloLabel.Location = new System.Drawing.Point(23, 203);
+            this.hasloLabel.Name = "hasloLabel";
+            this.hasloLabel.Size = new System.Drawing.Size(50, 21);
+            this.hasloLabel.TabIndex = 6;
+            this.hasloLabel.Text = "hasło :";
             // 
             // anulujEdycjebutton
             // 
@@ -131,23 +148,6 @@
             this.tytulOknaEdycji.Size = new System.Drawing.Size(111, 21);
             this.tytulOknaEdycji.TabIndex = 0;
             this.tytulOknaEdycji.Text = "EDYTUJ PROFIL";
-            // 
-            // hasloLabel
-            // 
-            this.hasloLabel.AutoSize = true;
-            this.hasloLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hasloLabel.Location = new System.Drawing.Point(23, 203);
-            this.hasloLabel.Name = "hasloLabel";
-            this.hasloLabel.Size = new System.Drawing.Size(50, 21);
-            this.hasloLabel.TabIndex = 6;
-            this.hasloLabel.Text = "hasło :";
-            // 
-            // hasloEdycjaTextBox
-            // 
-            this.hasloEdycjaTextBox.Location = new System.Drawing.Point(99, 195);
-            this.hasloEdycjaTextBox.Name = "hasloEdycjaTextBox";
-            this.hasloEdycjaTextBox.Size = new System.Drawing.Size(259, 29);
-            this.hasloEdycjaTextBox.TabIndex = 7;
             // 
             // oknoEdycji
             // 

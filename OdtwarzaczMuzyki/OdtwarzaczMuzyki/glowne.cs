@@ -15,7 +15,8 @@ namespace OdtwarzaczMuzyki
         oknoEdycji _oknoEdycji;
         oknoPobierania _oknoPobierania;
         oknoLogowania _oknoLogowania;
-
+        oknoDodaniaPlaylisty _oknoDodaniaPlaylisty;
+        
         public glowne()
         {
             InitializeComponent();
@@ -35,7 +36,6 @@ namespace OdtwarzaczMuzyki
         {
             _oknoEdycji = new oknoEdycji();
             _oknoEdycji.ShowDialog();
-
         }
 
         private void pobierzZYouTubeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,6 +50,12 @@ namespace OdtwarzaczMuzyki
             _oknoLogowania.ShowDialog();
         }
 
-    
+        private void dodajPlaylisteButton_Click(object sender, EventArgs e)
+        {
+            _oknoDodaniaPlaylisty = new oknoDodaniaPlaylisty();
+            _oknoDodaniaPlaylisty.ShowDialog();
+        }
+
+      
     }
 }
