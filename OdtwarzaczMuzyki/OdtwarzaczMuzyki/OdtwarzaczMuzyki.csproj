@@ -68,6 +68,9 @@
     <Compile Include="glowne.Designer.cs">
       <DependentUpon>glowne.cs</DependentUpon>
     </Compile>
+    <Compile Include="Idane.cs" />
+    <Compile Include="Ilogowanie.cs" />
+    <Compile Include="Iplik.cs" />
     <Compile Include="oknoDodaniaPlaylisty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +97,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utwor.cs" />
+    <Compile Include="uzytkownik.cs" />
     <EmbeddedResource Include="glowne.resx">
       <DependentUpon>glowne.cs</DependentUpon>
     </EmbeddedResource>
