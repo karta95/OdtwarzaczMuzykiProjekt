@@ -47,6 +47,7 @@
             this.dodajPlaylisteButton.TabIndex = 0;
             this.dodajPlaylisteButton.Text = "dodaj";
             this.dodajPlaylisteButton.UseVisualStyleBackColor = true;
+            this.dodajPlaylisteButton.Click += new System.EventHandler(this.dodajPlaylisteButton_Click);
             // 
             // anulujDodawanieButton
             // 
