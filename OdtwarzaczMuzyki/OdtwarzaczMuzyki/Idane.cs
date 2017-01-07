@@ -9,10 +9,10 @@ namespace OdtwarzaczMuzyki
     interface Idane
     {
         void UtworzPlayliste(string nazwa, int userid);
-        void DodajDoPlaylisty(int idListy, List<string> listaUtworow);
+        void DodajDoPlaylisty(Utwor utwor);
         void UsunZPlaylisty(int idListy, List<Utwor> listaUtworow);
         List<string> PobierzPlaylisty(int idUzytkownika);
         List<Utwor> PobierzUtworyZPlaylisty(int idPlaylist);
-        void UsunPlayliste(string nazwa, int iduzytkownika);
+        void UsunPlayliste(int idPlaylisty);
     }
 }

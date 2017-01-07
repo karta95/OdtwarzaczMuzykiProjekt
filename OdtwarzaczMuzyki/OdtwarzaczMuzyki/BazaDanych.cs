@@ -39,9 +39,23 @@ namespace OdtwarzaczMuzyki
             }
         }
 
-        public void DodajDoPlaylisty(int idListy, List<string> listaUtworow)
+        public void DodajDoPlaylisty(Utwor utwor)
         {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var query = "INSERT INTO Utwory(Tytul,Sciezka,IdPlaylisty) VALUES(@tytul, @sciezka,@idplaylisty)";
 
+                using (var comm = new SqlCommand(query))
+                {
+                    comm.Connection = connection;
+                    connection.Open();
+                    comm.Parameters.AddWithValue("@tytul", utwor.Tytul);
+                    comm.Parameters.AddWithValue("@sciezka", utwor.Sciezka);
+                    comm.Parameters.AddWithValue("@idplaylisty", utwor.IdPlaylisty);
+                    comm.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
         }
 
         public  void UsunZPlaylisty(int idListy, List<Utwor> listaUtworow)
@@ -81,18 +95,17 @@ namespace OdtwarzaczMuzyki
             return lista;
         }
 
-        public  void UsunPlayliste(string nazwa, int iduzytkonwika)
+        public  void UsunPlayliste(int idPlaylisty)
         {
             using (var connection = new SqlConnection(connectionString))
             {
-                var query = "DELETE FROM Playlista Where Nazwa = @nazwa AND IdUzytkownika = @userid";
+                var query = "DELETE FROM Playlista Where IdPlaylista = @id";
 
                 using (var comm = new SqlCommand(query))
                 {
                     comm.Connection = connection;
                     connection.Open();
-                    comm.Parameters.AddWithValue("@nazwa", nazwa);
-                    comm.Parameters.AddWithValue("@userid", iduzytkonwika);
+                    comm.Parameters.AddWithValue("@id", idPlaylisty);
                     comm.ExecuteNonQuery();
                     connection.Close();
                 }
