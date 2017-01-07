@@ -14,7 +14,7 @@ namespace OdtwarzaczMuzyki
 {
     public partial class oknoDodaniaPlaylisty : Form
     {
-
+        BazaDanych baza = new BazaDanych();
         public oknoDodaniaPlaylisty()
         {
             InitializeComponent();
@@ -22,17 +22,32 @@ namespace OdtwarzaczMuzyki
 
         private void dodajPlaylisteButton_Click(object sender, EventArgs e)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["OdtwarzaczMuzyki.Properties.Settings.DatabaseConnectionString"].ConnectionString;
-
-            var query = "INSERT INTO Playlista Values (@Nazwa)";
-            using (SqlConnection conn = new SqlConnection(connectionString))   
-            using (SqlCommand command = new SqlCommand(query, conn))
-                {
-                    conn.Open();
-                    command.Parameters.AddWithValue("@Nazwa", nowaPlaylistaTextBox.Text);
-                    command.ExecuteNonQuery();
-                    conn.Close();
-                }
+            if (nowaPlaylistaTextBox.Text == "")
+            {
+                MessageBox.Show("Proszę wpisać nazwę playlisty!");
             }
+            else
+            {
+                baza.UtworzPlayliste(nowaPlaylistaTextBox.Text, 3);
+
+                this.Close();
+            }
+            
+            
+            
+            
+            
+            //string connectionString = ConfigurationManager.ConnectionStrings["OdtwarzaczMuzyki.Properties.Settings.DatabaseConnectionString"].ConnectionString;
+
+            //var query = "INSERT INTO Playlista Values (@Nazwa)";
+            //using (SqlConnection conn = new SqlConnection(connectionString))   
+            //using (SqlCommand command = new SqlCommand(query, conn))
+            //    {
+            //        conn.Open();
+            //        command.Parameters.AddWithValue("@Nazwa", nowaPlaylistaTextBox.Text);
+            //        command.ExecuteNonQuery();
+            //        conn.Close();
+            //    }
         }
     }
+ }

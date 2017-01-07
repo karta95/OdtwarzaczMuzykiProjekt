@@ -8,11 +8,11 @@ namespace OdtwarzaczMuzyki
 {
     interface Idane
     {
-        void UtworzPlayliste(string nazwa);
+        void UtworzPlayliste(string nazwa, int userid);
         void DodajDoPlaylisty(int idListy, List<string> listaUtworow);
         void UsunZPlaylisty(int idListy, List<Utwor> listaUtworow);
         List<string> PobierzPlaylisty(int idUzytkownika);
         List<Utwor> PobierzUtworyZPlaylisty(int idPlaylist);
-        void UsunPlayliste(int idPlaylisty);
+        void UsunPlayliste(string nazwa, int iduzytkownika);
     }
 }
