@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using WMPLib;
 using System.IO;
 
+
 namespace OdtwarzaczMuzyki
 {
     public partial class glowne : Form
@@ -20,10 +21,12 @@ namespace OdtwarzaczMuzyki
         oknoDodaniaPlaylisty _oknoDodaniaPlaylisty;
         BazaDanych baza = new BazaDanych();
         WindowsMediaPlayer player = new WindowsMediaPlayer();
+        int pikseleNaSekunde;
         public glowne()
         {
             InitializeComponent();
             OdswiezPlaylisty();
+            player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
         }
 
         private void main_Load(object sender, EventArgs e)
@@ -34,14 +37,37 @@ namespace OdtwarzaczMuzyki
             this.playlistaTableAdapter1.Fill(this.playlistyBinding.Playlista);
             // TODO: This line of code loads data into the 'databaseDataSet1.Playlista' table. You can move, or remove it, as needed.
             this.playlistaTableAdapter.Fill(this.databaseDataSet1.Playlista);
-
+            //dataGridPlaylisty.ClearSelection();
         }
 
         private void main_Resize(object sender, EventArgs e)
         {
     
         }
+        private void player_PlayStateChange(int NewState)
+        {
+           
+            if (NewState ==3 )
+            {
+                pikseleNaSekunde = (int)((pasekOdtwarzania.Width - suwak.Width) / player.controls.currentItem.duration);
+                czasTrwania_label.Text = player.controls.currentItem.durationString;
+            }
 
+            if (NewState == 8)
+            {
+                dataGridUtwory.Rows[0].Selected = false;
+                dataGridUtwory.Rows[3].Selected = true;
+                dataGridUtwory.CurrentCell = dataGridUtwory.Rows[2].Cells[1];
+                //int i = dataGridUtwory.CurrentRow.Index + 1;
+                //dataGridUtwory.CurrentCell = dataGridUtwory[1, i];
+                //timer1.Enabled = true;
+                //player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
+                //suwak.Location = new Point(0, 0);
+                //czasOdtwarzania.Text = "00:00";
+                
+                //player.controls.play();
+            }
+        }
         private void mójProfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _oknoEdycji = new oknoEdycji();
@@ -122,26 +148,61 @@ namespace OdtwarzaczMuzyki
 
         private void dataGridUtwory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //MessageBox.Show(dataGridUtwory.Rows[e.RowIndex].Cells[2].Value.ToString());
-            player.URL = dataGridUtwory.Rows[e.RowIndex].Cells[2].Value.ToString().Replace(@"\\", @"\");
         }
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            if (File.Exists(player.URL)) ;
+            if (File.Exists(player.URL)) 
             {
                 player.controls.play();
+                timer1.Enabled = true;
             }
         }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
             player.controls.stop();
+            timer1.Enabled = false;
         }
 
         private void pauzaButton_Click(object sender, EventArgs e)
         {
             player.controls.pause();
+            timer1.Enabled = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            czasOdtwarzania.Text = player.controls.currentPositionString;
+            //suwak.Location = new Point(suwak.Location.X + pikseleNaSekunde, 0);
+            suwak.Location = new Point((int)(player.controls.currentPosition * pikseleNaSekunde), 0);
+
+        }
+
+        private void dataGridUtwory_SelectionChanged(object sender, EventArgs e)
+        {
+            timer1.Enabled = true;
+            player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
+            suwak.Location = new Point(0, 0);
+            czasOdtwarzania.Text = "00:00";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void pasekOdtwarzania_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Location.X + suwak.Width <= pasekOdtwarzania.Width)
+            {
+                suwak.Location = new Point(e.Location.X, 0);
+                player.controls.currentPosition = e.Location.X / pikseleNaSekunde;
+            }
+
+            
         }
     }
 }

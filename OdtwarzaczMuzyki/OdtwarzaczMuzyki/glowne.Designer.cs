@@ -45,6 +45,11 @@
             this.dodajUtworButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaUtwor = new System.Windows.Forms.TextBox();
             this.dataGridUtwory = new System.Windows.Forms.DataGridView();
+            this.idUtworDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tytulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sciezkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utworyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.databaseDataSet3 = new OdtwarzaczMuzyki.DatabaseDataSet3();
             this.nazwaPlaylistyLabel = new System.Windows.Forms.Label();
             this.mójProfilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pobierzZYouTubeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,11 +61,14 @@
             this.wyszukiwanieProfuButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
             this.dataGridPlaylisty = new System.Windows.Forms.DataGridView();
+            this.idPlaylistaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playlistaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.playlistyBinding = new OdtwarzaczMuzyki.PlaylistyBinding();
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
             this.wyszukajPlayliste = new System.Windows.Forms.Panel();
+            this.czasTrwania_label = new System.Windows.Forms.Label();
             this.odtwarzajLosowoButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.suwakGlosnosc = new System.Windows.Forms.Label();
@@ -76,19 +84,13 @@
             this.playlistaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.playlistaTableAdapter = new OdtwarzaczMuzyki.DatabaseDataSet1TableAdapters.PlaylistaTableAdapter();
             this.playlistaTableAdapter1 = new OdtwarzaczMuzyki.PlaylistyBindingTableAdapters.PlaylistaTableAdapter();
-            this.idPlaylistaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idUtworDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tytulDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sciezkaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utworyBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.databaseDataSet2 = new OdtwarzaczMuzyki.DatabaseDataSet2();
-            this.utworyTableAdapter = new OdtwarzaczMuzyki.DatabaseDataSet2TableAdapters.UtworyTableAdapter();
-            this.databaseDataSet3 = new OdtwarzaczMuzyki.DatabaseDataSet3();
-            this.utworyBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.utworyTableAdapter1 = new OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters.UtworyTableAdapter();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet3)).BeginInit();
             this.pasekMenu.SuspendLayout();
             this.playlistGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPlaylisty)).BeginInit();
@@ -100,9 +102,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // nazwaProfiluLabel
@@ -216,6 +215,7 @@
             this.dataGridUtwory.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridUtwory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridUtwory.Location = new System.Drawing.Point(17, 18);
+            this.dataGridUtwory.MultiSelect = false;
             this.dataGridUtwory.Name = "dataGridUtwory";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -230,9 +230,44 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridUtwory.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridUtwory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridUtwory.Size = new System.Drawing.Size(505, 342);
             this.dataGridUtwory.TabIndex = 0;
             this.dataGridUtwory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridUtwory_CellMouseClick);
+            this.dataGridUtwory.SelectionChanged += new System.EventHandler(this.dataGridUtwory_SelectionChanged);
+            // 
+            // idUtworDataGridViewTextBoxColumn
+            // 
+            this.idUtworDataGridViewTextBoxColumn.DataPropertyName = "IdUtwor";
+            this.idUtworDataGridViewTextBoxColumn.HeaderText = "IdUtwor";
+            this.idUtworDataGridViewTextBoxColumn.Name = "idUtworDataGridViewTextBoxColumn";
+            this.idUtworDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idUtworDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // tytulDataGridViewTextBoxColumn
+            // 
+            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
+            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
+            this.tytulDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sciezkaDataGridViewTextBoxColumn
+            // 
+            this.sciezkaDataGridViewTextBoxColumn.DataPropertyName = "Sciezka";
+            this.sciezkaDataGridViewTextBoxColumn.HeaderText = "Sciezka";
+            this.sciezkaDataGridViewTextBoxColumn.Name = "sciezkaDataGridViewTextBoxColumn";
+            this.sciezkaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.sciezkaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // utworyBindingSource1
+            // 
+            this.utworyBindingSource1.DataMember = "Utwory";
+            this.utworyBindingSource1.DataSource = this.databaseDataSet3;
+            // 
+            // databaseDataSet3
+            // 
+            this.databaseDataSet3.DataSetName = "DatabaseDataSet3";
+            this.databaseDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // nazwaPlaylistyLabel
             // 
@@ -384,6 +419,21 @@
             this.dataGridPlaylisty.Size = new System.Drawing.Size(333, 342);
             this.dataGridPlaylisty.TabIndex = 0;
             // 
+            // idPlaylistaDataGridViewTextBoxColumn
+            // 
+            this.idPlaylistaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaylista";
+            this.idPlaylistaDataGridViewTextBoxColumn.HeaderText = "IdPlaylista";
+            this.idPlaylistaDataGridViewTextBoxColumn.Name = "idPlaylistaDataGridViewTextBoxColumn";
+            this.idPlaylistaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPlaylistaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nazwaDataGridViewTextBoxColumn
+            // 
+            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
+            this.nazwaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // playlistaBindingSource1
             // 
             this.playlistaBindingSource1.DataMember = "Playlista";
@@ -399,7 +449,7 @@
             this.terazOdtwarzaneNazwa.AutoSize = true;
             this.terazOdtwarzaneNazwa.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.terazOdtwarzaneNazwa.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.terazOdtwarzaneNazwa.Location = new System.Drawing.Point(108, 25);
+            this.terazOdtwarzaneNazwa.Location = new System.Drawing.Point(86, 25);
             this.terazOdtwarzaneNazwa.Name = "terazOdtwarzaneNazwa";
             this.terazOdtwarzaneNazwa.Size = new System.Drawing.Size(118, 21);
             this.terazOdtwarzaneNazwa.TabIndex = 1;
@@ -410,16 +460,17 @@
             this.czasOdtwarzania.AutoSize = true;
             this.czasOdtwarzania.Font = new System.Drawing.Font("Segoe Print", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.czasOdtwarzania.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.czasOdtwarzania.Location = new System.Drawing.Point(134, 46);
+            this.czasOdtwarzania.Location = new System.Drawing.Point(86, 46);
             this.czasOdtwarzania.Name = "czasOdtwarzania";
-            this.czasOdtwarzania.Size = new System.Drawing.Size(66, 24);
+            this.czasOdtwarzania.Size = new System.Drawing.Size(54, 24);
             this.czasOdtwarzania.TabIndex = 2;
-            this.czasOdtwarzania.Text = "00 : 00";
+            this.czasOdtwarzania.Text = "00:00";
             // 
             // wyszukajPlayliste
             // 
             this.wyszukajPlayliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.wyszukajPlayliste.Controls.Add(this.czasTrwania_label);
             this.wyszukajPlayliste.Controls.Add(this.odtwarzajLosowoButton);
             this.wyszukajPlayliste.Controls.Add(this.pictureBox2);
             this.wyszukajPlayliste.Controls.Add(this.suwakGlosnosc);
@@ -436,6 +487,18 @@
             this.wyszukajPlayliste.Name = "wyszukajPlayliste";
             this.wyszukajPlayliste.Size = new System.Drawing.Size(868, 84);
             this.wyszukajPlayliste.TabIndex = 7;
+            // 
+            // czasTrwania_label
+            // 
+            this.czasTrwania_label.AutoSize = true;
+            this.czasTrwania_label.Font = new System.Drawing.Font("Segoe Print", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.czasTrwania_label.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.czasTrwania_label.Location = new System.Drawing.Point(148, 46);
+            this.czasTrwania_label.Name = "czasTrwania_label";
+            this.czasTrwania_label.Size = new System.Drawing.Size(54, 24);
+            this.czasTrwania_label.TabIndex = 11;
+            this.czasTrwania_label.Text = "00:00";
+            this.czasTrwania_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // odtwarzajLosowoButton
             // 
@@ -531,10 +594,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pasekOdtwarzania.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.pasekOdtwarzania.Controls.Add(this.suwak);
-            this.pasekOdtwarzania.Location = new System.Drawing.Point(3, 8);
+            this.pasekOdtwarzania.Location = new System.Drawing.Point(3, 3);
             this.pasekOdtwarzania.Name = "pasekOdtwarzania";
             this.pasekOdtwarzania.Size = new System.Drawing.Size(859, 4);
             this.pasekOdtwarzania.TabIndex = 3;
+            this.pasekOdtwarzania.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pasekOdtwarzania_MouseClick);
             // 
             // suwak
             // 
@@ -542,7 +606,7 @@
             this.suwak.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.suwak.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.suwak.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.suwak.Location = new System.Drawing.Point(23, -8);
+            this.suwak.Location = new System.Drawing.Point(0, 0);
             this.suwak.Name = "suwak";
             this.suwak.Size = new System.Drawing.Size(37, 15);
             this.suwak.TabIndex = 4;
@@ -566,71 +630,18 @@
             // 
             this.playlistaTableAdapter1.ClearBeforeFill = true;
             // 
-            // idPlaylistaDataGridViewTextBoxColumn
-            // 
-            this.idPlaylistaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaylista";
-            this.idPlaylistaDataGridViewTextBoxColumn.HeaderText = "IdPlaylista";
-            this.idPlaylistaDataGridViewTextBoxColumn.Name = "idPlaylistaDataGridViewTextBoxColumn";
-            this.idPlaylistaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idPlaylistaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nazwaDataGridViewTextBoxColumn
-            // 
-            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
-            this.nazwaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idUtworDataGridViewTextBoxColumn
-            // 
-            this.idUtworDataGridViewTextBoxColumn.DataPropertyName = "IdUtwor";
-            this.idUtworDataGridViewTextBoxColumn.HeaderText = "IdUtwor";
-            this.idUtworDataGridViewTextBoxColumn.Name = "idUtworDataGridViewTextBoxColumn";
-            this.idUtworDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idUtworDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // tytulDataGridViewTextBoxColumn
-            // 
-            this.tytulDataGridViewTextBoxColumn.DataPropertyName = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
-            this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
-            this.tytulDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sciezkaDataGridViewTextBoxColumn
-            // 
-            this.sciezkaDataGridViewTextBoxColumn.DataPropertyName = "Sciezka";
-            this.sciezkaDataGridViewTextBoxColumn.HeaderText = "Sciezka";
-            this.sciezkaDataGridViewTextBoxColumn.Name = "sciezkaDataGridViewTextBoxColumn";
-            this.sciezkaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sciezkaDataGridViewTextBoxColumn.Visible = false;
-            // 
             // utworyBindingSource
             // 
             this.utworyBindingSource.DataMember = "Utwory";
-            this.utworyBindingSource.DataSource = this.databaseDataSet2;
-            // 
-            // databaseDataSet2
-            // 
-            this.databaseDataSet2.DataSetName = "DatabaseDataSet2";
-            this.databaseDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // utworyTableAdapter
-            // 
-            this.utworyTableAdapter.ClearBeforeFill = true;
-            // 
-            // databaseDataSet3
-            // 
-            this.databaseDataSet3.DataSetName = "DatabaseDataSet3";
-            this.databaseDataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // utworyBindingSource1
-            // 
-            this.utworyBindingSource1.DataMember = "Utwory";
-            this.utworyBindingSource1.DataSource = this.databaseDataSet3;
             // 
             // utworyTableAdapter1
             // 
             this.utworyTableAdapter1.ClearBeforeFill = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // glowne
             // 
@@ -653,6 +664,8 @@
             this.utworyGroupBox.ResumeLayout(false);
             this.utworyGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet3)).EndInit();
             this.pasekMenu.ResumeLayout(false);
             this.pasekMenu.PerformLayout();
             this.playlistGroupBox.ResumeLayout(false);
@@ -668,9 +681,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -715,9 +725,7 @@
         private PlaylistyBinding playlistyBinding;
         private System.Windows.Forms.BindingSource playlistaBindingSource1;
         private PlaylistyBindingTableAdapters.PlaylistaTableAdapter playlistaTableAdapter1;
-        private DatabaseDataSet2 databaseDataSet2;
         private System.Windows.Forms.BindingSource utworyBindingSource;
-        private DatabaseDataSet2TableAdapters.UtworyTableAdapter utworyTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPlaylistaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUtworDataGridViewTextBoxColumn;
@@ -726,6 +734,8 @@
         private DatabaseDataSet3 databaseDataSet3;
         private System.Windows.Forms.BindingSource utworyBindingSource1;
         private DatabaseDataSet3TableAdapters.UtworyTableAdapter utworyTableAdapter1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label czasTrwania_label;
     }
 }
 
