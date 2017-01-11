@@ -9,7 +9,7 @@ using OdtwarzaczMuzyki.Properties;
 
 namespace OdtwarzaczMuzyki
 {
-    class BazaDanych : Idane
+    class BazaDanych : Idane, Ilogowanie
     {
         string connectionString = ConfigurationManager.ConnectionStrings["OdtwarzaczMuzyki.Properties.Settings.DatabaseConnectionString"].ConnectionString;
             
@@ -58,9 +58,21 @@ namespace OdtwarzaczMuzyki
             }
         }
 
-        public  void UsunZPlaylisty(int idListy, List<Utwor> listaUtworow)
+        public void UsunUtworZPlaylisty(int idUtworu)
         {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var query = "DELETE FROM Utwory Where IdUtwor = @id";
 
+                using (var comm = new SqlCommand(query))
+                {
+                    comm.Connection = connection;
+                    connection.Open();
+                    comm.Parameters.AddWithValue("@id", idUtworu);
+                    comm.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
         }
 
         public  List<string> PobierzPlaylisty(int idUzytkownika)
@@ -112,5 +124,39 @@ namespace OdtwarzaczMuzyki
             }
         }
 
+        public int Zaloguj(string login, string haslo)
+        {
+            int id = -1;
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var query = "SELECT idUzytkownika FROM Uzytkownicy WHERE Login = @login AND Haslo =@haslo";
+
+                using (var comm = new SqlCommand(query))
+                {
+                    comm.Connection = connection;
+                    connection.Open();
+                    comm.Parameters.AddWithValue("@login", login);
+                    comm.Parameters.AddWithValue("@haslo", haslo);
+                    var odczytane = comm.ExecuteScalar();
+                    if (odczytane != null)
+                    {
+                        id = (int)odczytane;
+
+                    }
+                    connection.Close();
+                }
+            }
+                return id;
+            
+         }
+
+        public void Wyloguj(Uzytkownik uzytkownik)
+        {
+            throw new NotImplementedException();
+        }
     }
+
+        
+    
 }

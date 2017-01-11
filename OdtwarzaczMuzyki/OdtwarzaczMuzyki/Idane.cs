@@ -10,7 +10,7 @@ namespace OdtwarzaczMuzyki
     {
         void UtworzPlayliste(string nazwa, int userid);
         void DodajDoPlaylisty(Utwor utwor);
-        void UsunZPlaylisty(int idListy, List<Utwor> listaUtworow);
+        void UsunUtworZPlaylisty(int idUtworu);
         List<string> PobierzPlaylisty(int idUzytkownika);
         List<Utwor> PobierzUtworyZPlaylisty(int idPlaylist);
         void UsunPlayliste(int idPlaylisty);

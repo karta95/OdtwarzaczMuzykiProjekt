@@ -8,10 +8,10 @@ namespace OdtwarzaczMuzyki
 {
     interface Ilogowanie
     {
-        void UtworzKonto(Uzytkownik uzytkownik);
-        void Zaloguj(Uzytkownik uzytkownik);
+        //void UtworzKonto(Uzytkownik uzytkownik);
+        int Zaloguj(string login, string haslo);
         void Wyloguj(Uzytkownik uzytkownik);
-        void ZresetujHasło(Uzytkownik uzytkownik);
-        void ZmienHasło(int idUzytkownika);
+        //void ZresetujHasło(Uzytkownik uzytkownik);
+        //void ZmienHasło(int idUzytkownika);
     }
 }

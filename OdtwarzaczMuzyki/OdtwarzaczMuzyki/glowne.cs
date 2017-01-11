@@ -22,11 +22,23 @@ namespace OdtwarzaczMuzyki
         BazaDanych baza = new BazaDanych();
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         int pikseleNaSekunde;
+        int idUzytkownika;         
+
         public glowne()
         {
+            _oknoLogowania = new oknoLogowania();
+            _oknoLogowania.ShowDialog();
+            ShowMe();
+            idUzytkownika = _oknoLogowania.IdUzytkownika;
+            OdswiezPlaylisty();
+            OdswiezUtwory();
+            player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
+        }
+        public void ShowMe()
+        {
+            this.Visible = true;
             InitializeComponent();
             OdswiezPlaylisty();
-            player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
         }
 
         private void main_Load(object sender, EventArgs e)
@@ -121,23 +133,25 @@ namespace OdtwarzaczMuzyki
 
         private void dodajUtworButton_Click(object sender, EventArgs e)
         {
-            OpenFileDialog wyborPlikow = new OpenFileDialog();
-            wyborPlikow.Multiselect = true;
-            wyborPlikow.Filter = "MP3|*.mp3";
-            wyborPlikow.ShowDialog();
-            Utwor utwor;
-            string[] wybranePliki;
-            wybranePliki = wyborPlikow.FileNames;
-
-            foreach (var item in wybranePliki)
+            if (dataGridPlaylisty.CurrentRow != null)
             {
-                utwor = new Utwor();
-                utwor.Sciezka = item;
-                utwor.IdPlaylisty = (int)dataGridPlaylisty.Rows[dataGridPlaylisty.CurrentRow.Index].Cells[0].Value;
-                utwor.Tytul = Path.GetFileNameWithoutExtension(item);
-                baza.DodajDoPlaylisty(utwor);
-            }
+                OpenFileDialog wyborPlikow = new OpenFileDialog();
+                wyborPlikow.Multiselect = true;
+                wyborPlikow.Filter = "MP3|*.mp3";
+                wyborPlikow.ShowDialog();
+                Utwor utwor;
+                string[] wybranePliki;
+                wybranePliki = wyborPlikow.FileNames;
 
+                foreach (var item in wybranePliki)
+                {
+                    utwor = new Utwor();
+                    utwor.Sciezka = item;
+                    utwor.IdPlaylisty = (int)dataGridPlaylisty.Rows[dataGridPlaylisty.CurrentRow.Index].Cells[0].Value;
+                    utwor.Tytul = Path.GetFileNameWithoutExtension(item);
+                    baza.DodajDoPlaylisty(utwor);
+                }
+            }
             OdswiezUtwory();
         }
 
@@ -207,6 +221,17 @@ namespace OdtwarzaczMuzyki
             }
 
             
+        }
+
+        private void usunUtworButton_Click(object sender, EventArgs e)
+        {
+            int idUtworu;
+            if (dataGridUtwory.CurrentRow != null)
+            {
+                idUtworu = (int)dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[0].Value;
+                baza.UsunUtworZPlaylisty(idUtworu);
+            }
+            OdswiezUtwory();
         }
     }
 }

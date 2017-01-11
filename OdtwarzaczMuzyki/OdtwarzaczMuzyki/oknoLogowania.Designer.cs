@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oknoLogowania));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.loginLogowanieLabel = new System.Windows.Forms.Label();
-            this.hasloLogowanieLabel = new System.Windows.Forms.Label();
-            this.loginLogTextBox = new System.Windows.Forms.TextBox();
-            this.hasloLogTextBox = new System.Windows.Forms.TextBox();
-            this.tytulOknaLog = new System.Windows.Forms.Label();
-            this.zalogujButton = new System.Windows.Forms.Button();
             this.anulujLogowaniebutton = new System.Windows.Forms.Button();
+            this.zalogujButton = new System.Windows.Forms.Button();
+            this.tytulOknaLog = new System.Windows.Forms.Label();
+            this.hasloLogTextBox = new System.Windows.Forms.TextBox();
+            this.loginLogTextBox = new System.Windows.Forms.TextBox();
+            this.hasloLogowanieLabel = new System.Windows.Forms.Label();
+            this.loginLogowanieLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,43 +55,29 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // loginLogowanieLabel
+            // anulujLogowaniebutton
             // 
-            this.loginLogowanieLabel.AutoSize = true;
-            this.loginLogowanieLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.loginLogowanieLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.loginLogowanieLabel.Location = new System.Drawing.Point(91, 119);
-            this.loginLogowanieLabel.Name = "loginLogowanieLabel";
-            this.loginLogowanieLabel.Size = new System.Drawing.Size(47, 21);
-            this.loginLogowanieLabel.TabIndex = 0;
-            this.loginLogowanieLabel.Text = "login :";
+            this.anulujLogowaniebutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.anulujLogowaniebutton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.anulujLogowaniebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.anulujLogowaniebutton.Location = new System.Drawing.Point(266, 240);
+            this.anulujLogowaniebutton.Name = "anulujLogowaniebutton";
+            this.anulujLogowaniebutton.Size = new System.Drawing.Size(77, 27);
+            this.anulujLogowaniebutton.TabIndex = 6;
+            this.anulujLogowaniebutton.Text = "anuluj";
+            this.anulujLogowaniebutton.UseVisualStyleBackColor = true;
             // 
-            // hasloLogowanieLabel
+            // zalogujButton
             // 
-            this.hasloLogowanieLabel.AutoSize = true;
-            this.hasloLogowanieLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hasloLogowanieLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.hasloLogowanieLabel.Location = new System.Drawing.Point(91, 169);
-            this.hasloLogowanieLabel.Name = "hasloLogowanieLabel";
-            this.hasloLogowanieLabel.Size = new System.Drawing.Size(50, 21);
-            this.hasloLogowanieLabel.TabIndex = 1;
-            this.hasloLogowanieLabel.Text = "hasło :";
-            // 
-            // loginLogTextBox
-            // 
-            this.loginLogTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.loginLogTextBox.Location = new System.Drawing.Point(174, 111);
-            this.loginLogTextBox.Name = "loginLogTextBox";
-            this.loginLogTextBox.Size = new System.Drawing.Size(169, 29);
-            this.loginLogTextBox.TabIndex = 2;
-            // 
-            // hasloLogTextBox
-            // 
-            this.hasloLogTextBox.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hasloLogTextBox.Location = new System.Drawing.Point(174, 163);
-            this.hasloLogTextBox.Name = "hasloLogTextBox";
-            this.hasloLogTextBox.Size = new System.Drawing.Size(169, 27);
-            this.hasloLogTextBox.TabIndex = 3;
+            this.zalogujButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zalogujButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.zalogujButton.Location = new System.Drawing.Point(174, 240);
+            this.zalogujButton.Name = "zalogujButton";
+            this.zalogujButton.Size = new System.Drawing.Size(85, 28);
+            this.zalogujButton.TabIndex = 5;
+            this.zalogujButton.Text = "zaloguj";
+            this.zalogujButton.UseVisualStyleBackColor = true;
+            this.zalogujButton.Click += new System.EventHandler(this.zalogujButton_Click);
             // 
             // tytulOknaLog
             // 
@@ -104,28 +90,43 @@
             this.tytulOknaLog.TabIndex = 4;
             this.tytulOknaLog.Text = "LOGOWANIE";
             // 
-            // zalogujButton
+            // hasloLogTextBox
             // 
-            this.zalogujButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.zalogujButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.zalogujButton.Location = new System.Drawing.Point(174, 240);
-            this.zalogujButton.Name = "zalogujButton";
-            this.zalogujButton.Size = new System.Drawing.Size(85, 28);
-            this.zalogujButton.TabIndex = 5;
-            this.zalogujButton.Text = "zaloguj";
-            this.zalogujButton.UseVisualStyleBackColor = true;
+            this.hasloLogTextBox.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hasloLogTextBox.Location = new System.Drawing.Point(174, 163);
+            this.hasloLogTextBox.Name = "hasloLogTextBox";
+            this.hasloLogTextBox.Size = new System.Drawing.Size(169, 27);
+            this.hasloLogTextBox.TabIndex = 3;
             // 
-            // anulujLogowaniebutton
+            // loginLogTextBox
             // 
-            this.anulujLogowaniebutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.anulujLogowaniebutton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.anulujLogowaniebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.anulujLogowaniebutton.Location = new System.Drawing.Point(266, 240);
-            this.anulujLogowaniebutton.Name = "anulujLogowaniebutton";
-            this.anulujLogowaniebutton.Size = new System.Drawing.Size(77, 27);
-            this.anulujLogowaniebutton.TabIndex = 6;
-            this.anulujLogowaniebutton.Text = "anuluj";
-            this.anulujLogowaniebutton.UseVisualStyleBackColor = true;
+            this.loginLogTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.loginLogTextBox.Location = new System.Drawing.Point(174, 111);
+            this.loginLogTextBox.Name = "loginLogTextBox";
+            this.loginLogTextBox.Size = new System.Drawing.Size(169, 29);
+            this.loginLogTextBox.TabIndex = 2;
+            // 
+            // hasloLogowanieLabel
+            // 
+            this.hasloLogowanieLabel.AutoSize = true;
+            this.hasloLogowanieLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hasloLogowanieLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.hasloLogowanieLabel.Location = new System.Drawing.Point(91, 169);
+            this.hasloLogowanieLabel.Name = "hasloLogowanieLabel";
+            this.hasloLogowanieLabel.Size = new System.Drawing.Size(50, 21);
+            this.hasloLogowanieLabel.TabIndex = 1;
+            this.hasloLogowanieLabel.Text = "hasło :";
+            // 
+            // loginLogowanieLabel
+            // 
+            this.loginLogowanieLabel.AutoSize = true;
+            this.loginLogowanieLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.loginLogowanieLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.loginLogowanieLabel.Location = new System.Drawing.Point(91, 119);
+            this.loginLogowanieLabel.Name = "loginLogowanieLabel";
+            this.loginLogowanieLabel.Size = new System.Drawing.Size(47, 21);
+            this.loginLogowanieLabel.TabIndex = 0;
+            this.loginLogowanieLabel.Text = "login :";
             // 
             // oknoLogowania
             // 

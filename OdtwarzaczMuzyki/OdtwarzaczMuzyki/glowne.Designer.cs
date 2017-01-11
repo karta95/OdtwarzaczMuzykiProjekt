@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(glowne));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,9 +38,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(glowne));
             this.nazwaProfiluLabel = new System.Windows.Forms.Label();
             this.utworyGroupBox = new System.Windows.Forms.GroupBox();
+            this.panelWyszukaj2 = new System.Windows.Forms.Panel();
             this.usunUtworButton = new System.Windows.Forms.Button();
             this.dodajUtworButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaUtwor = new System.Windows.Forms.TextBox();
@@ -55,6 +56,7 @@
             this.pasekMenu = new System.Windows.Forms.MenuStrip();
             this.logowanieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.playlistGroupBox = new System.Windows.Forms.GroupBox();
+            this.panelWyszukaj1 = new System.Windows.Forms.Panel();
             this.usunPlaylisteButton = new System.Windows.Forms.Button();
             this.dodajPlaylisteButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
@@ -66,6 +68,9 @@
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
             this.wyszukajPlayliste = new System.Windows.Forms.Panel();
+            this.suwak = new System.Windows.Forms.Panel();
+            this.suwak1 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.czasTrwania_label = new System.Windows.Forms.Label();
             this.odtwarzajLosowoButton = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -77,7 +82,6 @@
             this.pauzaButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
             this.pasekOdtwarzania = new System.Windows.Forms.Panel();
-            this.suwak1 = new System.Windows.Forms.Label();
             this.databaseDataSet1 = new OdtwarzaczMuzyki.DatabaseDataSet1();
             this.playlistaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.playlistaTableAdapter = new OdtwarzaczMuzyki.DatabaseDataSet1TableAdapters.PlaylistaTableAdapter();
@@ -85,10 +89,6 @@
             this.utworyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.utworyTableAdapter1 = new OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters.UtworyTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.suwak = new System.Windows.Forms.Panel();
-            this.panelWyszukaj1 = new System.Windows.Forms.Panel();
-            this.panelWyszukaj2 = new System.Windows.Forms.Panel();
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource1)).BeginInit();
@@ -133,6 +133,16 @@
             this.utworyGroupBox.TabIndex = 5;
             this.utworyGroupBox.TabStop = false;
             // 
+            // panelWyszukaj2
+            // 
+            this.panelWyszukaj2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelWyszukaj2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWyszukaj2.BackgroundImage")));
+            this.panelWyszukaj2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWyszukaj2.Location = new System.Drawing.Point(6, 364);
+            this.panelWyszukaj2.Name = "panelWyszukaj2";
+            this.panelWyszukaj2.Size = new System.Drawing.Size(30, 27);
+            this.panelWyszukaj2.TabIndex = 9;
+            // 
             // usunUtworButton
             // 
             this.usunUtworButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -142,6 +152,7 @@
             this.usunUtworButton.Size = new System.Drawing.Size(20, 20);
             this.usunUtworButton.TabIndex = 8;
             this.usunUtworButton.UseVisualStyleBackColor = true;
+            this.usunUtworButton.Click += new System.EventHandler(this.usunUtworButton_Click);
             // 
             // dodajUtworButton
             // 
@@ -221,8 +232,12 @@
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridUtwory.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridUtwory.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridUtwory.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridUtwory.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dataGridUtwory.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Gray;
             this.dataGridUtwory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridUtwory.Size = new System.Drawing.Size(516, 342);
+            this.dataGridUtwory.Size = new System.Drawing.Size(508, 342);
             this.dataGridUtwory.TabIndex = 0;
             this.dataGridUtwory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridUtwory_CellMouseClick);
             this.dataGridUtwory.SelectionChanged += new System.EventHandler(this.dataGridUtwory_SelectionChanged);
@@ -325,6 +340,16 @@
             this.playlistGroupBox.Size = new System.Drawing.Size(345, 398);
             this.playlistGroupBox.TabIndex = 6;
             this.playlistGroupBox.TabStop = false;
+            // 
+            // panelWyszukaj1
+            // 
+            this.panelWyszukaj1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panelWyszukaj1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWyszukaj1.BackgroundImage")));
+            this.panelWyszukaj1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelWyszukaj1.Location = new System.Drawing.Point(6, 365);
+            this.panelWyszukaj1.Name = "panelWyszukaj1";
+            this.panelWyszukaj1.Size = new System.Drawing.Size(30, 27);
+            this.panelWyszukaj1.TabIndex = 7;
             // 
             // usunPlaylisteButton
             // 
@@ -472,6 +497,38 @@
             this.wyszukajPlayliste.Size = new System.Drawing.Size(868, 84);
             this.wyszukajPlayliste.TabIndex = 7;
             // 
+            // suwak
+            // 
+            this.suwak.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.suwak.Location = new System.Drawing.Point(0, 0);
+            this.suwak.Name = "suwak";
+            this.suwak.Size = new System.Drawing.Size(24, 4);
+            this.suwak.TabIndex = 0;
+            // 
+            // suwak1
+            // 
+            this.suwak1.AutoSize = true;
+            this.suwak1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.suwak1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.suwak1.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.suwak1.Location = new System.Drawing.Point(16, 40);
+            this.suwak1.Name = "suwak1";
+            this.suwak1.Size = new System.Drawing.Size(37, 15);
+            this.suwak1.TabIndex = 4;
+            this.suwak1.Text = "label1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.label1.Location = new System.Drawing.Point(131, 50);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(10, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "/";
+            // 
             // czasTrwania_label
             // 
             this.czasTrwania_label.AutoSize = true;
@@ -583,18 +640,6 @@
             this.pasekOdtwarzania.TabIndex = 3;
             this.pasekOdtwarzania.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pasekOdtwarzania_MouseClick);
             // 
-            // suwak1
-            // 
-            this.suwak1.AutoSize = true;
-            this.suwak1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.suwak1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.suwak1.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.suwak1.Location = new System.Drawing.Point(16, 40);
-            this.suwak1.Name = "suwak1";
-            this.suwak1.Size = new System.Drawing.Size(37, 15);
-            this.suwak1.TabIndex = 4;
-            this.suwak1.Text = "label1";
-            // 
             // databaseDataSet1
             // 
             this.databaseDataSet1.DataSetName = "DatabaseDataSet1";
@@ -625,46 +670,6 @@
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.label1.Location = new System.Drawing.Point(131, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(10, 15);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "/";
-            // 
-            // suwak
-            // 
-            this.suwak.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.suwak.Location = new System.Drawing.Point(0, 0);
-            this.suwak.Name = "suwak";
-            this.suwak.Size = new System.Drawing.Size(24, 4);
-            this.suwak.TabIndex = 0;
-            // 
-            // panelWyszukaj1
-            // 
-            this.panelWyszukaj1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelWyszukaj1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWyszukaj1.BackgroundImage")));
-            this.panelWyszukaj1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelWyszukaj1.Location = new System.Drawing.Point(6, 365);
-            this.panelWyszukaj1.Name = "panelWyszukaj1";
-            this.panelWyszukaj1.Size = new System.Drawing.Size(30, 27);
-            this.panelWyszukaj1.TabIndex = 7;
-            // 
-            // panelWyszukaj2
-            // 
-            this.panelWyszukaj2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panelWyszukaj2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panelWyszukaj2.BackgroundImage")));
-            this.panelWyszukaj2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelWyszukaj2.Location = new System.Drawing.Point(6, 364);
-            this.panelWyszukaj2.Name = "panelWyszukaj2";
-            this.panelWyszukaj2.Size = new System.Drawing.Size(30, 27);
-            this.panelWyszukaj2.TabIndex = 9;
             // 
             // glowne
             // 
