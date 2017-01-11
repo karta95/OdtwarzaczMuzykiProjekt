@@ -148,6 +148,10 @@ namespace OdtwarzaczMuzyki
 
         private void dataGridUtwory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            timer1.Enabled = true;
+            player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
+            suwak.Location = new Point(0, 0);
+            czasOdtwarzania.Text = "00:00";
         }
 
         private void playButton_Click(object sender, EventArgs e)
@@ -181,10 +185,10 @@ namespace OdtwarzaczMuzyki
 
         private void dataGridUtwory_SelectionChanged(object sender, EventArgs e)
         {
-            timer1.Enabled = true;
-            player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
-            suwak.Location = new Point(0, 0);
-            czasOdtwarzania.Text = "00:00";
+            //timer1.Enabled = true;
+            //player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
+            //suwak.Location = new Point(0, 0);
+            //czasOdtwarzania.Text = "00:00";
         }
 
         private void label1_Click(object sender, EventArgs e)
