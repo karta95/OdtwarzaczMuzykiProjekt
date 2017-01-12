@@ -321,8 +321,8 @@
             // logowanieToolStripMenuItem
             // 
             this.logowanieToolStripMenuItem.Name = "logowanieToolStripMenuItem";
-            this.logowanieToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.logowanieToolStripMenuItem.Text = "Zaloguj";
+            this.logowanieToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.logowanieToolStripMenuItem.Text = "Wyloguj";
             this.logowanieToolStripMenuItem.Click += new System.EventHandler(this.logowanieToolStripMenuItem_Click);
             // 
             // playlistGroupBox

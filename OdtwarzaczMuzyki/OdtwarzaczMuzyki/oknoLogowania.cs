@@ -15,6 +15,7 @@ namespace OdtwarzaczMuzyki
 {
     public partial class oknoLogowania : Form
     {
+        oknoRejestracji _oknoRejestracji;
         BazaDanych baza = new BazaDanych();
         int idUzytkownika;
         public int IdUzytkownika
@@ -45,6 +46,10 @@ namespace OdtwarzaczMuzyki
 
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            _oknoRejestracji = new oknoRejestracji();
+            _oknoRejestracji.ShowDialog();
+        }
     }
 }

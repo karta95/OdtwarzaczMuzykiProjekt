@@ -58,9 +58,9 @@
             this.edycjaGroupBox.Controls.Add(this.tytulOknaEdycji);
             this.edycjaGroupBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.edycjaGroupBox.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.edycjaGroupBox.Location = new System.Drawing.Point(0, -10);
+            this.edycjaGroupBox.Location = new System.Drawing.Point(0, -8);
             this.edycjaGroupBox.Name = "edycjaGroupBox";
-            this.edycjaGroupBox.Size = new System.Drawing.Size(441, 355);
+            this.edycjaGroupBox.Size = new System.Drawing.Size(440, 353);
             this.edycjaGroupBox.TabIndex = 0;
             this.edycjaGroupBox.TabStop = false;
             // 

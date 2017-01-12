@@ -19,6 +19,7 @@ namespace OdtwarzaczMuzyki
         oknoPobierania _oknoPobierania;
         oknoLogowania _oknoLogowania;
         oknoDodaniaPlaylisty _oknoDodaniaPlaylisty;
+
         BazaDanych baza = new BazaDanych();
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         int pikseleNaSekunde;
@@ -233,5 +234,6 @@ namespace OdtwarzaczMuzyki
             }
             OdswiezUtwory();
         }
+
     }
 }

@@ -37,11 +37,13 @@
             this.loginLogTextBox = new System.Windows.Forms.TextBox();
             this.hasloLogowanieLabel = new System.Windows.Forms.Label();
             this.loginLogowanieLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.anulujLogowaniebutton);
             this.groupBox1.Controls.Add(this.zalogujButton);
             this.groupBox1.Controls.Add(this.tytulOknaLog);
@@ -60,9 +62,9 @@
             this.anulujLogowaniebutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.anulujLogowaniebutton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.anulujLogowaniebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.anulujLogowaniebutton.Location = new System.Drawing.Point(266, 240);
+            this.anulujLogowaniebutton.Location = new System.Drawing.Point(266, 241);
             this.anulujLogowaniebutton.Name = "anulujLogowaniebutton";
-            this.anulujLogowaniebutton.Size = new System.Drawing.Size(77, 27);
+            this.anulujLogowaniebutton.Size = new System.Drawing.Size(77, 28);
             this.anulujLogowaniebutton.TabIndex = 6;
             this.anulujLogowaniebutton.Text = "anuluj";
             this.anulujLogowaniebutton.UseVisualStyleBackColor = true;
@@ -71,9 +73,9 @@
             // 
             this.zalogujButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.zalogujButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.zalogujButton.Location = new System.Drawing.Point(174, 240);
+            this.zalogujButton.Location = new System.Drawing.Point(190, 240);
             this.zalogujButton.Name = "zalogujButton";
-            this.zalogujButton.Size = new System.Drawing.Size(85, 28);
+            this.zalogujButton.Size = new System.Drawing.Size(70, 28);
             this.zalogujButton.TabIndex = 5;
             this.zalogujButton.Text = "zaloguj";
             this.zalogujButton.UseVisualStyleBackColor = true;
@@ -128,6 +130,18 @@
             this.loginLogowanieLabel.TabIndex = 0;
             this.loginLogowanieLabel.Text = "login :";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.button1.Location = new System.Drawing.Point(337, 309);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 28);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "utwórz profil";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // oknoLogowania
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,5 +173,6 @@
         private System.Windows.Forms.Label tytulOknaLog;
         private System.Windows.Forms.Button zalogujButton;
         private System.Windows.Forms.Button anulujLogowaniebutton;
+        private System.Windows.Forms.Button button1;
     }
 }

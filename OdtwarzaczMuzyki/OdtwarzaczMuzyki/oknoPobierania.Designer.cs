@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oknoPobierania));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tytulOknaPobierania = new System.Windows.Forms.Label();
-            this.urlLabel = new System.Windows.Forms.Label();
-            this.urlTextBox = new System.Windows.Forms.TextBox();
-            this.wybierzSciezkebutton = new System.Windows.Forms.Button();
-            this.sciezkaZapisuLabel = new System.Windows.Forms.Label();
-            this.wyswietlenieSciezkiLabel = new System.Windows.Forms.Label();
-            this.pobierzUtworButton = new System.Windows.Forms.Button();
             this.anulujPobieranieButton = new System.Windows.Forms.Button();
+            this.pobierzUtworButton = new System.Windows.Forms.Button();
+            this.wyswietlenieSciezkiLabel = new System.Windows.Forms.Label();
+            this.sciezkaZapisuLabel = new System.Windows.Forms.Label();
+            this.wybierzSciezkebutton = new System.Windows.Forms.Button();
+            this.urlTextBox = new System.Windows.Forms.TextBox();
+            this.urlLabel = new System.Windows.Forms.Label();
+            this.tytulOknaPobierania = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,49 +55,6 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // tytulOknaPobierania
-            // 
-            resources.ApplyResources(this.tytulOknaPobierania, "tytulOknaPobierania");
-            this.tytulOknaPobierania.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tytulOknaPobierania.Name = "tytulOknaPobierania";
-            // 
-            // urlLabel
-            // 
-            resources.ApplyResources(this.urlLabel, "urlLabel");
-            this.urlLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.urlLabel.Name = "urlLabel";
-            // 
-            // urlTextBox
-            // 
-            resources.ApplyResources(this.urlTextBox, "urlTextBox");
-            this.urlTextBox.Name = "urlTextBox";
-            // 
-            // wybierzSciezkebutton
-            // 
-            resources.ApplyResources(this.wybierzSciezkebutton, "wybierzSciezkebutton");
-            this.wybierzSciezkebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.wybierzSciezkebutton.Name = "wybierzSciezkebutton";
-            this.wybierzSciezkebutton.UseVisualStyleBackColor = true;
-            // 
-            // sciezkaZapisuLabel
-            // 
-            resources.ApplyResources(this.sciezkaZapisuLabel, "sciezkaZapisuLabel");
-            this.sciezkaZapisuLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.sciezkaZapisuLabel.Name = "sciezkaZapisuLabel";
-            // 
-            // wyswietlenieSciezkiLabel
-            // 
-            resources.ApplyResources(this.wyswietlenieSciezkiLabel, "wyswietlenieSciezkiLabel");
-            this.wyswietlenieSciezkiLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.wyswietlenieSciezkiLabel.Name = "wyswietlenieSciezkiLabel";
-            // 
-            // pobierzUtworButton
-            // 
-            resources.ApplyResources(this.pobierzUtworButton, "pobierzUtworButton");
-            this.pobierzUtworButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.pobierzUtworButton.Name = "pobierzUtworButton";
-            this.pobierzUtworButton.UseVisualStyleBackColor = true;
-            // 
             // anulujPobieranieButton
             // 
             this.anulujPobieranieButton.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -106,6 +63,49 @@
             this.anulujPobieranieButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.anulujPobieranieButton.Name = "anulujPobieranieButton";
             this.anulujPobieranieButton.UseVisualStyleBackColor = true;
+            // 
+            // pobierzUtworButton
+            // 
+            resources.ApplyResources(this.pobierzUtworButton, "pobierzUtworButton");
+            this.pobierzUtworButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.pobierzUtworButton.Name = "pobierzUtworButton";
+            this.pobierzUtworButton.UseVisualStyleBackColor = true;
+            // 
+            // wyswietlenieSciezkiLabel
+            // 
+            resources.ApplyResources(this.wyswietlenieSciezkiLabel, "wyswietlenieSciezkiLabel");
+            this.wyswietlenieSciezkiLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.wyswietlenieSciezkiLabel.Name = "wyswietlenieSciezkiLabel";
+            // 
+            // sciezkaZapisuLabel
+            // 
+            resources.ApplyResources(this.sciezkaZapisuLabel, "sciezkaZapisuLabel");
+            this.sciezkaZapisuLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.sciezkaZapisuLabel.Name = "sciezkaZapisuLabel";
+            // 
+            // wybierzSciezkebutton
+            // 
+            resources.ApplyResources(this.wybierzSciezkebutton, "wybierzSciezkebutton");
+            this.wybierzSciezkebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.wybierzSciezkebutton.Name = "wybierzSciezkebutton";
+            this.wybierzSciezkebutton.UseVisualStyleBackColor = true;
+            // 
+            // urlTextBox
+            // 
+            resources.ApplyResources(this.urlTextBox, "urlTextBox");
+            this.urlTextBox.Name = "urlTextBox";
+            // 
+            // urlLabel
+            // 
+            resources.ApplyResources(this.urlLabel, "urlLabel");
+            this.urlLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.urlLabel.Name = "urlLabel";
+            // 
+            // tytulOknaPobierania
+            // 
+            resources.ApplyResources(this.tytulOknaPobierania, "tytulOknaPobierania");
+            this.tytulOknaPobierania.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tytulOknaPobierania.Name = "tytulOknaPobierania";
             // 
             // oknoPobierania
             // 
