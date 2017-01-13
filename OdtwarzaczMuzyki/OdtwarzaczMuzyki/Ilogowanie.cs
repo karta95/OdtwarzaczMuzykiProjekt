@@ -12,6 +12,6 @@ namespace OdtwarzaczMuzyki
         int Zaloguj(string login, string haslo);
         void Wyloguj(Uzytkownik uzytkownik);
         //void ZresetujHasło(Uzytkownik uzytkownik);
-        //void ZmienHasło(int idUzytkownika);
+        void EdytujKonto(int idUzytkownika, string nowyLogin, string noweHaslo, string nowyEmail);
     }
 }

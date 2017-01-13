@@ -51,5 +51,12 @@ namespace OdtwarzaczMuzyki
             _oknoRejestracji = new oknoRejestracji();
             _oknoRejestracji.ShowDialog();
         }
+
+        private void anulujLogowaniebutton_Click(object sender, EventArgs e)
+        {
+             this.Visible = false;
+            // tu program powinien sie zamykać
+
+        }
     }
 }

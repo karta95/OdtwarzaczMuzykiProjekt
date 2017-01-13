@@ -12,7 +12,7 @@ namespace OdtwarzaczMuzyki
     class BazaDanych : Idane, Ilogowanie
     {
         string connectionString = ConfigurationManager.ConnectionStrings["OdtwarzaczMuzyki.Properties.Settings.DatabaseConnectionString"].ConnectionString;
-            
+
         public void UtworzPlayliste(string nazwa, int userid)
         {
             //var query = "INSERT INTO Playlista(Nazwa,IdUzytkownika) VALUES(@nazwa, @userid)";
@@ -75,7 +75,7 @@ namespace OdtwarzaczMuzyki
             }
         }
 
-        public  List<string> PobierzPlaylisty(int idUzytkownika)
+        public List<string> PobierzPlaylisty(int idUzytkownika)
         {
             List<string> listaPlaylist = new List<string>();
             using (var connection = new SqlConnection(connectionString))
@@ -101,13 +101,13 @@ namespace OdtwarzaczMuzyki
 
         }
 
-        public  List<Utwor> PobierzUtworyZPlaylisty(int idPlaylist)
+        public List<Utwor> PobierzUtworyZPlaylisty(int idPlaylist)
         {
             List<Utwor> lista = new List<Utwor>();
             return lista;
         }
 
-        public  void UsunPlayliste(int idPlaylisty)
+        public void UsunPlayliste(int idPlaylisty)
         {
             using (var connection = new SqlConnection(connectionString))
             {
@@ -147,9 +147,9 @@ namespace OdtwarzaczMuzyki
                     connection.Close();
                 }
             }
-                return id;
-            
-         }
+            return id;
+
+        }
 
         public void Wyloguj(Uzytkownik uzytkownik)
         {
@@ -167,7 +167,7 @@ namespace OdtwarzaczMuzyki
                 {
                     comm.Connection = connection;
                     connection.Open();
-                    comm.Parameters.AddWithValue("@login",uzytkownik.Login);
+                    comm.Parameters.AddWithValue("@login", uzytkownik.Login);
                     comm.Parameters.AddWithValue("@haslo", uzytkownik.Haslo);
                     comm.Parameters.AddWithValue("@email", uzytkownik.Email);
                     comm.ExecuteNonQuery();
@@ -199,8 +199,51 @@ namespace OdtwarzaczMuzyki
             return czyIstnieje;
 
         }
-    }
 
+        public void EdytujKonto(int idUzytkownika, string nowyLogin, string noweHaslo, string nowyEmail)
+        {
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var query = "UPDATE Uzytkownicy SET Login =@login ,Haslo =@haslo ,Email = @email WHERE IdUzytkownika =@id ";
+
+                using (var comm = new SqlCommand(query))
+                {
+                    comm.Connection = connection;
+                    connection.Open();
+                    comm.Parameters.AddWithValue("@login", nowyLogin);
+                    comm.Parameters.AddWithValue("@haslo", noweHaslo);
+                    comm.Parameters.AddWithValue("@email", nowyEmail);
+                    comm.Parameters.AddWithValue("@id", idUzytkownika);
+                    comm.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+        public Uzytkownik ZwrocUzytkownikaZBazy(int ID)
+        {
+            Uzytkownik pobrany = new Uzytkownik();
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var query = "SELECT * FROM Uzytkownicy WHERE IdUzytkownika = @idUzytkownika";
+
+                using (var comm = new SqlCommand(query))
+                {
+                    comm.Connection = connection;
+                    connection.Open();
+                    comm.Parameters.AddWithValue("@idUzytkownika", ID);
+                    var dr = comm.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        pobrany.Login = dr["Login"].ToString();
+                        pobrany.Haslo = dr["Haslo"].ToString();
+                        pobrany.Email = dr["Email"].ToString();
+                    }
+                    connection.Close();
+                }
+                return pobrany;
+            }
+        }
+    }
         
     
 }

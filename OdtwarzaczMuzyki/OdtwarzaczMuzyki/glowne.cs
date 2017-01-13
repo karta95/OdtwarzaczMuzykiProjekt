@@ -15,11 +15,17 @@ namespace OdtwarzaczMuzyki
 {
     public partial class glowne : Form
     {
+        public int IdUzytkownika
+        {
+            get
+            {
+                return idUzytkownika;
+            }
+        }
         oknoEdycji _oknoEdycji;
         oknoPobierania _oknoPobierania;
         oknoLogowania _oknoLogowania;
-        oknoDodaniaPlaylisty _oknoDodaniaPlaylisty;
-
+        oknoDodaniaPlaylisty _oknoDodaniaPlaylisty;        
         BazaDanych baza = new BazaDanych();
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         int pikseleNaSekunde;
@@ -31,6 +37,7 @@ namespace OdtwarzaczMuzyki
             _oknoLogowania.ShowDialog();
             ShowMe();
             idUzytkownika = _oknoLogowania.IdUzytkownika;
+            nazwaProfiluLabel.Text = Convert.ToString(IdUzytkownika);
             OdswiezPlaylisty();
             OdswiezUtwory();
             player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
@@ -83,7 +90,8 @@ namespace OdtwarzaczMuzyki
         }
         private void mójProfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _oknoEdycji = new oknoEdycji();
+          //  this.Visible = false;
+            _oknoEdycji = new oknoEdycji(IdUzytkownika);
             _oknoEdycji.ShowDialog();
         }
 
@@ -95,8 +103,11 @@ namespace OdtwarzaczMuzyki
 
         private void logowanieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _oknoLogowania = new oknoLogowania();
-            _oknoLogowania.ShowDialog();
+            //_oknoLogowania = new oknoLogowania();
+            //_oknoLogowania.ShowDialog();
+            this.Visible = false;
+            glowne noweOkno = new glowne();
+
         }
 
         private void dodajPlaylisteButton_Click(object sender, EventArgs e)

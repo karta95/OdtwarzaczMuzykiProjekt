@@ -41,6 +41,8 @@ namespace OdtwarzaczMuzyki
                 {
                     baza.UtworzKonto(nowyUzytkownik);
                     MessageBox.Show("Stworzono profil o nazwie: " + nowyUzytkownik.Login);
+                    this.Visible = false;
+
                 }
                 else
                 {

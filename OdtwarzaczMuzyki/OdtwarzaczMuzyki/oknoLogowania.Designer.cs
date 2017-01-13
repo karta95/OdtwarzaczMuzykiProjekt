@@ -80,6 +80,7 @@
             this.anulujLogowaniebutton.TabIndex = 6;
             this.anulujLogowaniebutton.Text = "anuluj";
             this.anulujLogowaniebutton.UseVisualStyleBackColor = true;
+            this.anulujLogowaniebutton.Click += new System.EventHandler(this.anulujLogowaniebutton_Click);
             // 
             // zalogujButton
             // 

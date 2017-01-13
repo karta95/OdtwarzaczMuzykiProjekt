@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -33,12 +34,12 @@ namespace OdtwarzaczMuzyki
         {
             get
             {
-               // var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+                // var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
 
-              var regexItem = new Regex(@"^[a-z,A-Z,0-9, ą,ć,ę,ł,ń,ó,ś,ź,ż,Ą,Ć,Ę,Ł,Ń,Ó,Ś,Ź,Ż,.,-,!,@,#]*$");
+                var regexItem = new Regex(@"^[a-z,A-Z,0-9, ą,ć,ę,ł,ń,ó,ś,ź,ż,Ą,Ć,Ę,Ł,Ń,Ó,Ś,Ź,Ż,.,-,!,@,#]*$");
 
 
-            var regexEmail = new Regex(@"^[a-z0-9\._%-]+@[a-z0-9\.-]+\.[a-z]{2,4}$");
+                var regexEmail = new Regex(@"^[a-z0-9\._%-]+@[a-z0-9\.-]+\.[a-z]{2,4}$");
 
                 var isSthMissed =
                     string.IsNullOrEmpty(login)
@@ -52,11 +53,7 @@ namespace OdtwarzaczMuzyki
                     return false;
 
                 return true;
-            }
-
-            
-
-        }
-
+            }                   
+          }
     }
 }
