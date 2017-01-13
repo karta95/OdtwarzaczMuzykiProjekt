@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oknoLogowania));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.anulujLogowaniebutton = new System.Windows.Forms.Button();
             this.zalogujButton = new System.Windows.Forms.Button();
             this.tytulOknaLog = new System.Windows.Forms.Label();
@@ -37,7 +38,6 @@
             this.loginLogTextBox = new System.Windows.Forms.TextBox();
             this.hasloLogowanieLabel = new System.Windows.Forms.Label();
             this.loginLogowanieLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,6 +56,18 @@
             this.groupBox1.Size = new System.Drawing.Size(440, 348);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.button1.Location = new System.Drawing.Point(337, 309);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(92, 28);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "utwórz profil";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // anulujLogowaniebutton
             // 
@@ -97,6 +109,7 @@
             this.hasloLogTextBox.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.hasloLogTextBox.Location = new System.Drawing.Point(174, 163);
             this.hasloLogTextBox.Name = "hasloLogTextBox";
+            this.hasloLogTextBox.PasswordChar = '*';
             this.hasloLogTextBox.Size = new System.Drawing.Size(169, 27);
             this.hasloLogTextBox.TabIndex = 3;
             // 
@@ -129,18 +142,6 @@
             this.loginLogowanieLabel.Size = new System.Drawing.Size(47, 21);
             this.loginLogowanieLabel.TabIndex = 0;
             this.loginLogowanieLabel.Text = "login :";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.button1.Location = new System.Drawing.Point(337, 309);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(92, 28);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "utwórz profil";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // oknoLogowania
             // 

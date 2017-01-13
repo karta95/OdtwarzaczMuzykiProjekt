@@ -68,6 +68,7 @@
             // 
             this.hasloEdycjaTextBox.Location = new System.Drawing.Point(99, 195);
             this.hasloEdycjaTextBox.Name = "hasloEdycjaTextBox";
+            this.hasloEdycjaTextBox.PasswordChar = '*';
             this.hasloEdycjaTextBox.Size = new System.Drawing.Size(259, 29);
             this.hasloEdycjaTextBox.TabIndex = 7;
             // 
@@ -103,6 +104,7 @@
             this.zapiszZmianyButton.TabIndex = 5;
             this.zapiszZmianyButton.Text = "zapisz zmiany";
             this.zapiszZmianyButton.UseVisualStyleBackColor = true;
+            this.zapiszZmianyButton.Click += new System.EventHandler(this.zapiszZmianyButton_Click);
             // 
             // nowyEmailProfilu
             // 

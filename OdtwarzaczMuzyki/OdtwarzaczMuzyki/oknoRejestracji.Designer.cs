@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(oknoRejestracji));
             this.rejestracjaGroupBox = new System.Windows.Forms.GroupBox();
-            this.tytułOknaRejestracji = new System.Windows.Forms.Label();
-            this.nazwaProfiluLabel = new System.Windows.Forms.Label();
-            this.emailProfilLabel = new System.Windows.Forms.Label();
-            this.hasłoProfilLabel = new System.Windows.Forms.Label();
-            this.nazwaProfiluTextBox = new System.Windows.Forms.TextBox();
-            this.emailProfiluTextBox = new System.Windows.Forms.TextBox();
-            this.hasłoProfiluTextBox = new System.Windows.Forms.TextBox();
-            this.utworzProfilButton = new System.Windows.Forms.Button();
             this.anulujTworzenieButton = new System.Windows.Forms.Button();
+            this.utworzProfilButton = new System.Windows.Forms.Button();
+            this.hasłoProfiluTextBox = new System.Windows.Forms.TextBox();
+            this.emailProfiluTextBox = new System.Windows.Forms.TextBox();
+            this.nazwaProfiluTextBox = new System.Windows.Forms.TextBox();
+            this.hasłoProfilLabel = new System.Windows.Forms.Label();
+            this.emailProfilLabel = new System.Windows.Forms.Label();
+            this.nazwaProfiluLabel = new System.Windows.Forms.Label();
+            this.tytułOknaRejestracji = new System.Windows.Forms.Label();
             this.rejestracjaGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,38 +59,54 @@
             this.rejestracjaGroupBox.TabIndex = 0;
             this.rejestracjaGroupBox.TabStop = false;
             // 
-            // tytułOknaRejestracji
+            // anulujTworzenieButton
             // 
-            this.tytułOknaRejestracji.AutoSize = true;
-            this.tytułOknaRejestracji.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tytułOknaRejestracji.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tytułOknaRejestracji.Location = new System.Drawing.Point(170, 36);
-            this.tytułOknaRejestracji.Name = "tytułOknaRejestracji";
-            this.tytułOknaRejestracji.Size = new System.Drawing.Size(118, 21);
-            this.tytułOknaRejestracji.TabIndex = 0;
-            this.tytułOknaRejestracji.Text = "UTWÓRZ PROFIL";
+            this.anulujTworzenieButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.anulujTworzenieButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.anulujTworzenieButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.anulujTworzenieButton.Location = new System.Drawing.Point(331, 287);
+            this.anulujTworzenieButton.Name = "anulujTworzenieButton";
+            this.anulujTworzenieButton.Size = new System.Drawing.Size(85, 28);
+            this.anulujTworzenieButton.TabIndex = 8;
+            this.anulujTworzenieButton.Text = "anuluj";
+            this.anulujTworzenieButton.UseVisualStyleBackColor = true;
             // 
-            // nazwaProfiluLabel
+            // utworzProfilButton
             // 
-            this.nazwaProfiluLabel.AutoSize = true;
-            this.nazwaProfiluLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nazwaProfiluLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.nazwaProfiluLabel.Location = new System.Drawing.Point(23, 104);
-            this.nazwaProfiluLabel.Name = "nazwaProfiluLabel";
-            this.nazwaProfiluLabel.Size = new System.Drawing.Size(58, 21);
-            this.nazwaProfiluLabel.TabIndex = 1;
-            this.nazwaProfiluLabel.Text = "nazwa :";
+            this.utworzProfilButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.utworzProfilButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.utworzProfilButton.Location = new System.Drawing.Point(224, 287);
+            this.utworzProfilButton.Name = "utworzProfilButton";
+            this.utworzProfilButton.Size = new System.Drawing.Size(101, 28);
+            this.utworzProfilButton.TabIndex = 7;
+            this.utworzProfilButton.Text = "utwórz profil";
+            this.utworzProfilButton.UseVisualStyleBackColor = true;
+            this.utworzProfilButton.Click += new System.EventHandler(this.utworzProfilButton_Click);
             // 
-            // emailProfilLabel
+            // hasłoProfiluTextBox
             // 
-            this.emailProfilLabel.AutoSize = true;
-            this.emailProfilLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.emailProfilLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.emailProfilLabel.Location = new System.Drawing.Point(23, 155);
-            this.emailProfilLabel.Name = "emailProfilLabel";
-            this.emailProfilLabel.Size = new System.Drawing.Size(50, 21);
-            this.emailProfilLabel.TabIndex = 2;
-            this.emailProfilLabel.Text = "email :";
+            this.hasłoProfiluTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.hasłoProfiluTextBox.Location = new System.Drawing.Point(99, 195);
+            this.hasłoProfiluTextBox.Name = "hasłoProfiluTextBox";
+            this.hasłoProfiluTextBox.PasswordChar = '*';
+            this.hasłoProfiluTextBox.Size = new System.Drawing.Size(259, 29);
+            this.hasłoProfiluTextBox.TabIndex = 6;
+            // 
+            // emailProfiluTextBox
+            // 
+            this.emailProfiluTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.emailProfiluTextBox.Location = new System.Drawing.Point(99, 147);
+            this.emailProfiluTextBox.Name = "emailProfiluTextBox";
+            this.emailProfiluTextBox.Size = new System.Drawing.Size(259, 29);
+            this.emailProfiluTextBox.TabIndex = 5;
+            // 
+            // nazwaProfiluTextBox
+            // 
+            this.nazwaProfiluTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nazwaProfiluTextBox.Location = new System.Drawing.Point(99, 96);
+            this.nazwaProfiluTextBox.Name = "nazwaProfiluTextBox";
+            this.nazwaProfiluTextBox.Size = new System.Drawing.Size(259, 29);
+            this.nazwaProfiluTextBox.TabIndex = 4;
             // 
             // hasłoProfilLabel
             // 
@@ -103,52 +119,38 @@
             this.hasłoProfilLabel.TabIndex = 3;
             this.hasłoProfilLabel.Text = "hasło :";
             // 
-            // nazwaProfiluTextBox
+            // emailProfilLabel
             // 
-            this.nazwaProfiluTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.nazwaProfiluTextBox.Location = new System.Drawing.Point(99, 96);
-            this.nazwaProfiluTextBox.Name = "nazwaProfiluTextBox";
-            this.nazwaProfiluTextBox.Size = new System.Drawing.Size(259, 29);
-            this.nazwaProfiluTextBox.TabIndex = 4;
+            this.emailProfilLabel.AutoSize = true;
+            this.emailProfilLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.emailProfilLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.emailProfilLabel.Location = new System.Drawing.Point(23, 155);
+            this.emailProfilLabel.Name = "emailProfilLabel";
+            this.emailProfilLabel.Size = new System.Drawing.Size(50, 21);
+            this.emailProfilLabel.TabIndex = 2;
+            this.emailProfilLabel.Text = "email :";
             // 
-            // emailProfiluTextBox
+            // nazwaProfiluLabel
             // 
-            this.emailProfiluTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.emailProfiluTextBox.Location = new System.Drawing.Point(99, 147);
-            this.emailProfiluTextBox.Name = "emailProfiluTextBox";
-            this.emailProfiluTextBox.Size = new System.Drawing.Size(259, 29);
-            this.emailProfiluTextBox.TabIndex = 5;
+            this.nazwaProfiluLabel.AutoSize = true;
+            this.nazwaProfiluLabel.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.nazwaProfiluLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.nazwaProfiluLabel.Location = new System.Drawing.Point(23, 104);
+            this.nazwaProfiluLabel.Name = "nazwaProfiluLabel";
+            this.nazwaProfiluLabel.Size = new System.Drawing.Size(58, 21);
+            this.nazwaProfiluLabel.TabIndex = 1;
+            this.nazwaProfiluLabel.Text = "nazwa :";
             // 
-            // hasłoProfiluTextBox
+            // tytułOknaRejestracji
             // 
-            this.hasłoProfiluTextBox.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.hasłoProfiluTextBox.Location = new System.Drawing.Point(99, 195);
-            this.hasłoProfiluTextBox.Name = "hasłoProfiluTextBox";
-            this.hasłoProfiluTextBox.Size = new System.Drawing.Size(259, 29);
-            this.hasłoProfiluTextBox.TabIndex = 6;
-            // 
-            // utworzProfilButton
-            // 
-            this.utworzProfilButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.utworzProfilButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.utworzProfilButton.Location = new System.Drawing.Point(224, 287);
-            this.utworzProfilButton.Name = "utworzProfilButton";
-            this.utworzProfilButton.Size = new System.Drawing.Size(101, 28);
-            this.utworzProfilButton.TabIndex = 7;
-            this.utworzProfilButton.Text = "utwórz profil";
-            this.utworzProfilButton.UseVisualStyleBackColor = true;
-            // 
-            // anulujTworzenieButton
-            // 
-            this.anulujTworzenieButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.anulujTworzenieButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.anulujTworzenieButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.anulujTworzenieButton.Location = new System.Drawing.Point(331, 287);
-            this.anulujTworzenieButton.Name = "anulujTworzenieButton";
-            this.anulujTworzenieButton.Size = new System.Drawing.Size(85, 28);
-            this.anulujTworzenieButton.TabIndex = 8;
-            this.anulujTworzenieButton.Text = "anuluj";
-            this.anulujTworzenieButton.UseVisualStyleBackColor = true;
+            this.tytułOknaRejestracji.AutoSize = true;
+            this.tytułOknaRejestracji.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.tytułOknaRejestracji.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tytułOknaRejestracji.Location = new System.Drawing.Point(170, 36);
+            this.tytułOknaRejestracji.Name = "tytułOknaRejestracji";
+            this.tytułOknaRejestracji.Size = new System.Drawing.Size(118, 21);
+            this.tytułOknaRejestracji.TabIndex = 0;
+            this.tytułOknaRejestracji.Text = "UTWÓRZ PROFIL";
             // 
             // oknoRejestracji
             // 

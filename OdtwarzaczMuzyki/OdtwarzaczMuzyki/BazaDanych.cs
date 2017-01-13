@@ -155,6 +155,50 @@ namespace OdtwarzaczMuzyki
         {
             throw new NotImplementedException();
         }
+
+        public void UtworzKonto(Uzytkownik uzytkownik)
+        {
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var query = "INSERT INTO Uzytkownicy(Login,Haslo,Email) VALUES(@login, @haslo,@email)";
+
+                using (var comm = new SqlCommand(query))
+                {
+                    comm.Connection = connection;
+                    connection.Open();
+                    comm.Parameters.AddWithValue("@login",uzytkownik.Login);
+                    comm.Parameters.AddWithValue("@haslo", uzytkownik.Haslo);
+                    comm.Parameters.AddWithValue("@email", uzytkownik.Email);
+                    comm.ExecuteNonQuery();
+                    connection.Close();
+                }
+            }
+        }
+        public bool SprawdzCzyIstnieje(string loginUzytkownika)
+        {
+            bool czyIstnieje = false;
+            using (var connection = new SqlConnection(connectionString))
+            {
+                var query = "SELECT Login FROM Uzytkownicy WHERE Login = @login";
+
+                using (var comm = new SqlCommand(query))
+                {
+                    comm.Connection = connection;
+                    connection.Open();
+                    comm.Parameters.AddWithValue("@login", loginUzytkownika);
+                    var odczytane = comm.ExecuteScalar();
+                    if (odczytane != null)
+                    {
+                        czyIstnieje = true;
+
+                    }
+                    connection.Close();
+                }
+            }
+            return czyIstnieje;
+
+        }
     }
 
         
