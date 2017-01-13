@@ -61,8 +61,6 @@
             this.dodajPlaylisteButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
             this.dataGridPlaylisty = new System.Windows.Forms.DataGridView();
-            this.idPlaylistaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playlistaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.playlistyBinding = new OdtwarzaczMuzyki.PlaylistyBinding();
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
@@ -89,6 +87,8 @@
             this.utworyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.utworyTableAdapter1 = new OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters.UtworyTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.idPlaylistaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource1)).BeginInit();
@@ -180,6 +180,8 @@
             // 
             // dataGridUtwory
             // 
+            this.dataGridUtwory.AllowUserToResizeColumns = false;
+            this.dataGridUtwory.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -217,7 +219,6 @@
             this.dataGridUtwory.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridUtwory.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridUtwory.Location = new System.Drawing.Point(6, 18);
-            this.dataGridUtwory.MultiSelect = false;
             this.dataGridUtwory.Name = "dataGridUtwory";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -236,7 +237,6 @@
             this.dataGridUtwory.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridUtwory.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridUtwory.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Gray;
-            this.dataGridUtwory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridUtwory.Size = new System.Drawing.Size(508, 342);
             this.dataGridUtwory.TabIndex = 0;
             this.dataGridUtwory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridUtwory_CellMouseClick);
@@ -388,11 +388,12 @@
             // 
             // dataGridPlaylisty
             // 
+            this.dataGridPlaylisty.AllowUserToResizeColumns = false;
+            this.dataGridPlaylisty.AllowUserToResizeRows = false;
             this.dataGridPlaylisty.AutoGenerateColumns = false;
             this.dataGridPlaylisty.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridPlaylisty.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.dataGridPlaylisty.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridPlaylisty.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.DimGray;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe Print", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -424,21 +425,6 @@
             this.dataGridPlaylisty.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridPlaylisty.Size = new System.Drawing.Size(333, 342);
             this.dataGridPlaylisty.TabIndex = 0;
-            // 
-            // idPlaylistaDataGridViewTextBoxColumn
-            // 
-            this.idPlaylistaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaylista";
-            this.idPlaylistaDataGridViewTextBoxColumn.HeaderText = "IdPlaylista";
-            this.idPlaylistaDataGridViewTextBoxColumn.Name = "idPlaylistaDataGridViewTextBoxColumn";
-            this.idPlaylistaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idPlaylistaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nazwaDataGridViewTextBoxColumn
-            // 
-            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
-            this.nazwaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // playlistaBindingSource1
             // 
@@ -671,6 +657,22 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // idPlaylistaDataGridViewTextBoxColumn
+            // 
+            this.idPlaylistaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaylista";
+            this.idPlaylistaDataGridViewTextBoxColumn.HeaderText = "IdPlaylista";
+            this.idPlaylistaDataGridViewTextBoxColumn.Name = "idPlaylistaDataGridViewTextBoxColumn";
+            this.idPlaylistaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPlaylistaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idPlaylistaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nazwaDataGridViewTextBoxColumn
+            // 
+            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
+            this.nazwaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // glowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -750,8 +752,6 @@
         private System.Windows.Forms.BindingSource playlistaBindingSource1;
         private PlaylistyBindingTableAdapters.PlaylistaTableAdapter playlistaTableAdapter1;
         private System.Windows.Forms.BindingSource utworyBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idPlaylistaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idUtworDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tytulDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sciezkaDataGridViewTextBoxColumn;
@@ -764,6 +764,8 @@
         private System.Windows.Forms.Panel suwak;
         private System.Windows.Forms.Panel panelWyszukaj1;
         private System.Windows.Forms.Panel panelWyszukaj2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idPlaylistaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
     }
 }
 

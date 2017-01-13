@@ -37,7 +37,8 @@ namespace OdtwarzaczMuzyki
             _oknoLogowania.ShowDialog();
             ShowMe();
             idUzytkownika = _oknoLogowania.IdUzytkownika;
-            nazwaProfiluLabel.Text = Convert.ToString(IdUzytkownika);
+            Uzytkownik zalogowanyUzytkownik = baza.ZwrocUzytkownikaZBazy(idUzytkownika);
+            nazwaProfiluLabel.Text = zalogowanyUzytkownik.Login;
             OdswiezPlaylisty();
             OdswiezUtwory();
             player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);

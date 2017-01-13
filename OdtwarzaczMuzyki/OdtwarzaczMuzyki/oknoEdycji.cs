@@ -29,8 +29,6 @@ namespace OdtwarzaczMuzyki
         private void zapiszZmianyButton_Click(object sender, EventArgs e)
         {
             
-          
-
             if (baza.SprawdzCzyIstnieje(nowaNazwaProfilu.Text) == false || nowaNazwaProfilu.Text == uzytkownikObecny.Login)
             {
                 uzytkownikObecny.Login = nowaNazwaProfilu.Text;
@@ -39,8 +37,8 @@ namespace OdtwarzaczMuzyki
                 if (uzytkownikObecny.IsValid)
                 {
                     baza.EdytujKonto(idUzytkownika, uzytkownikObecny.Login, uzytkownikObecny.Haslo, uzytkownikObecny.Email);
-                    MessageBox.Show("Profil zedytowany, nowa nazwa to: " +uzytkownikObecny.Login);
-                     this.Visible = false;
+                    MessageBox.Show("Dokonano edycji, nowa nazwa to: " +uzytkownikObecny.Login);
+                    this.Visible = false;
 
                 }
                 else
