@@ -61,6 +61,8 @@
             this.dodajPlaylisteButton = new System.Windows.Forms.Button();
             this.wyszukiwarkaPlaylista = new System.Windows.Forms.TextBox();
             this.dataGridPlaylisty = new System.Windows.Forms.DataGridView();
+            this.idPlaylistaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.playlistaBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.playlistyBinding = new OdtwarzaczMuzyki.PlaylistyBinding();
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
@@ -87,8 +89,6 @@
             this.utworyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.utworyTableAdapter1 = new OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters.UtworyTableAdapter();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.idPlaylistaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nazwaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utworyGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource1)).BeginInit();
@@ -426,6 +426,22 @@
             this.dataGridPlaylisty.Size = new System.Drawing.Size(333, 342);
             this.dataGridPlaylisty.TabIndex = 0;
             // 
+            // idPlaylistaDataGridViewTextBoxColumn
+            // 
+            this.idPlaylistaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaylista";
+            this.idPlaylistaDataGridViewTextBoxColumn.HeaderText = "IdPlaylista";
+            this.idPlaylistaDataGridViewTextBoxColumn.Name = "idPlaylistaDataGridViewTextBoxColumn";
+            this.idPlaylistaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idPlaylistaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.idPlaylistaDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // nazwaDataGridViewTextBoxColumn
+            // 
+            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
+            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
+            this.nazwaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
             // playlistaBindingSource1
             // 
             this.playlistaBindingSource1.DataMember = "Playlista";
@@ -657,22 +673,6 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // idPlaylistaDataGridViewTextBoxColumn
-            // 
-            this.idPlaylistaDataGridViewTextBoxColumn.DataPropertyName = "IdPlaylista";
-            this.idPlaylistaDataGridViewTextBoxColumn.HeaderText = "IdPlaylista";
-            this.idPlaylistaDataGridViewTextBoxColumn.Name = "idPlaylistaDataGridViewTextBoxColumn";
-            this.idPlaylistaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.idPlaylistaDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.idPlaylistaDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // nazwaDataGridViewTextBoxColumn
-            // 
-            this.nazwaDataGridViewTextBoxColumn.DataPropertyName = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
-            this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
-            this.nazwaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // glowne
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,6 +688,7 @@
             this.MainMenuStrip = this.pasekMenu;
             this.MinimumSize = new System.Drawing.Size(913, 564);
             this.Name = "glowne";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Music";
             this.Load += new System.EventHandler(this.main_Load);
             this.Resize += new System.EventHandler(this.main_Resize);

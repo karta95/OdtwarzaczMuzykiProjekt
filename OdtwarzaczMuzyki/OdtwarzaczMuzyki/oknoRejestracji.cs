@@ -15,6 +15,8 @@ namespace OdtwarzaczMuzyki
     {
         BazaDanych baza = new BazaDanych();
         Uzytkownik nowyUzytkownik;
+        oknoBledu _oknoBledu;
+
         public oknoRejestracji()
         {
             InitializeComponent();
@@ -22,38 +24,32 @@ namespace OdtwarzaczMuzyki
 
         private void utworzProfilButton_Click(object sender, EventArgs e)
         {
-            //var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
 
-            //if (regexItem.IsMatch(nazwaProfiluTextBox.Text))
-            //    MessageBox.Show("Super nazwa");
-            //else
-            //{
-            //    MessageBox.Show("Niepoprawna nazwa");
-            //}
-            
             if (baza.SprawdzCzyIstnieje(nazwaProfiluTextBox.Text) == false)
             {
                 nowyUzytkownik = new Uzytkownik();
                 nowyUzytkownik.Login = nazwaProfiluTextBox.Text;
                 nowyUzytkownik.Haslo = hasłoProfiluTextBox.Text;
                 nowyUzytkownik.Email = emailProfiluTextBox.Text;
-                if (nowyUzytkownik.IsValid)
+                if (nowyUzytkownik.IsValid && nowyUzytkownik.IsEmpty)
                 {
                     baza.UtworzKonto(nowyUzytkownik);
-                    MessageBox.Show("Stworzono profil o nazwie: " + nowyUzytkownik.Login);
+                    _oknoBledu = new oknoBledu("Stworzono profil o nazwie: " + nowyUzytkownik.Login);
                     this.Visible = false;
 
                 }
-                else
+                else if (nowyUzytkownik.IsValid == false)
                 {
-                    MessageBox.Show("Nie wypełniono wszystkich pól, lub występują niepoprawne znaki");
-
+                    _oknoBledu = new oknoBledu("Niepoprawny format");
+                }
+                else 
+                {
+                    _oknoBledu = new oknoBledu("Nie wypełniono wszystkich pól");
                 }
             }
             else
             {
-                MessageBox.Show("Istnieje już profil o nazwie: " + nazwaProfiluTextBox.Text);
-
+                _oknoBledu = new oknoBledu("Istnieje już profil o nazwie: " + nazwaProfiluTextBox.Text);
             }
 
         }

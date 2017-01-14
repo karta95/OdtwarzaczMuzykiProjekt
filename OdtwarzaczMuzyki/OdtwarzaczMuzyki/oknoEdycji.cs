@@ -15,6 +15,7 @@ namespace OdtwarzaczMuzyki
         BazaDanych baza = new BazaDanych();
         int idUzytkownika;
         Uzytkownik uzytkownikObecny;
+        oknoBledu _oknoBledu;
 
         public oknoEdycji(int idUzytkownika)
         {
@@ -34,23 +35,26 @@ namespace OdtwarzaczMuzyki
                 uzytkownikObecny.Login = nowaNazwaProfilu.Text;
                 uzytkownikObecny.Haslo = hasloEdycjaTextBox.Text;
                 uzytkownikObecny.Email = nowyEmailProfilu.Text;
-                if (uzytkownikObecny.IsValid)
+
+                if (uzytkownikObecny.IsValid && uzytkownikObecny.IsEmpty)
                 {
                     baza.EdytujKonto(idUzytkownika, uzytkownikObecny.Login, uzytkownikObecny.Haslo, uzytkownikObecny.Email);
-                    MessageBox.Show("Dokonano edycji, nowa nazwa to: " +uzytkownikObecny.Login);
-                    this.Visible = false;
-
+                   _oknoBledu = new oknoBledu("Edycja poprawna");
                 }
+                else if(uzytkownikObecny.IsValid == false)
+                {
+                    _oknoBledu = new oknoBledu("Niepoprawny format");
+  
+                }
+
                 else
                 {
-                    MessageBox.Show("Nie wypełniono wszystkich pól, lub występują niepoprawne znaki");
-
+                    _oknoBledu = new oknoBledu("Nie uzupełniono wszytskich pól");
                 }
             }
             else
             {
-                MessageBox.Show("Istnieje już profil o nazwie: " + nowaNazwaProfilu.Text);
-
+                _oknoBledu = new oknoBledu("Istnieje już profil o nazwie: " + nowaNazwaProfilu.Text);             
             }
         }
     }

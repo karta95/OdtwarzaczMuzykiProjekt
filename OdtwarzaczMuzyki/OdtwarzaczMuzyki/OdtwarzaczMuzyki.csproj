@@ -92,6 +92,12 @@
     <Compile Include="Idane.cs" />
     <Compile Include="Ilogowanie.cs" />
     <Compile Include="Iplik.cs" />
+    <Compile Include="oknoBledu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="oknoBledu.Designer.cs">
+      <DependentUpon>oknoBledu.cs</DependentUpon>
+    </Compile>
     <Compile Include="oknoDodaniaPlaylisty.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     <Compile Include="uzytkownik.cs" />
     <EmbeddedResource Include="glowne.resx">
       <DependentUpon>glowne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="oknoBledu.resx">
+      <DependentUpon>oknoBledu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="oknoDodaniaPlaylisty.resx">
       <DependentUpon>oknoDodaniaPlaylisty.cs</DependentUpon>

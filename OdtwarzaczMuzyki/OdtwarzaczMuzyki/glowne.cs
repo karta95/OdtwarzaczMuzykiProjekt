@@ -38,7 +38,8 @@ namespace OdtwarzaczMuzyki
             ShowMe();
             idUzytkownika = _oknoLogowania.IdUzytkownika;
             Uzytkownik zalogowanyUzytkownik = baza.ZwrocUzytkownikaZBazy(idUzytkownika);
-            nazwaProfiluLabel.Text = zalogowanyUzytkownik.Login;
+            nazwaProfiluLabel.Text = "NAZWA PROFILU: " + zalogowanyUzytkownik.Login;
+            //nazwaPlaylistyLabel.Text = "NAZWA PLAYLISTY : " 
             OdswiezPlaylisty();
             OdswiezUtwory();
             player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
@@ -59,6 +60,7 @@ namespace OdtwarzaczMuzyki
             // TODO: This line of code loads data into the 'databaseDataSet1.Playlista' table. You can move, or remove it, as needed.
             this.playlistaTableAdapter.Fill(this.databaseDataSet1.Playlista);
             //dataGridPlaylisty.ClearSelection();
+            
         }
 
         private void main_Resize(object sender, EventArgs e)
@@ -91,7 +93,6 @@ namespace OdtwarzaczMuzyki
         }
         private void mójProfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          //  this.Visible = false;
             _oknoEdycji = new oknoEdycji(IdUzytkownika);
             _oknoEdycji.ShowDialog();
         }

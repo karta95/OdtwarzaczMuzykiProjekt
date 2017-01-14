@@ -34,18 +34,11 @@ namespace OdtwarzaczMuzyki
         {
             get
             {
-                // var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
-
                 var regexItem = new Regex(@"^[a-z,A-Z,0-9, ą,ć,ę,ł,ń,ó,ś,ź,ż,Ą,Ć,Ę,Ł,Ń,Ó,Ś,Ź,Ż,.,-,!,@,#]*$");
-
-
                 var regexEmail = new Regex(@"^[a-z0-9\._%-]+@[a-z0-9\.-]+\.[a-z]{2,4}$");
 
                 var isSthMissed =
-                    string.IsNullOrEmpty(login)
-                    || string.IsNullOrEmpty(haslo)
-                    || string.IsNullOrEmpty(email)
-                    || (regexItem.IsMatch(login) == false)
+                      (regexItem.IsMatch(login) == false)
                     || (regexItem.IsMatch(haslo) == false)
                     || (regexEmail.IsMatch(email) == false);
 
@@ -55,5 +48,20 @@ namespace OdtwarzaczMuzyki
                 return true;
             }                   
           }
+        public bool IsEmpty
+        {
+            get
+            {
+                var isSthMissed =
+                    string.IsNullOrEmpty(login)
+                    || string.IsNullOrEmpty(haslo)
+                    || string.IsNullOrEmpty(email);
+
+                if (isSthMissed)
+                    return false;
+
+                return true;
+            }
+        }
     }
 }

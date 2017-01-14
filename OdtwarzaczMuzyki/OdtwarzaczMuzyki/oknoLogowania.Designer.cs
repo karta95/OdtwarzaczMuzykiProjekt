@@ -61,7 +61,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.button1.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.button1.Location = new System.Drawing.Point(337, 309);
+            this.button1.Location = new System.Drawing.Point(251, 241);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 28);
             this.button1.TabIndex = 7;
@@ -74,11 +74,11 @@
             this.anulujLogowaniebutton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.anulujLogowaniebutton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.anulujLogowaniebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.anulujLogowaniebutton.Location = new System.Drawing.Point(266, 241);
+            this.anulujLogowaniebutton.Location = new System.Drawing.Point(365, 17);
             this.anulujLogowaniebutton.Name = "anulujLogowaniebutton";
-            this.anulujLogowaniebutton.Size = new System.Drawing.Size(77, 28);
+            this.anulujLogowaniebutton.Size = new System.Drawing.Size(64, 28);
             this.anulujLogowaniebutton.TabIndex = 6;
-            this.anulujLogowaniebutton.Text = "anuluj";
+            this.anulujLogowaniebutton.Text = "zamknij ";
             this.anulujLogowaniebutton.UseVisualStyleBackColor = true;
             this.anulujLogowaniebutton.Click += new System.EventHandler(this.anulujLogowaniebutton_Click);
             // 
@@ -86,7 +86,7 @@
             // 
             this.zalogujButton.Font = new System.Drawing.Font("Segoe Print", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.zalogujButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.zalogujButton.Location = new System.Drawing.Point(190, 240);
+            this.zalogujButton.Location = new System.Drawing.Point(175, 241);
             this.zalogujButton.Name = "zalogujButton";
             this.zalogujButton.Size = new System.Drawing.Size(70, 28);
             this.zalogujButton.TabIndex = 5;

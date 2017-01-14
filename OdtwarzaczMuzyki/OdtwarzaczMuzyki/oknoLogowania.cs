@@ -18,6 +18,8 @@ namespace OdtwarzaczMuzyki
         oknoRejestracji _oknoRejestracji;
         BazaDanych baza = new BazaDanych();
         int idUzytkownika;
+        oknoBledu _oknoBledu;
+
         public int IdUzytkownika
         {
             get
@@ -40,8 +42,7 @@ namespace OdtwarzaczMuzyki
             }
             else
             {
-                MessageBox.Show("Niepoprawny login lub hasło");
-
+                _oknoBledu = new oknoBledu("Niepoprawny login lub hasło");
             }
 
         }
@@ -54,8 +55,7 @@ namespace OdtwarzaczMuzyki
 
         private void anulujLogowaniebutton_Click(object sender, EventArgs e)
         {
-             this.Visible = false;
-            // tu program powinien sie zamykać
+             Application.Exit();
 
         }
     }
