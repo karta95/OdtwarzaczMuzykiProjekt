@@ -24,14 +24,16 @@ namespace OdtwarzaczMuzyki
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         int pikseleNaSekunde;
         int idUzytkownika;
-        int idPlalisty; 
+        int idPlalisty;
+        bool odtwarzajLosowo = false;
+        Uzytkownik zalogowanyUzytkownik;
 
         public glowne()
         {
             _oknoLogowania = new oknoLogowania();
             _oknoLogowania.ShowDialog();
             idUzytkownika = _oknoLogowania.IdUzytkownika;
-            Uzytkownik zalogowanyUzytkownik = baza.ZwrocUzytkownikaZBazy(idUzytkownika);
+            zalogowanyUzytkownik = baza.ZwrocUzytkownikaZBazy(idUzytkownika);
             ShowMe();
             nazwaProfiluLabel.Text = "NAZWA PROFILU: " + zalogowanyUzytkownik.Login;
             player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
@@ -48,42 +50,16 @@ namespace OdtwarzaczMuzyki
 
         private void main_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'databaseDataSet3.Utwory' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'playlistyBinding.Playlista' table. You can move, or remove it, as needed.
-            // TODO: This line of code loads data into the 'databaseDataSet1.Playlista' table. You can move, or remove it, as needed.
-           
+        
         }
 
-        private void main_Resize(object sender, EventArgs e)
-        {
-    
-        }
-        private void player_PlayStateChange(int NewState)
-        {
-           
-            if (NewState ==3 )
-            {
-                pikseleNaSekunde = (int)((pasekOdtwarzania.Width - suwak.Width) / player.controls.currentItem.duration);
-                czasTrwania_label.Text = player.controls.currentItem.durationString;
-            }
-
-            if (NewState == 8)
-            {
-                //dataGridUtwory.CurrentCell = dataGridUtwory.Rows[2].Cells[1];
-                //int i = dataGridUtwory.CurrentRow.Index + 1;
-                //dataGridUtwory.CurrentCell = dataGridUtwory[1, i];
-                //timer1.Enabled = true;
-                //player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
-                //suwak.Location = new Point(0, 0);
-                //czasOdtwarzania.Text = "00:00";
-                
-                //player.controls.play();
-            }
-        }
+       
         private void mójProfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _oknoEdycji = new oknoEdycji(idUzytkownika);
             _oknoEdycji.ShowDialog();
+            zalogowanyUzytkownik = baza.ZwrocUzytkownikaZBazy(idUzytkownika);
+            nazwaProfiluLabel.Text = "NAZWA PROFILU: " + zalogowanyUzytkownik.Login;
         }
 
         private void pobierzZYouTubeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -178,6 +154,32 @@ namespace OdtwarzaczMuzyki
                 timer1.Enabled = true;
             }
         }
+        private void player_PlayStateChange(int NewState)
+        {
+
+            if (NewState == 3)
+            {
+                pikseleNaSekunde = (int)((pasekOdtwarzania.Width - suwak.Width) / player.controls.currentItem.duration);
+                czasTrwania_label.Text = player.controls.currentItem.durationString;
+            }
+
+            if (NewState == 8)
+            {
+                NastepnaPiosenka();
+                //if (odtwarzajLosowo)
+                //{
+                //    Random rnd = new Random();
+                //    int indeks = rnd.Next(0, dataGridUtwory.RowCount - 1);
+                //    dataGridUtwory.CurrentCell = dataGridUtwory.Rows[indeks].Cells[1];
+                //    player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString().Replace(@"\\", @"\");
+                //    if (File.Exists(player.URL))
+                //    {
+                //        player.controls.play();
+                //        timer1.Enabled = true;
+                //    }
+                //}
+            }
+        }
 
         private void stopButton_Click(object sender, EventArgs e)
         {
@@ -224,8 +226,53 @@ namespace OdtwarzaczMuzyki
             OdswiezUtwory();
             dataGridUtwory.ClearSelection();
             dataGridUtwory.CurrentCell = null;
+            nazwaPlaylistyLabel.Text ="NAZWA PLAYLISTY: "+ (string)dataGridPlaylisty.Rows[dataGridPlaylisty.CurrentRow.Index].Cells[1].Value;
 
         }
 
+        private void wycisz_button_Click(object sender, EventArgs e)
+        {
+            player.settings.volume = 0;
+        }
+
+        private void glos_button_Click(object sender, EventArgs e)
+        {
+            player.settings.volume = 100;
+        }
+
+        private void odtwarzajLosowoButton_Click(object sender, EventArgs e)
+        {
+            odtwarzajLosowo = !odtwarzajLosowo;
+        }
+
+        private void nastepnyButton_Click(object sender, EventArgs e)
+        {
+            NastepnaPiosenka();
+        }
+
+        private void poprzedniButton_Click(object sender, EventArgs e)
+        {
+            if (dataGridUtwory.CurrentRow != null)
+            {
+                if (dataGridUtwory.CurrentRow.Index - 1 >= 0)
+                {
+                    dataGridUtwory.CurrentCell = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index - 1].Cells[1];
+                    player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString().Replace(@"\\", @"\");
+                }
+            }
+        }
+
+        void NastepnaPiosenka()
+        {
+            if (dataGridUtwory.CurrentRow != null)
+            {
+                if (dataGridUtwory.CurrentRow.Index + 1 < dataGridUtwory.RowCount)
+                {
+                    dataGridUtwory.CurrentCell = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index + 1].Cells[1];
+                    player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString().Replace(@"\\", @"\");
+                    player.controls.play();
+                }
+            }
+        }
     }
 }

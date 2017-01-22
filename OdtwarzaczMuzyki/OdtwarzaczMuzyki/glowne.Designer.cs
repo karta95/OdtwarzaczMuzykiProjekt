@@ -69,22 +69,18 @@
             this.terazOdtwarzaneNazwa = new System.Windows.Forms.Label();
             this.czasOdtwarzania = new System.Windows.Forms.Label();
             this.wyszukajPlayliste = new System.Windows.Forms.Panel();
+            this.glos_button = new System.Windows.Forms.Button();
+            this.wycisz_button = new System.Windows.Forms.Button();
             this.suwak = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.czasTrwania_label = new System.Windows.Forms.Label();
-            this.odtwarzajLosowoButton = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.suwakGlosnosc = new System.Windows.Forms.Label();
-            this.pasekGlosnosc = new System.Windows.Forms.Panel();
             this.nastepnyButton = new System.Windows.Forms.Button();
             this.poprzedniButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.pauzaButton = new System.Windows.Forms.Button();
             this.playButton = new System.Windows.Forms.Button();
             this.pasekOdtwarzania = new System.Windows.Forms.Panel();
-            this.databaseDataSet1 = new OdtwarzaczMuzyki.DatabaseDataSet1();
             this.playlistaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.playlistaTableAdapter = new OdtwarzaczMuzyki.DatabaseDataSet1TableAdapters.PlaylistaTableAdapter();
             this.playlistaTableAdapter1 = new OdtwarzaczMuzyki.PlaylistyBindingTableAdapters.PlaylistaTableAdapter();
             this.utworyBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.utworyTableAdapter1 = new OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters.UtworyTableAdapter();
@@ -99,8 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.playlistaBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playlistyBinding)).BeginInit();
             this.wyszukajPlayliste.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -256,6 +250,7 @@
             this.tytulDataGridViewTextBoxColumn.HeaderText = "Tytul";
             this.tytulDataGridViewTextBoxColumn.Name = "tytulDataGridViewTextBoxColumn";
             this.tytulDataGridViewTextBoxColumn.ReadOnly = true;
+            this.tytulDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // sciezkaDataGridViewTextBoxColumn
             // 
@@ -459,6 +454,7 @@
             this.nazwaDataGridViewTextBoxColumn.HeaderText = "Nazwa";
             this.nazwaDataGridViewTextBoxColumn.Name = "nazwaDataGridViewTextBoxColumn";
             this.nazwaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nazwaDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // playlistaBindingSource1
             // 
@@ -496,13 +492,11 @@
             // 
             this.wyszukajPlayliste.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.wyszukajPlayliste.Controls.Add(this.glos_button);
+            this.wyszukajPlayliste.Controls.Add(this.wycisz_button);
             this.wyszukajPlayliste.Controls.Add(this.suwak);
             this.wyszukajPlayliste.Controls.Add(this.label1);
             this.wyszukajPlayliste.Controls.Add(this.czasTrwania_label);
-            this.wyszukajPlayliste.Controls.Add(this.odtwarzajLosowoButton);
-            this.wyszukajPlayliste.Controls.Add(this.pictureBox2);
-            this.wyszukajPlayliste.Controls.Add(this.suwakGlosnosc);
-            this.wyszukajPlayliste.Controls.Add(this.pasekGlosnosc);
             this.wyszukajPlayliste.Controls.Add(this.nastepnyButton);
             this.wyszukajPlayliste.Controls.Add(this.poprzedniButton);
             this.wyszukajPlayliste.Controls.Add(this.stopButton);
@@ -515,6 +509,26 @@
             this.wyszukajPlayliste.Name = "wyszukajPlayliste";
             this.wyszukajPlayliste.Size = new System.Drawing.Size(868, 84);
             this.wyszukajPlayliste.TabIndex = 7;
+            // 
+            // glos_button
+            // 
+            this.glos_button.Image = ((System.Drawing.Image)(resources.GetObject("glos_button.Image")));
+            this.glos_button.Location = new System.Drawing.Point(724, 35);
+            this.glos_button.Name = "glos_button";
+            this.glos_button.Size = new System.Drawing.Size(25, 25);
+            this.glos_button.TabIndex = 14;
+            this.glos_button.UseVisualStyleBackColor = true;
+            this.glos_button.Click += new System.EventHandler(this.glos_button_Click);
+            // 
+            // wycisz_button
+            // 
+            this.wycisz_button.Image = ((System.Drawing.Image)(resources.GetObject("wycisz_button.Image")));
+            this.wycisz_button.Location = new System.Drawing.Point(755, 35);
+            this.wycisz_button.Name = "wycisz_button";
+            this.wycisz_button.Size = new System.Drawing.Size(25, 25);
+            this.wycisz_button.TabIndex = 13;
+            this.wycisz_button.UseVisualStyleBackColor = true;
+            this.wycisz_button.Click += new System.EventHandler(this.wycisz_button_Click);
             // 
             // suwak
             // 
@@ -547,45 +561,6 @@
             this.czasTrwania_label.TabIndex = 11;
             this.czasTrwania_label.Text = "00:00";
             // 
-            // odtwarzajLosowoButton
-            // 
-            this.odtwarzajLosowoButton.Image = ((System.Drawing.Image)(resources.GetObject("odtwarzajLosowoButton.Image")));
-            this.odtwarzajLosowoButton.Location = new System.Drawing.Point(390, 25);
-            this.odtwarzajLosowoButton.Name = "odtwarzajLosowoButton";
-            this.odtwarzajLosowoButton.Size = new System.Drawing.Size(45, 45);
-            this.odtwarzajLosowoButton.TabIndex = 3;
-            this.odtwarzajLosowoButton.UseMnemonic = false;
-            this.odtwarzajLosowoButton.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(732, 35);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
-            // suwakGlosnosc
-            // 
-            this.suwakGlosnosc.AutoSize = true;
-            this.suwakGlosnosc.BackColor = System.Drawing.Color.SlateBlue;
-            this.suwakGlosnosc.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.suwakGlosnosc.ForeColor = System.Drawing.Color.SlateBlue;
-            this.suwakGlosnosc.Location = new System.Drawing.Point(778, 41);
-            this.suwakGlosnosc.Name = "suwakGlosnosc";
-            this.suwakGlosnosc.Size = new System.Drawing.Size(9, 14);
-            this.suwakGlosnosc.TabIndex = 10;
-            this.suwakGlosnosc.Text = "l";
-            // 
-            // pasekGlosnosc
-            // 
-            this.pasekGlosnosc.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.pasekGlosnosc.Location = new System.Drawing.Point(763, 46);
-            this.pasekGlosnosc.Name = "pasekGlosnosc";
-            this.pasekGlosnosc.Size = new System.Drawing.Size(99, 5);
-            this.pasekGlosnosc.TabIndex = 9;
-            // 
             // nastepnyButton
             // 
             this.nastepnyButton.Image = ((System.Drawing.Image)(resources.GetObject("nastepnyButton.Image")));
@@ -594,6 +569,7 @@
             this.nastepnyButton.Size = new System.Drawing.Size(45, 45);
             this.nastepnyButton.TabIndex = 8;
             this.nastepnyButton.UseVisualStyleBackColor = true;
+            this.nastepnyButton.Click += new System.EventHandler(this.nastepnyButton_Click);
             // 
             // poprzedniButton
             // 
@@ -603,6 +579,7 @@
             this.poprzedniButton.Size = new System.Drawing.Size(45, 45);
             this.poprzedniButton.TabIndex = 7;
             this.poprzedniButton.UseVisualStyleBackColor = true;
+            this.poprzedniButton.Click += new System.EventHandler(this.poprzedniButton_Click);
             // 
             // stopButton
             // 
@@ -646,20 +623,6 @@
             this.pasekOdtwarzania.TabIndex = 3;
             this.pasekOdtwarzania.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pasekOdtwarzania_MouseClick);
             // 
-            // databaseDataSet1
-            // 
-            this.databaseDataSet1.DataSetName = "DatabaseDataSet1";
-            this.databaseDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // playlistaBindingSource
-            // 
-            this.playlistaBindingSource.DataMember = "Playlista";
-            this.playlistaBindingSource.DataSource = this.databaseDataSet1;
-            // 
-            // playlistaTableAdapter
-            // 
-            this.playlistaTableAdapter.ClearBeforeFill = true;
-            // 
             // playlistaTableAdapter1
             // 
             this.playlistaTableAdapter1.ClearBeforeFill = true;
@@ -695,7 +658,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Music";
             this.Load += new System.EventHandler(this.main_Load);
-            this.Resize += new System.EventHandler(this.main_Resize);
             this.utworyGroupBox.ResumeLayout(false);
             this.utworyGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridUtwory)).EndInit();
@@ -710,8 +672,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.playlistyBinding)).EndInit();
             this.wyszukajPlayliste.ResumeLayout(false);
             this.wyszukajPlayliste.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.databaseDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playlistaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.utworyBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -737,28 +697,19 @@
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button pauzaButton;
         private System.Windows.Forms.Button playButton;
-        private System.Windows.Forms.Label suwakGlosnosc;
-        private System.Windows.Forms.Panel pasekGlosnosc;
         private System.Windows.Forms.TextBox wyszukiwarkaPlaylista;
         private System.Windows.Forms.TextBox wyszukiwarkaUtwor;
         private System.Windows.Forms.Button usunPlaylisteButton;
         private System.Windows.Forms.Button dodajPlaylisteButton;
-        private System.Windows.Forms.Button odtwarzajLosowoButton;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button usunUtworButton;
         private System.Windows.Forms.Button dodajUtworButton;
         private System.Windows.Forms.DataGridView dataGridUtwory;
         private System.Windows.Forms.DataGridView dataGridPlaylisty;
-        private DatabaseDataSet1 databaseDataSet1;
         private System.Windows.Forms.BindingSource playlistaBindingSource;
-        private DatabaseDataSet1TableAdapters.PlaylistaTableAdapter playlistaTableAdapter;
         private PlaylistyBinding playlistyBinding;
         private System.Windows.Forms.BindingSource playlistaBindingSource1;
         private PlaylistyBindingTableAdapters.PlaylistaTableAdapter playlistaTableAdapter1;
         private System.Windows.Forms.BindingSource utworyBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idUtworDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tytulDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sciezkaDataGridViewTextBoxColumn;
         private DatabaseDataSet3 databaseDataSet3;
         private System.Windows.Forms.BindingSource utworyBindingSource1;
         private DatabaseDataSet3TableAdapters.UtworyTableAdapter utworyTableAdapter1;
@@ -768,8 +719,13 @@
         private System.Windows.Forms.Panel suwak;
         private System.Windows.Forms.Panel panelWyszukaj1;
         private System.Windows.Forms.Panel panelWyszukaj2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUtworDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tytulDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sciezkaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPlaylistaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button wycisz_button;
+        private System.Windows.Forms.Button glos_button;
     }
 }
 

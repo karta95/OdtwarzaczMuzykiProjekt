@@ -70,6 +70,7 @@
             this.pobierzUtworButton.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.pobierzUtworButton.Name = "pobierzUtworButton";
             this.pobierzUtworButton.UseVisualStyleBackColor = true;
+            this.pobierzUtworButton.Click += new System.EventHandler(this.pobierzUtworButton_Click);
             // 
             // wyswietlenieSciezkiLabel
             // 
@@ -89,6 +90,7 @@
             this.wybierzSciezkebutton.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.wybierzSciezkebutton.Name = "wybierzSciezkebutton";
             this.wybierzSciezkebutton.UseVisualStyleBackColor = true;
+            this.wybierzSciezkebutton.Click += new System.EventHandler(this.wybierzSciezkebutton_Click);
             // 
             // urlTextBox
             // 

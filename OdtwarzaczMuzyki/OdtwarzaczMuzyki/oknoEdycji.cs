@@ -40,6 +40,7 @@ namespace OdtwarzaczMuzyki
                 {
                     baza.EdytujKonto(idUzytkownika, uzytkownikObecny.Login, uzytkownikObecny.Haslo, uzytkownikObecny.Email);
                    _oknoBledu = new oknoBledu("Edycja poprawna");
+                    this.Close();
                 }
                 else if(uzytkownikObecny.IsValid == false)
                 {
