@@ -15,9 +15,11 @@ namespace OdtwarzaczMuzyki
     public partial class oknoDodaniaPlaylisty : Form
     {
         BazaDanych baza = new BazaDanych();
-        public oknoDodaniaPlaylisty()
+        int idUzytkownika;
+        public oknoDodaniaPlaylisty(int idUzytkownika)
         {
             InitializeComponent();
+            this.idUzytkownika = idUzytkownika;
         }
 
         private void dodajPlaylisteButton_Click(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace OdtwarzaczMuzyki
             }
             else
             {
-                baza.UtworzPlayliste(nowaPlaylistaTextBox.Text, 3);
+                baza.UtworzPlayliste(nowaPlaylistaTextBox.Text, idUzytkownika);
 
                 this.Close();
             }

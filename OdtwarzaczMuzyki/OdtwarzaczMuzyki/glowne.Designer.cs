@@ -240,7 +240,6 @@
             this.dataGridUtwory.Size = new System.Drawing.Size(508, 342);
             this.dataGridUtwory.TabIndex = 0;
             this.dataGridUtwory.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridUtwory_CellMouseClick);
-            this.dataGridUtwory.SelectionChanged += new System.EventHandler(this.dataGridUtwory_SelectionChanged);
             // 
             // idUtworDataGridViewTextBoxColumn
             // 
@@ -425,6 +424,7 @@
             this.dataGridPlaylisty.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridPlaylisty.Size = new System.Drawing.Size(333, 342);
             this.dataGridPlaylisty.TabIndex = 0;
+            this.dataGridPlaylisty.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridPlaylisty_CellMouseClick);
             // 
             // idPlaylistaDataGridViewTextBoxColumn
             // 
@@ -541,7 +541,6 @@
             this.czasTrwania_label.Size = new System.Drawing.Size(54, 24);
             this.czasTrwania_label.TabIndex = 11;
             this.czasTrwania_label.Text = "00:00";
-            this.czasTrwania_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // odtwarzajLosowoButton
             // 

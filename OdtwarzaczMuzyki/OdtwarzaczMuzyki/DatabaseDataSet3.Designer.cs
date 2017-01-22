@@ -779,16 +779,16 @@ namespace OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters {
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Utwory] WHERE (([IdUtwor] = @Original_IdUtwor) AND ([Tytul] = " +
-                "@Original_Tytul))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Utwory] WHERE (([IdUtwor] = @Original_IdUtwor) AND ([Tytul] = @Origi" +
+                "nal_Tytul))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUtwor", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUtwor", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Tytul", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tytul", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Utwory] SET [Tytul] = @Tytul, [Sciezka] = @Sciezka WHERE (([IdUtwor" +
-                "] = @Original_IdUtwor) AND ([Tytul] = @Original_Tytul));\r\nSELECT IdUtwor, Tytul," +
-                " Sciezka FROM Utwory WHERE (IdUtwor = @IdUtwor)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [Utwory] SET [Tytul] = @Tytul, [Sciezka] = @Sciezka WHERE (([IdUtwor] = @O" +
+                "riginal_IdUtwor) AND ([Tytul] = @Original_Tytul));\r\nSELECT IdUtwor, Tytul, Sciez" +
+                "ka FROM Utwory WHERE (IdUtwor = @IdUtwor)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Tytul", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Tytul", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Sciezka", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Sciezka", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -810,16 +810,19 @@ namespace OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdUtwor, Tytul, Sciezka FROM dbo.Utwory";
+            this._commandCollection[0].CommandText = "SELECT        IdUtwor, Tytul, Sciezka\r\nFROM            Utwory\r\nWHERE        (IdPl" +
+                "aylisty = @id)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdPlaylisty", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DatabaseDataSet3.UtworyDataTable dataTable) {
+        public virtual int Fill(DatabaseDataSet3.UtworyDataTable dataTable, int id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -831,8 +834,9 @@ namespace OdtwarzaczMuzyki.DatabaseDataSet3TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DatabaseDataSet3.UtworyDataTable GetData() {
+        public virtual DatabaseDataSet3.UtworyDataTable GetData(int id) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(id));
             DatabaseDataSet3.UtworyDataTable dataTable = new DatabaseDataSet3.UtworyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

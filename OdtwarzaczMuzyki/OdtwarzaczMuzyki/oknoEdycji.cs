@@ -57,5 +57,10 @@ namespace OdtwarzaczMuzyki
                 _oknoBledu = new oknoBledu("Istnieje już profil o nazwie: " + nowaNazwaProfilu.Text);             
             }
         }
+
+        private void edycjaGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

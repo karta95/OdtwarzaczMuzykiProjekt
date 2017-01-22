@@ -15,13 +15,7 @@ namespace OdtwarzaczMuzyki
 {
     public partial class glowne : Form
     {
-        public int IdUzytkownika
-        {
-            get
-            {
-                return idUzytkownika;
-            }
-        }
+       
         oknoEdycji _oknoEdycji;
         oknoPobierania _oknoPobierania;
         oknoLogowania _oknoLogowania;
@@ -29,19 +23,17 @@ namespace OdtwarzaczMuzyki
         BazaDanych baza = new BazaDanych();
         WindowsMediaPlayer player = new WindowsMediaPlayer();
         int pikseleNaSekunde;
-        int idUzytkownika;         
+        int idUzytkownika;
+        int idPlalisty; 
 
         public glowne()
         {
             _oknoLogowania = new oknoLogowania();
             _oknoLogowania.ShowDialog();
-            ShowMe();
             idUzytkownika = _oknoLogowania.IdUzytkownika;
             Uzytkownik zalogowanyUzytkownik = baza.ZwrocUzytkownikaZBazy(idUzytkownika);
+            ShowMe();
             nazwaProfiluLabel.Text = "NAZWA PROFILU: " + zalogowanyUzytkownik.Login;
-            //nazwaPlaylistyLabel.Text = "NAZWA PLAYLISTY : " 
-            OdswiezPlaylisty();
-            OdswiezUtwory();
             player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
         }
         public void ShowMe()
@@ -54,12 +46,8 @@ namespace OdtwarzaczMuzyki
         private void main_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'databaseDataSet3.Utwory' table. You can move, or remove it, as needed.
-            this.utworyTableAdapter1.Fill(this.databaseDataSet3.Utwory);
             // TODO: This line of code loads data into the 'playlistyBinding.Playlista' table. You can move, or remove it, as needed.
-            this.playlistaTableAdapter1.Fill(this.playlistyBinding.Playlista);
             // TODO: This line of code loads data into the 'databaseDataSet1.Playlista' table. You can move, or remove it, as needed.
-            this.playlistaTableAdapter.Fill(this.databaseDataSet1.Playlista);
-            //dataGridPlaylisty.ClearSelection();
             
         }
 
@@ -78,9 +66,7 @@ namespace OdtwarzaczMuzyki
 
             if (NewState == 8)
             {
-                dataGridUtwory.Rows[0].Selected = false;
-                dataGridUtwory.Rows[3].Selected = true;
-                dataGridUtwory.CurrentCell = dataGridUtwory.Rows[2].Cells[1];
+                //dataGridUtwory.CurrentCell = dataGridUtwory.Rows[2].Cells[1];
                 //int i = dataGridUtwory.CurrentRow.Index + 1;
                 //dataGridUtwory.CurrentCell = dataGridUtwory[1, i];
                 //timer1.Enabled = true;
@@ -93,7 +79,7 @@ namespace OdtwarzaczMuzyki
         }
         private void mójProfilToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _oknoEdycji = new oknoEdycji(IdUzytkownika);
+            _oknoEdycji = new oknoEdycji(idUzytkownika);
             _oknoEdycji.ShowDialog();
         }
 
@@ -105,16 +91,14 @@ namespace OdtwarzaczMuzyki
 
         private void logowanieToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //_oknoLogowania = new oknoLogowania();
-            //_oknoLogowania.ShowDialog();
             this.Visible = false;
             glowne noweOkno = new glowne();
-
+   
         }
 
         private void dodajPlaylisteButton_Click(object sender, EventArgs e)
         {
-            _oknoDodaniaPlaylisty = new oknoDodaniaPlaylisty();
+            _oknoDodaniaPlaylisty = new oknoDodaniaPlaylisty(idUzytkownika);
             _oknoDodaniaPlaylisty.ShowDialog();
             OdswiezPlaylisty();
         }
@@ -132,12 +116,12 @@ namespace OdtwarzaczMuzyki
 
         void OdswiezPlaylisty()
         {
-            this.playlistaTableAdapter1.Fill(this.playlistyBinding.Playlista);
+            this.playlistaTableAdapter1.Fill(this.playlistyBinding.Playlista,idUzytkownika);
         }
 
         void OdswiezUtwory()
         {
-            this.utworyTableAdapter1.Fill(this.databaseDataSet3.Utwory);
+            this.utworyTableAdapter1.Fill(this.databaseDataSet3.Utwory, idPlalisty);
         }
 
         private void wyszukiwarkaPlaylista_TextChanged(object sender, EventArgs e)
@@ -177,7 +161,8 @@ namespace OdtwarzaczMuzyki
         private void dataGridUtwory_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             timer1.Enabled = true;
-            player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
+            player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString().Replace(@"\\", @"\");
+            player.controls.play();
             suwak.Location = new Point(0, 0);
             czasOdtwarzania.Text = "00:00";
         }
@@ -206,25 +191,9 @@ namespace OdtwarzaczMuzyki
         private void timer1_Tick(object sender, EventArgs e)
         {
             czasOdtwarzania.Text = player.controls.currentPositionString;
-            //suwak.Location = new Point(suwak.Location.X + pikseleNaSekunde, 0);
             suwak.Location = new Point((int)(player.controls.currentPosition * pikseleNaSekunde), 0);
 
         }
-
-        private void dataGridUtwory_SelectionChanged(object sender, EventArgs e)
-        {
-            //timer1.Enabled = true;
-            //player.URL = dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[2].Value.ToString();
-            //suwak.Location = new Point(0, 0);
-            //czasOdtwarzania.Text = "00:00";
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
 
         private void pasekOdtwarzania_MouseClick(object sender, MouseEventArgs e)
         {
@@ -233,8 +202,6 @@ namespace OdtwarzaczMuzyki
                 suwak.Location = new Point(e.Location.X, 0);
                 player.controls.currentPosition = e.Location.X / pikseleNaSekunde;
             }
-
-            
         }
 
         private void usunUtworButton_Click(object sender, EventArgs e)
@@ -245,6 +212,12 @@ namespace OdtwarzaczMuzyki
                 idUtworu = (int)dataGridUtwory.Rows[dataGridUtwory.CurrentRow.Index].Cells[0].Value;
                 baza.UsunUtworZPlaylisty(idUtworu);
             }
+            OdswiezUtwory();
+        }
+
+        private void dataGridPlaylisty_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            idPlalisty = (int)dataGridPlaylisty.Rows[dataGridPlaylisty.CurrentRow.Index].Cells[0].Value;
             OdswiezUtwory();
         }
 

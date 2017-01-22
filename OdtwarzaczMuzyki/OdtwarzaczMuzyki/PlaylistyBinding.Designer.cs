@@ -283,6 +283,8 @@ namespace OdtwarzaczMuzyki {
             
             private global::System.Data.DataColumn columnNazwa;
             
+            private global::System.Data.DataColumn columnIdUzytkownika;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PlaylistaDataTable() {
@@ -334,6 +336,14 @@ namespace OdtwarzaczMuzyki {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IdUzytkownikaColumn {
+                get {
+                    return this.columnIdUzytkownika;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -369,11 +379,12 @@ namespace OdtwarzaczMuzyki {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PlaylistaRow AddPlaylistaRow(string Nazwa) {
+            public PlaylistaRow AddPlaylistaRow(string Nazwa, int IdUzytkownika) {
                 PlaylistaRow rowPlaylistaRow = ((PlaylistaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        Nazwa};
+                        Nazwa,
+                        IdUzytkownika};
                 rowPlaylistaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPlaylistaRow);
                 return rowPlaylistaRow;
@@ -405,6 +416,7 @@ namespace OdtwarzaczMuzyki {
             internal void InitVars() {
                 this.columnIdPlaylista = base.Columns["IdPlaylista"];
                 this.columnNazwa = base.Columns["Nazwa"];
+                this.columnIdUzytkownika = base.Columns["IdUzytkownika"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -414,6 +426,8 @@ namespace OdtwarzaczMuzyki {
                 base.Columns.Add(this.columnIdPlaylista);
                 this.columnNazwa = new global::System.Data.DataColumn("Nazwa", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNazwa);
+                this.columnIdUzytkownika = new global::System.Data.DataColumn("IdUzytkownika", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIdUzytkownika);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnIdPlaylista}, true));
                 this.columnIdPlaylista.AutoIncrement = true;
@@ -424,6 +438,7 @@ namespace OdtwarzaczMuzyki {
                 this.columnIdPlaylista.Unique = true;
                 this.columnNazwa.AllowDBNull = false;
                 this.columnNazwa.MaxLength = 50;
+                this.columnIdUzytkownika.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -583,6 +598,17 @@ namespace OdtwarzaczMuzyki {
                 }
                 set {
                     this[this.tablePlaylista.NazwaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int IdUzytkownika {
+                get {
+                    return ((int)(this[this.tablePlaylista.IdUzytkownikaColumn]));
+                }
+                set {
+                    this[this.tablePlaylista.IdUzytkownikaColumn] = value;
                 }
             }
         }
@@ -748,23 +774,34 @@ namespace OdtwarzaczMuzyki.PlaylistyBindingTableAdapters {
             tableMapping.DataSetTable = "Playlista";
             tableMapping.ColumnMappings.Add("IdPlaylista", "IdPlaylista");
             tableMapping.ColumnMappings.Add("Nazwa", "Nazwa");
+            tableMapping.ColumnMappings.Add("IdUzytkownika", "IdUzytkownika");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Playlista] WHERE (([IdPlaylista] = @Original_IdPlaylista) AND " +
-                "([Nazwa] = @Original_Nazwa))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [Playlista] WHERE (([IdPlaylista] = @Original_IdPlaylista) AND ([Nazw" +
+                "a] = @Original_Nazwa) AND ([IdUzytkownika] = @Original_IdUzytkownika))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdPlaylista", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdPlaylista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nazwa", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUzytkownika", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUzytkownika", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [Playlista] ([Nazwa], [IdUzytkownika]) VALUES (@Nazwa, @IdUzytkownika" +
+                ");\r\nSELECT IdPlaylista, Nazwa, IdUzytkownika FROM Playlista WHERE (IdPlaylista =" +
+                " SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUzytkownika", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUzytkownika", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Playlista] SET [Nazwa] = @Nazwa WHERE (([IdPlaylista] = @Original_I" +
-                "dPlaylista) AND ([Nazwa] = @Original_Nazwa));\r\nSELECT IdPlaylista, Nazwa FROM Pl" +
-                "aylista WHERE (IdPlaylista = @IdPlaylista)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [Playlista] SET [Nazwa] = @Nazwa, [IdUzytkownika] = @IdUzytkownika WHERE (([IdPlaylista] = @Original_IdPlaylista) AND ([Nazwa] = @Original_Nazwa) AND ([IdUzytkownika] = @Original_IdUzytkownika));
+SELECT IdPlaylista, Nazwa, IdUzytkownika FROM Playlista WHERE (IdPlaylista = @IdPlaylista)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nazwa", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwa", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdUzytkownika", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUzytkownika", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdPlaylista", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdPlaylista", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nazwa", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Nazwa", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Nazwa", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_IdUzytkownika", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IdUzytkownika", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IdPlaylista", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdPlaylista", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -781,16 +818,19 @@ namespace OdtwarzaczMuzyki.PlaylistyBindingTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT IdPlaylista, Nazwa FROM dbo.Playlista";
+            this._commandCollection[0].CommandText = "SELECT        IdPlaylista, Nazwa, IdUzytkownika\r\nFROM            Playlista\r\nWHERE" +
+                "        (IdUzytkownika = @idUzytkownika)";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idUzytkownika", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "IdUzytkownika", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(PlaylistyBinding.PlaylistaDataTable dataTable) {
+        public virtual int Fill(PlaylistyBinding.PlaylistaDataTable dataTable, int idUzytkownika) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idUzytkownika));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -802,8 +842,9 @@ namespace OdtwarzaczMuzyki.PlaylistyBindingTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual PlaylistyBinding.PlaylistaDataTable GetData() {
+        public virtual PlaylistyBinding.PlaylistaDataTable GetData(int idUzytkownika) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idUzytkownika));
             PlaylistyBinding.PlaylistaDataTable dataTable = new PlaylistyBinding.PlaylistaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -842,7 +883,7 @@ namespace OdtwarzaczMuzyki.PlaylistyBindingTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_IdPlaylista, string Original_Nazwa) {
+        public virtual int Delete(int Original_IdPlaylista, string Original_Nazwa, int Original_IdUzytkownika) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_IdPlaylista));
             if ((Original_Nazwa == null)) {
                 throw new global::System.ArgumentNullException("Original_Nazwa");
@@ -850,6 +891,7 @@ namespace OdtwarzaczMuzyki.PlaylistyBindingTableAdapters {
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((string)(Original_Nazwa));
             }
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_IdUzytkownika));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -869,22 +911,52 @@ namespace OdtwarzaczMuzyki.PlaylistyBindingTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(string Nazwa, int IdUzytkownika) {
+            if ((Nazwa == null)) {
+                throw new global::System.ArgumentNullException("Nazwa");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(Nazwa));
+            }
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(IdUzytkownika));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nazwa, int Original_IdPlaylista, string Original_Nazwa, int IdPlaylista) {
+        public virtual int Update(string Nazwa, int IdUzytkownika, int Original_IdPlaylista, string Original_Nazwa, int Original_IdUzytkownika, int IdPlaylista) {
             if ((Nazwa == null)) {
                 throw new global::System.ArgumentNullException("Nazwa");
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(Nazwa));
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(Original_IdPlaylista));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(IdUzytkownika));
+            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_IdPlaylista));
             if ((Original_Nazwa == null)) {
                 throw new global::System.ArgumentNullException("Original_Nazwa");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Original_Nazwa));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Original_Nazwa));
             }
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(IdPlaylista));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_IdUzytkownika));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(IdPlaylista));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -905,8 +977,8 @@ namespace OdtwarzaczMuzyki.PlaylistyBindingTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string Nazwa, int Original_IdPlaylista, string Original_Nazwa) {
-            return this.Update(Nazwa, Original_IdPlaylista, Original_Nazwa, Original_IdPlaylista);
+        public virtual int Update(string Nazwa, int IdUzytkownika, int Original_IdPlaylista, string Original_Nazwa, int Original_IdUzytkownika) {
+            return this.Update(Nazwa, IdUzytkownika, Original_IdPlaylista, Original_Nazwa, Original_IdUzytkownika, Original_IdPlaylista);
         }
     }
     

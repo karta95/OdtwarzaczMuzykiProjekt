@@ -63,6 +63,7 @@
             this.edycjaGroupBox.Size = new System.Drawing.Size(440, 353);
             this.edycjaGroupBox.TabIndex = 0;
             this.edycjaGroupBox.TabStop = false;
+            this.edycjaGroupBox.Enter += new System.EventHandler(this.edycjaGroupBox_Enter);
             // 
             // hasloEdycjaTextBox
             // 

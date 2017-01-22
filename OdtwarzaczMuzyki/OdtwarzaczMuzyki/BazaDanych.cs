@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
 using OdtwarzaczMuzyki.Properties;
+using System.Windows.Forms;
 
 namespace OdtwarzaczMuzyki
 {
     class BazaDanych : Idane, Ilogowanie
     {
         string connectionString = ConfigurationManager.ConnectionStrings["OdtwarzaczMuzyki.Properties.Settings.DatabaseConnectionString"].ConnectionString;
-
+        string path = Application.StartupPath;
         public void UtworzPlayliste(string nazwa, int userid)
         {
             //var query = "INSERT INTO Playlista(Nazwa,IdUzytkownika) VALUES(@nazwa, @userid)";
