@@ -35,6 +35,9 @@ namespace OdtwarzaczMuzyki
             ShowMe();
             nazwaProfiluLabel.Text = "NAZWA PROFILU: " + zalogowanyUzytkownik.Login;
             player.PlayStateChange += new _WMPOCXEvents_PlayStateChangeEventHandler(player_PlayStateChange);
+            dataGridPlaylisty.ClearSelection();
+            dataGridPlaylisty.CurrentCell = null;
+          
         }
         public void ShowMe()
         {
@@ -48,7 +51,7 @@ namespace OdtwarzaczMuzyki
             // TODO: This line of code loads data into the 'databaseDataSet3.Utwory' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'playlistyBinding.Playlista' table. You can move, or remove it, as needed.
             // TODO: This line of code loads data into the 'databaseDataSet1.Playlista' table. You can move, or remove it, as needed.
-            
+           
         }
 
         private void main_Resize(object sender, EventArgs e)
@@ -219,6 +222,9 @@ namespace OdtwarzaczMuzyki
         {
             idPlalisty = (int)dataGridPlaylisty.Rows[dataGridPlaylisty.CurrentRow.Index].Cells[0].Value;
             OdswiezUtwory();
+            dataGridUtwory.ClearSelection();
+            dataGridUtwory.CurrentCell = null;
+
         }
 
     }
